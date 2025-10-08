@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+// import removed: global CSS should only be imported in root _app.tsx
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 
