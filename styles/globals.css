@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply font-sans text-gs-navy bg-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Global Shapers Hub Styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-gs-blue text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-gs-blue text-gs-blue rounded-lg font-semibold hover:bg-gs-blue hover:text-white transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300;
+  }
+
+  /* Mindcraft Styles */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-mindcraft-blue via-mindcraft-purple to-mindcraft-green;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-br from-mindcraft-blue/10 via-mindcraft-purple/10 to-mindcraft-green/10;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+  }
+}
