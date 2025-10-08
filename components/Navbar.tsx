@@ -31,7 +31,7 @@ export default function Navbar() {
             </div>
             <div>
               <div className="text-xl font-bold text-gs-navy">Global Shapers</div>
-              <div className="text-sm text-gs-blue">İzmir Hub</div>
+              <div className="text-sm text-gs-blue">Izmir Hub</div>
             </div>
           </Link>
 
