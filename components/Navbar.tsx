@@ -7,12 +7,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/hakkimizda' },
-  { name: 'Members', href: '/uyeler' },
-  { name: 'Projects', href: '/projeler' },
-  { name: 'Contact', href: '/iletisim' },
-  { name: 'Deneyebil', href: '/mindcraft-pages/playground' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/hakkimizda' },
+    { name: 'Members', href: '/uyeler' },
+    { name: 'Projects', href: '/projeler' },
+    { name: 'Contact', href: '/iletisim' },
   ]
 
   return (
