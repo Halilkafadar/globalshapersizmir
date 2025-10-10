@@ -39,9 +39,9 @@ export const members: Member[] = [
     shortBio: "Curator",
     longBio: "Curator of the Hub.",
     photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=SC",
-    image: "/images/members/serdar.jpg",
-    email: "serdar@globalshapersizmir.org",
-    linkedin: "https://www.linkedin.com/in/serdarcarli",
+    image: "/images/members/serdar-carli.jpg",
+    email: "a.serdarcarl@gmail.com",
+    linkedin: "https://www.linkedin.com/in/aliserdarcarli",
     social: {}
   },
   {
