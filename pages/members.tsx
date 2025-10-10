@@ -32,7 +32,7 @@ export default function MembersPage() {
     'Rümeysa Şirin',
     'Oğuzhan Akbaş',
     'Erce Bilgen',
-    'Anıl Doğusoy',
+  'Anıl Daloğlu',
     // add others here as needed to enforce an exact ordering
   ]
 

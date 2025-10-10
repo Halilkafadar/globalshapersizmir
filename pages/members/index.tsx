@@ -7,6 +7,30 @@ import { ArrowLeft, Users, Mail, Linkedin, Twitter, ExternalLink } from 'lucide-
 import { members } from '@/data/members'
 
 export default function MembersPage() {
+  // Add a consistent manual priority ordering for specific members.
+  const rolePriority: Record<string, number> = {
+    'Founder Curator': 1,
+    'Curator': 2,
+    'Vice Curator': 3,
+    'Impact Officer': 4,
+    'Ex Curator': 5,
+    'Ex Vice Curator': 6,
+    'Ex Impact Officer': 7,
+    'Shaper': 8,
+  }
+
+  const PRIORITY_ORDER = [
+    'Devrim Savlı',
+    'Serdar Çarlı',
+    'Taşkın Akalın',
+    'Ceylin Ersöz',
+    'Sude Kızıltaş',
+    'Rümeysa Şirin',
+    'Oğuzhan Akbaş',
+    'Erce Bilgen',
+    'Anıl Daloğlu',
+  ]
+
   return (
     <>
       <Head>
@@ -46,10 +70,23 @@ export default function MembersPage() {
               {members
                 .slice()
                 .sort((a, b) => {
-                  const order = ['Founder Curator', 'Curator', 'Vice Curator', 'Ex Curator', 'Ex Vice Curator', 'Shaper']
-                  const ia = order.indexOf(a.role) !== -1 ? order.indexOf(a.role) : order.length
-                  const ib = order.indexOf(b.role) !== -1 ? order.indexOf(b.role) : order.length
-                  return ia - ib
+                  const iaPri = PRIORITY_ORDER.indexOf(a.name)
+                  const ibPri = PRIORITY_ORDER.indexOf(b.name)
+                  if (iaPri !== -1 || ibPri !== -1) {
+                    if (iaPri === -1) return 1
+                    if (ibPri === -1) return -1
+                    return iaPri - ibPri
+                  }
+
+                  const ia = rolePriority[a.role] ?? 99
+                  const ib = rolePriority[b.role] ?? 99
+                  if (ia !== ib) return ia - ib
+
+                  const aSurname = (a.name || '').trim().split(/\s+/).pop() || ''
+                  const bSurname = (b.name || '').trim().split(/\s+/).pop() || ''
+                  const cmp = aSurname.localeCompare(bSurname, undefined, { sensitivity: 'base' })
+                  if (cmp !== 0) return cmp
+                  return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
                 })
                 .map((member, index) => (
                 <motion.div
