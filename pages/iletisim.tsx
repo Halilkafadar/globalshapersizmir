@@ -287,7 +287,7 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-bold text-lg text-gray-900 mb-2">Location</h3>
                         <p className="text-gray-600 font-medium">
-                          Izmir, Turkey
+                          Izmir, Türkiye
                         </p>
                       </div>
                     </div>
@@ -322,7 +322,7 @@ export default function ContactPage() {
                     <div className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center mb-4 border border-white/30">
                       <Globe className="w-10 h-10" />
                     </div>
-                    <p className="text-2xl font-bold mb-2">Izmir, Turkey</p>
+                    <p className="text-2xl font-bold mb-2">Izmir, Türkiye</p>
                     <p className="text-white/80">Shaping the Future Together</p>
                   </div>
                 </div>

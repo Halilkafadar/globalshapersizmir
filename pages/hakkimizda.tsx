@@ -40,7 +40,7 @@ export default function AboutPage() {
                 >
                   <Image
                     src="/images/gs-logo-hakkimizda.png"
-                    alt="Global Shapers İzmir Hub Logo"
+                    alt="Global Shapers Izmir Hub Logo"
                     fill
                     className="object-contain"
                     priority
@@ -79,8 +79,8 @@ export default function AboutPage() {
                   150 countries and 15,000+ members worldwide, we work to shape the future.
                 </p>
                 <p>
-                  <strong>Global Shapers Izmir Hub</strong> was established in 2015 as one of Turkey's most active hubs. 
-                  Since then, we have reached thousands of people in Izmir and Turkey by developing various projects in 
+                  <strong>Global Shapers Izmir Hub</strong> was established in 2015 as one of Türkiye's most active hubs. 
+                  Since then, we have reached thousands of people in Izmir and Türkiye by developing various projects in 
                   education, technology, sustainability and social entrepreneurship.
                 </p>
                 <p>

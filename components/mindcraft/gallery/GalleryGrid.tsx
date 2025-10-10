@@ -26,7 +26,7 @@ export default function GalleryGrid() {
       prompt: 'A mystical forest with glowing mushrooms and fireflies',
       module: 'AI Art',
       age: 12,
-      country: 'Turkey',
+  country: 'Türkiye',
       likes: 45,
       views: 230,
       imageUrl: 'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=400'
