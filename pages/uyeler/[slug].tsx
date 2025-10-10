@@ -15,7 +15,7 @@ export default function MemberPage({ member }: MemberPageProps) {
   return (
     <>
       <Head>
-        <title>{member.name} - Global Shapers İzmir Hub</title>
+  <title>{member.name} - Global Shapers Izmir Hub</title>
         <meta name="description" content={member.shortBio} />
       </Head>
 

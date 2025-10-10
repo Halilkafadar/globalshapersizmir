@@ -23,7 +23,7 @@ export default function Navbar() {
             <div className="relative w-20 h-20 transition-transform duration-300 group-hover:scale-110">
               <Image
                 src="/images/gs-logo.png"
-                alt="Global Shapers İzmir Hub"
+                alt="Global Shapers Izmir Hub"
                 fill
                 className="object-contain"
                 priority

@@ -49,7 +49,7 @@ export default function Hero() {
           >
             <Sparkles className="w-4 h-4 text-mindcraft-purple" />
             <span className="text-sm font-semibold text-mindcraft-dark">
-              Global Shapers İzmir Hub Presents
+              Global Shapers Izmir Hub Presents
             </span>
           </motion.div>
 

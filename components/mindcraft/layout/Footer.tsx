@@ -50,7 +50,7 @@ export default function Footer() {
               <li>UNDP</li>
               <li>UNESCO</li>
               <li>OECD</li>
-              <li>Global Shapers İzmir</li>
+              <li>Global Shapers Izmir</li>
             </ul>
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
           <p className="flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> by Global Shapers İzmir Hub
+            Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> by Global Shapers Izmir Hub
           </p>
           <p className="mt-2 text-sm">
             © {new Date().getFullYear()} Mindcraft. All rights reserved.

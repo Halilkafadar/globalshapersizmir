@@ -10,8 +10,8 @@ export default function MembersPage() {
   return (
     <>
       <Head>
-        <title>Our Members - Global Shapers İzmir Hub</title>
-        <meta name="description" content="Meet the Global Shapers İzmir Hub team" />
+  <title>Our Members - Global Shapers Izmir Hub</title>
+  <meta name="description" content="Meet the Global Shapers Izmir Hub team" />
       </Head>
 
       <Navbar />
@@ -33,7 +33,7 @@ export default function MembersPage() {
                 Our Members
               </h1>
               <p className="text-xl text-gray-200 max-w-3xl">
-                Passionate young leaders coming together to create social change in İzmir
+                Passionate young leaders coming together to create social change in Izmir
               </p>
             </motion.div>
           </div>

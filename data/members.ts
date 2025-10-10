@@ -19,7 +19,7 @@ export const members: Member[] = [
     name: "Ayşe Yılmaz",
     role: "Hub Curator",
     shortBio: "Social entrepreneurship and youth programs expert",
-    longBio: "She has been working in the field of social impact with over 10 years of experience. As one of the founding members of Global Shapers İzmir Hub, she supports young people in creating solutions to social problems.",
+  longBio: "She has been working in the field of social impact with over 10 years of experience. As one of the founding members of Global Shapers Izmir Hub, she supports young people in creating solutions to social problems.",
     photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=AY",
     social: {
       email: "ayse@globalshapers.org",

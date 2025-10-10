@@ -43,14 +43,14 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           {/* Badge */}
-          <motion.a
+            <motion.a
             href="http://localhost:3001"
             className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-8 shadow-lg cursor-pointer"
             whileHover={{ scale: 1.05 }}
           >
             <Sparkles className="w-4 h-4 text-mindcraft-purple" />
             <span className="text-sm font-semibold text-mindcraft-dark">
-              Global Shapers İzmir Hub Presents
+              Global Shapers Izmir Hub Presents
             </span>
           </motion.a>
 

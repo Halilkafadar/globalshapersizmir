@@ -10,8 +10,8 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-        <title>About Us - Global Shapers İzmir Hub</title>
-        <meta name="description" content="Learn about Global Shapers İzmir Hub" />
+  <title>About Us - Global Shapers Izmir Hub</title>
+  <meta name="description" content="Learn about Global Shapers Izmir Hub" />
       </Head>
 
       <Navbar />
@@ -79,8 +79,8 @@ export default function AboutPage() {
                   150 countries and 15,000+ members worldwide, we work to shape the future.
                 </p>
                 <p>
-                  <strong>Global Shapers İzmir Hub</strong> was established in 2015 as one of Turkey's most active hubs. 
-                  Since then, we have reached thousands of people in İzmir and Turkey by developing various projects in 
+                  <strong>Global Shapers Izmir Hub</strong> was established in 2015 as one of Turkey's most active hubs. 
+                  Since then, we have reached thousands of people in Izmir and Turkey by developing various projects in 
                   education, technology, sustainability and social entrepreneurship.
                 </p>
                 <p>

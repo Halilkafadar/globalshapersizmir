@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Global Shapers İzmir Hub - Shaping the Future Together</title>
-        <meta name="description" content="A community of young leaders from the World Economic Forum. We develop social impact projects in İzmir." />
+  <title>Global Shapers Izmir Hub - Shaping the Future Together</title>
+  <meta name="description" content="A community of young leaders from the World Economic Forum. We develop social impact projects in Izmir." />
       </Head>
 
       <Navbar />
@@ -137,10 +137,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-20"
             >
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full border border-purple-200/50 mb-6">
-                <Brain className="w-5 h-5 text-purple-600" />
-                <span className="text-sm font-bold text-purple-600 uppercase tracking-wide">Our Foundation</span>
-              </div>
+              {/* Our Foundation badge removed for cleaner heading */}
               <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
                 What <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Drives Us</span>
               </h2>

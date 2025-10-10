@@ -7,7 +7,7 @@ export default function Document() {
         <meta charSet="utf-8" />
         {/* Google Search Console verification */}
         <meta name="google-site-verification" content="pbY1q4F1-KfSpxOZ-ANTgFUTv-DrMk2ru26YKRKEmQ0" />
-        <meta name="description" content="Global Shapers İzmir Hub - Gençlerin geleceği şekillendirdiği topluluk" />
+  <meta name="description" content="Global Shapers Izmir Hub - Gençlerin geleceği şekillendirdiği topluluk" />
         {/* Load fonts with latin-ext subset to support Turkish characters */}
         <link
           rel="stylesheet"

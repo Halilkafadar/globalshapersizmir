@@ -12,7 +12,7 @@ export default function FinancialLiteracyPage() {
   return (
     <>
       <Head>
-        <title>{project.title} - Global Shapers İzmir Hub</title>
+  <title>{project.title} - Global Shapers Izmir Hub</title>
         <meta name="description" content={project.shortDescription} />
       </Head>
 

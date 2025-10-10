@@ -20,11 +20,11 @@ export default function Footer() {
               </div>
               <div>
                 <div className="text-xl font-bold">Global Shapers</div>
-                <div className="text-sm text-gs-blue">İzmir Hub</div>
+                <div className="text-sm text-gs-blue">Izmir Hub</div>
               </div>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              A community of young leaders from the World Economic Forum. We develop social impact projects in İzmir, 
+              A community of young leaders from the World Economic Forum. We develop social impact projects in Izmir, 
               leading the way for young people to shape the future.
             </p>
             <div className="flex space-x-4">
@@ -71,10 +71,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
           <p className="flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> by Global Shapers İzmir Hub
+            Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> by Global Shapers Izmir Hub
           </p>
           <p className="mt-2 text-sm">
-            © {new Date().getFullYear()} Global Shapers İzmir Hub. All rights reserved.
+            © {new Date().getFullYear()} Global Shapers Izmir Hub. All rights reserved.
           </p>
         </div>
       </div>
