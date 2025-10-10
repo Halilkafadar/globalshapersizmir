@@ -40,16 +40,24 @@ export default function MemberPage({ member }: MemberPageProps) {
                 {/* Member Photo */}
                 <div className="md:col-span-1">
                   <div className="relative w-64 h-64 mx-auto rounded-full overflow-hidden bg-white/10 backdrop-blur-sm p-1">
+                    {/* Placeholder gradient behind the image so if the image fails to load
+                        the decorative circle remains and the img alt text won't be visible */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gs-orange to-gs-green" />
                     {member.image || member.photo ? (
                       <Image
                         src={member.image || member.photo}
                         alt={member.name}
                         width={256}
                         height={256}
-                        className="rounded-full object-cover"
+                        className="rounded-full object-cover relative z-10"
+                        onError={(e: any) => {
+                          // hide broken img so the gradient placeholder remains visible
+                          const img = e?.target as HTMLImageElement | undefined
+                          if (img) img.style.display = 'none'
+                        }}
                       />
                     ) : (
-                      <div className="w-full h-full rounded-full bg-gradient-to-br from-gs-orange to-gs-green flex items-center justify-center">
+                      <div className="w-full h-full rounded-full flex items-center justify-center">
                         <div className="w-24 h-24 bg-white/10 rounded-full" />
                       </div>
                     )}
@@ -89,9 +97,12 @@ export default function MemberPage({ member }: MemberPageProps) {
                       </a>
                     )}
                   </div>
-                  <p className="text-xl text-gray-200 mb-8">
-                    {member.shortBio}
-                  </p>
+                  {/* Only show shortBio if it provides different info than the role */}
+                  {member.shortBio && member.shortBio.trim() !== member.role?.trim() && (
+                    <p className="text-xl text-gray-200 mb-8">
+                      {member.shortBio}
+                    </p>
+                  )}
 
                   {/* (Duplicate social links removed — icons show above the bio to avoid repetition) */}
                 </div>
