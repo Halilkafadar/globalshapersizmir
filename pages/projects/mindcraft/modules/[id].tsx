@@ -20,7 +20,7 @@ export default function ModuleDetailPage() {
   <div className="min-h-[70vh] flex justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Module Not Found</h1>
-            <button onClick={() => router.push('/modules')} className="btn-primary">
+            <button onClick={() => router.push('/projects/mindcraft/modules')} className="btn-primary">
               Back to Modules
             </button>
           </div>

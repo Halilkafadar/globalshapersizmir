@@ -30,7 +30,7 @@ export default function ContactPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-2xl font-bold text-gs-navy mb-4">Get in touch</h2>
+                <h2 className="text-2xl font-bold text-gs-navy mb-4">Contact</h2>
                 <p className="text-gray-600 mb-6">Send us a message and we'll get back to you shortly.</p>
                 <form className="space-y-4">
                   <input className="w-full p-4 border rounded-lg" placeholder="Your name" />

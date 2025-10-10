@@ -43,7 +43,15 @@ export default function MembersPage() {
         <section className="py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {members.map((member, index) => (
+              {members
+                .slice()
+                .sort((a, b) => {
+                  const order = ['Founder Curator', 'Curator', 'Vice Curator', 'Ex Curator', 'Ex Vice Curator', 'Shaper']
+                  const ia = order.indexOf(a.role) !== -1 ? order.indexOf(a.role) : order.length
+                  const ib = order.indexOf(b.role) !== -1 ? order.indexOf(b.role) : order.length
+                  return ia - ib
+                })
+                .map((member, index) => (
                 <motion.div
                   key={member.slug}
                   initial={{ opacity: 0, y: 30 }}

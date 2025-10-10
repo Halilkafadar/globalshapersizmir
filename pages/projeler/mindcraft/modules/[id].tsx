@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Navbar from '@/components/mindcraft/layout/Navbar'
+import Footer from '@/components/mindcraft/layout/Footer'
 import ModuleContent from '@/components/mindcraft/modules/ModuleContent'
 import { modulesData, Module } from '@/utils/modulesData'
 

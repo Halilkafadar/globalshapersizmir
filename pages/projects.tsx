@@ -187,10 +187,10 @@ export default function ProjectsPage() {
               Want to Contribute to a Project?
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Get in touch to learn more about our projects or to volunteer.
+              Learn more about our projects or volunteer opportunities.
             </p>
-            <Link href="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-blue to-gs-purple text-white rounded-lg font-semibold hover:shadow-lg transition-all">
-              Get in Touch
+            <Link href="/contact" className="inline-block px-6 py-3 bg-gradient-to-r from-gs-blue to-gs-purple text-white rounded-lg font-semibold hover:shadow-lg transition-all">
+              Contact
             </Link>
           </div>
         </section>

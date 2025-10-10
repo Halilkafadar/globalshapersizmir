@@ -110,10 +110,10 @@ export default function MembersPage() {
               Want to Join Us?
             </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Get in touch to become a member of Global Shapers Izmir Hub or volunteer for our projects.
+                Learn how to become a member or volunteer with Global Shapers Izmir Hub.
               </p>
-            <Link href="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
-              Get in Touch
+            <Link href="/contact" className="inline-block px-6 py-3 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
+              Contact
             </Link>
           </div>
         </section>

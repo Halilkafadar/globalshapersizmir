@@ -437,12 +437,12 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Get in Touch
+                Contact
               </h2>
               <p className="text-xl text-gray-200 mb-8">
-                Contact us to learn more about our projects or explore collaboration opportunities.
+                Learn more about our projects or explore collaboration opportunities.
               </p>
-              <Link href="/contact" className="inline-block px-8 py-4 bg-white text-gs-navy rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <Link href="/contact" className="inline-block px-6 py-3 bg-white text-gs-navy rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                 Contact Us
               </Link>
             </motion.div>

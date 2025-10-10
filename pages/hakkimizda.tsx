@@ -272,8 +272,8 @@ export default function AboutPage() {
             <p className="text-xl text-gray-600 mb-8">
               If you're between 20-30 years old and want to make an impact, join us!
             </p>
-            <Link href="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
-              Get in Touch
+            <Link href="/contact" className="inline-block px-6 py-3 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
+              Contact
             </Link>
           </div>
         </section>

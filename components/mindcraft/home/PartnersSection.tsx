@@ -85,12 +85,7 @@ export default function PartnersSection() {
             A diverse community of young leaders committed to creating positive change 
             through innovative education and AI literacy initiatives.
           </p>
-          <a 
-            href="mailto:izmirglobalshapers@gmail.com"
-            className="inline-block btn-primary"
-          >
-            Get in Touch
-          </a>
+          {/* CTA removed per visual clean-up request */}
         </motion.div>
       </div>
     </section>
