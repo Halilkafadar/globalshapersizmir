@@ -389,7 +389,7 @@ export default function Home() {
                 Our Team
               </h2>
               <p className="text-xl text-gray-600">
-                Young leaders creating change in İzmir
+                Young leaders creating change in Izmir
               </p>
             </div>
 

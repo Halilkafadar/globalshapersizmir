@@ -78,8 +78,8 @@ export default function PartnersSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl font-bold mb-4 gradient-text">
-            Built by Global Shapers İzmir Hub
+            <h3 className="text-3xl font-bold mb-4 gradient-text">
+              Built by Global Shapers Izmir Hub
           </h3>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
             A diverse community of young leaders committed to creating positive change 

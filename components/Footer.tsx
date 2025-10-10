@@ -11,12 +11,12 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="relative w-10 h-10">
-                <Image
-                  src="/images/gs-logo.png"
-                  alt="Global Shapers İzmir Hub"
-                  fill
-                  className="object-contain"
-                />
+                          <Image
+                            src="/images/gs-logo.png"
+                            alt="Global Shapers Izmir Hub"
+                            fill
+                            className="object-contain"
+                          />
               </div>
               <div>
                 <div className="text-xl font-bold">Global Shapers</div>
@@ -71,7 +71,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
           <p className="flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> by Global Shapers Izmir Hub
+          Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> by Global Shapers Izmir Hub
           </p>
           <p className="mt-2 text-sm">
             © {new Date().getFullYear()} Global Shapers Izmir Hub. All rights reserved.

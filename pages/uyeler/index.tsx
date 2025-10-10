@@ -109,9 +109,9 @@ export default function MembersPage() {
             <h2 className="text-4xl font-bold text-gs-navy mb-6">
               Want to Join Us?
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Get in touch to become a member of Global Shapers İzmir Hub or volunteer for our projects.
-            </p>
+              <p className="text-xl text-gray-600 mb-8">
+                Get in touch to become a member of Global Shapers Izmir Hub or volunteer for our projects.
+              </p>
             <Link href="/iletisim" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
               Get in Touch
             </Link>

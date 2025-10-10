@@ -212,7 +212,7 @@ export default function AboutPage() {
                 Our Impact
               </h2>
               <p className="text-xl text-gray-200">
-                Global Shapers İzmir Hub by the Numbers
+                Global Shapers Izmir Hub by the Numbers
               </p>
             </div>
 
