@@ -35,26 +35,12 @@ export default function Home() {
               transition={{ duration: 1 }}
               className="text-center"
             >
-              {/* Badge */}
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mb-8"
-              >
-                <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/60 backdrop-blur-xl rounded-full border border-purple-200/50 shadow-xl">
-                  <Sparkles className="w-5 h-5 text-purple-600" />
-                  <span className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 uppercase tracking-wide">
-                    Global Shapers İzmir Hub
-                  </span>
-                  <Globe className="w-5 h-5 text-blue-600" />
-                </div>
-              </motion.div>
+              {/* Badge removed per request: Global Shapers İzmir Hub */}
 
               {/* Main Heading */}
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
-                <span className="block text-gray-900 mb-4">Shaping the</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight antialiased subpixel-antialiased">
+                <span className="block text-gray-900 mb-4 antialiased">Shaping the</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 antialiased">
                   Future Together
                 </span>
               </h1>
