@@ -7,6 +7,32 @@ import { ArrowLeft, Users, Mail, Linkedin, Twitter, ExternalLink } from 'lucide-
 import { members } from '@/data/members'
 
 export default function MembersPage() {
+  // Ensure members render in the desired hierarchical order.
+  // Roles are prioritized; ties fall back to alphabetical by surname.
+  const rolePriority: Record<string, number> = {
+    'Founder Curator': 1,
+    'Curator': 2,
+    'Vice Curator': 3,
+    'Impact Officer': 4,
+    'Ex Curator': 5,
+    'Ex Vice Curator': 6,
+    'Ex Impact Officer': 7,
+    'Shaper': 8,
+  }
+
+  const sortedMembers = members.slice().sort((a, b) => {
+    const pa = rolePriority[a.role] ?? 99
+    const pb = rolePriority[b.role] ?? 99
+    if (pa !== pb) return pa - pb
+
+    // If roles are equal, sort by surname (last word of the name), fallback to full name.
+    const aSurname = (a.name || '').trim().split(/\s+/).pop() || ''
+    const bSurname = (b.name || '').trim().split(/\s+/).pop() || ''
+    const cmp = aSurname.localeCompare(bSurname, undefined, { sensitivity: 'base' })
+    if (cmp !== 0) return cmp
+
+    return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+  })
   return (
     <>
       <Head>
@@ -43,7 +69,7 @@ export default function MembersPage() {
         <section className="py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {members.map((member, index) => (
+              {sortedMembers.map((member, index) => (
                 <motion.div
                   key={member.slug}
                   initial={{ opacity: 0, y: 30 }}
