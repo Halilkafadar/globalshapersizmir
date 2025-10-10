@@ -69,7 +69,7 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/projeler/mindcraft/modules">
+            <Link href="/projects/mindcraft/modules">
               <motion.button
                 className="btn-primary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
@@ -78,7 +78,7 @@ export default function Hero() {
                 Start Your Journey
               </motion.button>
             </Link>
-            <Link href="/projeler/mindcraft/playground">
+            <Link href="/projects/mindcraft/playground">
               <motion.button
                 className="btn-secondary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}

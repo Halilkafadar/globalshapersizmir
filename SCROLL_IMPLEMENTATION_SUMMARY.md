@@ -130,8 +130,8 @@ window.history.scrollRestoration = 'manual'
 {
   "gs-izmir-scroll-positions": {
     "/": { "x": 0, "y": 1250 },
-    "/projeler": { "x": 0, "y": 450 },
-    "/hakkimizda": { "x": 0, "y": 800 }
+  "/projects": { "x": 0, "y": 450 },
+  "/about": { "x": 0, "y": 800 }
   }
 }
 ```
@@ -140,7 +140,7 @@ window.history.scrollRestoration = 'manual'
 ```json
 {
   "gs-izmir-container-scroll-sidebar": {
-    "/projeler": { "x": 0, "y": 320 }
+  "/projects": { "x": 0, "y": 320 }
   }
 }
 ```

@@ -37,7 +37,7 @@ export default function Navbar() {
           </a>
 
           {/* Logo */}
-          <Link href="/projeler/mindcraft" className="flex items-center space-x-2 group">
+          <Link href="/projects/mindcraft" className="flex items-center space-x-2 group">
             <div className="relative">
               <Sparkles className="w-8 h-8 text-mindcraft-purple group-hover:rotate-12 transition-transform duration-300" />
               <div className="absolute inset-0 bg-mindcraft-purple/20 blur-xl group-hover:bg-mindcraft-purple/40 transition-all duration-300"></div>
@@ -57,7 +57,7 @@ export default function Navbar() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-mindcraft-purple group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
-            <Link href="/projeler/mindcraft/modules">
+            <Link href="/projects/mindcraft/modules">
               <button className="btn-primary">
                 Start Learning
               </button>
