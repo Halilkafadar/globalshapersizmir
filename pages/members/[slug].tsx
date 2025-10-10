@@ -13,6 +13,11 @@ interface MemberPageProps {
 }
 
 export default function MemberPage({ member }: MemberPageProps) {
+  // Always show social icons. If a link is missing, use '#' as a placeholder
+  // and prevent navigation when clicked so the icon still appears as a placeholder.
+  const emailHref = member.email || member.social?.email ? `mailto:${member.email || member.social?.email}` : '#'
+  const linkedinHref = member.linkedin || member.social?.linkedin ? (member.linkedin || member.social?.linkedin) : '#'
+
   return (
     <>
       <Head>
@@ -74,28 +79,27 @@ export default function MemberPage({ member }: MemberPageProps) {
                   </p>
                   {/* Social icons shown directly under name/role for visibility */}
                   <div className="flex items-center gap-4 mb-6">
-                    {(member.email || member.social.email) && (
-                      <a
-                        href={`mailto:${member.email || member.social.email}`}
-                        className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Email"
-                      >
-                        <Mail className="w-6 h-6 text-white" />
-                      </a>
-                    )}
-                    {(member.linkedin || member.social.linkedin) && (
-                      <a
-                        href={member.linkedin || member.social.linkedin}
-                        className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                      >
-                        <Linkedin className="w-6 h-6 text-white" />
-                      </a>
-                    )}
+                    <a
+                      href={emailHref}
+                      className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
+                      target={emailHref !== '#' ? '_blank' : undefined}
+                      rel={emailHref !== '#' ? 'noopener noreferrer' : undefined}
+                      aria-label="Email"
+                      onClick={emailHref === '#' ? ((e: any) => e.preventDefault()) : undefined}
+                    >
+                      <Mail className="w-6 h-6 text-white" />
+                    </a>
+
+                    <a
+                      href={linkedinHref}
+                      className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
+                      target={linkedinHref !== '#' ? '_blank' : undefined}
+                      rel={linkedinHref !== '#' ? 'noopener noreferrer' : undefined}
+                      aria-label="LinkedIn"
+                      onClick={linkedinHref === '#' ? ((e: any) => e.preventDefault()) : undefined}
+                    >
+                      <Linkedin className="w-6 h-6 text-white" />
+                    </a>
                   </div>
                   {/* Only show shortBio if it provides different info than the role */}
                   {member.shortBio && member.shortBio.trim() !== member.role?.trim() && (
