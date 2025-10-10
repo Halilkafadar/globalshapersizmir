@@ -91,7 +91,7 @@ export const members: Member[] = [
   },
   {
     slug: "anil-dogusoy",
-    name: "Anıl Doğusoy",
+    name: "Anıl Daloğlu",
     role: "Ex Impact Officer",
     shortBio: "Former Impact Officer",
     longBio: "Former Impact Officer.",
