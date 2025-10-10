@@ -4,7 +4,12 @@ export interface Member {
   role: string
   shortBio: string
   longBio: string
+  // legacy 'photo' kept for backwards compatibility; prefer 'image' where available
   photo: string
+  image?: string
+  // optional top-level social fields (convenience) - existing code may still use `social`
+  linkedin?: string
+  email?: string
   social: {
     email?: string
     linkedin?: string

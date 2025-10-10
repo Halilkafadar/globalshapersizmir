@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { ArrowLeft, Mail, Linkedin, Twitter, ExternalLink, Users } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowLeft, Mail, Linkedin, Twitter, ExternalLink } from 'lucide-react'
 import { members, Member } from '@/data/members'
 
 interface MemberPageProps {
@@ -38,10 +39,20 @@ export default function MemberPage({ member }: MemberPageProps) {
               <div className="grid md:grid-cols-3 gap-12 items-center">
                 {/* Member Photo */}
                 <div className="md:col-span-1">
-                  <div className="relative w-64 h-64 mx-auto rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm p-1">
-                    <div className="w-full h-full rounded-xl bg-gradient-to-br from-gs-orange to-gs-green flex items-center justify-center">
-                      <Users className="w-32 h-32 text-white" />
-                    </div>
+                  <div className="relative w-64 h-64 mx-auto rounded-full overflow-hidden bg-white/10 backdrop-blur-sm p-1">
+                    {member.image || member.photo ? (
+                      <Image
+                        src={member.image || member.photo}
+                        alt={member.name}
+                        width={256}
+                        height={256}
+                        className="rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full rounded-full bg-gradient-to-br from-gs-orange to-gs-green flex items-center justify-center">
+                        <div className="w-24 h-24 bg-white/10 rounded-full" />
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -57,11 +68,11 @@ export default function MemberPage({ member }: MemberPageProps) {
                     {member.shortBio}
                   </p>
 
-                  {/* Social Links */}
+                  {/* Social Links (prefer top-level fields, fall back to member.social) */}
                   <div className="flex gap-4">
-                    {member.social.email && (
+                    {(member.email || member.social.email) && (
                       <a
-                        href={`mailto:${member.social.email}`}
+                        href={`mailto:${member.email || member.social.email}`}
                         className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -69,9 +80,9 @@ export default function MemberPage({ member }: MemberPageProps) {
                         <Mail className="w-6 h-6 text-white" />
                       </a>
                     )}
-                    {member.social.linkedin && (
+                    {(member.linkedin || member.social.linkedin) && (
                       <a
-                        href={member.social.linkedin}
+                        href={member.linkedin || member.social.linkedin}
                         className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
                         target="_blank"
                         rel="noopener noreferrer"
