@@ -71,6 +71,9 @@ export const members: Member[] = [
     shortBio: "Former Curator",
     longBio: "Former Curator of the Hub.",
     photo: "https://via.placeholder.com/400x400/FFAA00/FFFFFF?text=SK",
+    image: "/images/members/sude-kiziltas.jpg",
+    email: "sudekizilts03@gmail.com",
+    linkedin: "http://linkedin.com/in/sudekiziltas",
     social: {}
   },
   {
@@ -80,6 +83,9 @@ export const members: Member[] = [
     shortBio: "Former Impact Officer",
     longBio: "Former Impact Officer.",
     photo: "https://via.placeholder.com/400x400/FFAA00/FFFFFF?text=RS",
+    image: "/images/members/rumeysa-sirin.jpg",
+    email: "rumeysasirinn@gmail.com",
+    linkedin: "https://www.linkedin.com/in/rumeysa-sirin?utm_source...",
     social: {}
   },
   {
@@ -107,6 +113,9 @@ export const members: Member[] = [
     shortBio: "Former Impact Officer",
     longBio: "Former Impact Officer.",
     photo: "https://via.placeholder.com/400x400/FFAA00/FFFFFF?text=AD",
+    image: "/images/members/anil-daloglu.jpg",
+    // email missing for Anıl as provided
+    linkedin: "https://www.linkedin.com/in/anildaloglu",
     social: {}
   },
 
@@ -118,6 +127,9 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=BE",
+    image: "/images/members/begumece-elcekin.jpg",
+    email: "Elcekinbegumece@gmail.com",
+    linkedin: "https://www.linkedin.com/in/begümeceelçekin?utm_source...",
     social: {}
   },
   {
@@ -154,6 +166,9 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=EG",
+    image: "/images/members/elbruz-gumus.jpg",
+    email: "elbruzgumus38@gmail.com",
+    linkedin: "https://www.linkedin.com/in/elbruzgumus",
     social: {}
   },
   {
@@ -181,6 +196,9 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=HK",
+    image: "/images/members/halil-kafadar.jpg",
+    email: "halil.kfdr6@gmail.com",
+    linkedin: "https://www.linkedin.com/in/halil-kafadar-426a63221?utm_source...",
     social: {}
   },
   {
@@ -199,6 +217,9 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=KL",
+    image: "/images/members/kayra-leventoglu.jpg",
+    email: "kayraleventoglu@gmail.com",
+    linkedin: "https://www.linkedin.com/in/kayraleventoglu",
     social: {}
   },
   {
@@ -244,6 +265,9 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=TY",
+    image: "/images/members/tutku-yildiz.jpg",
+    email: "tutku.yildiz8@gmail.com",
+    linkedin: "https://www.linkedin.com/in/tutkuyildiz",
     social: {}
   },
   {
