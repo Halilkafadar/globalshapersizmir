@@ -5,8 +5,8 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta charSet="utf-8" />
-        {/* Google Search Console verification */}
-        <meta name="google-site-verification" content="pbY1q4F1-KfSpxOZ-ANTgFUTv-DrMk2ru26YKRKEmQ0" />
+  {/* Google Search Console verification */}
+  <meta name="google-site-verification" content="Bz7-z4lxwThEdQhft9IfEgSDiULn1kAolcoIdq7rDqI" />
   <meta name="description" content="Global Shapers Izmir Hub - Gençlerin geleceği şekillendirdiği topluluk" />
         {/* Load fonts with latin-ext subset to support Turkish characters */}
         <link
