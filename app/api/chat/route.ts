@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import streamText from 'ai'
+import * as AI from 'ai'
 import { google } from '@ai-sdk/google'
 
 export async function POST(req: NextRequest) {
@@ -13,7 +13,13 @@ export async function POST(req: NextRequest) {
     
     const model = google(modelName)
 
-    const result = await streamText({ model, messages })
+    // Access streamText from the AI module
+    const streamTextFn = (AI as any).streamText || (AI as any).default?.streamText
+    if (!streamTextFn) {
+      return NextResponse.json({ error: 'streamText not available in ai package' }, { status: 500 })
+    }
+
+    const result = await streamTextFn({ model, messages })
 
     // Prefer streaming helpers if provided by the SDK
     if (result && typeof (result as any)?.toAIStreamResponse === 'function') {
