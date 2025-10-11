@@ -15,7 +15,10 @@ export async function POST(req: NextRequest) {
     // set model to `undefined` and let the AI SDK handle the error or fallback.
     let googleFactory: any = undefined
     try {
-      const googleModule = await import('@ai-sdk/google')
+      // Use an indirect dynamic import to prevent bundlers (webpack) from trying
+      // to resolve the module at build time. This avoids Vercel build errors when
+      // the package is optional.
+      const googleModule = await new Function('return import("@ai-sdk/google")')()
       googleFactory = googleModule?.google ?? googleModule?.default ?? googleModule
     } catch (e) {
       // Not installed — we'll handle gracefully below
@@ -25,7 +28,12 @@ export async function POST(req: NextRequest) {
     const model = googleFactory ? googleFactory(modelName) : undefined
 
     // Dynamically import the 'ai' SDK so we don't hard-fail on different export shapes.
-    const ai = await import('ai')
+    // Indirect dynamic import so the bundler doesn't attempt to resolve 'ai' at build time.
+    const ai = await new Function('return import("ai")')().catch((err: any) => {
+      // If import fails, return an empty object; we'll handle absence later
+      console.warn('Optional ai SDK not available:', err && err.message ? err.message : err)
+      return {}
+    })
 
     // Prefer a streaming API if available, otherwise fall back to a text generator.
     const streamFn = (ai as any).streamText ?? (ai as any).default ?? (ai as any).generateText
