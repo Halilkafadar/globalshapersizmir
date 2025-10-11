@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { streamText } from 'ai'
+import streamText from 'ai'
 import { google } from '@ai-sdk/google'
 
 export async function POST(req: NextRequest) {
@@ -13,13 +13,19 @@ export async function POST(req: NextRequest) {
     
     const model = google(modelName)
 
-    const result = await streamText({ 
-      model, 
-      messages 
-    })
+    const result = await streamText({ model, messages })
 
-    // Return streaming response
-    return result.toDataStreamResponse()
+    // Prefer streaming helpers if provided by the SDK
+    if (result && typeof (result as any)?.toAIStreamResponse === 'function') {
+      return (result as any).toAIStreamResponse()
+    }
+    if (result && typeof (result as any)?.toDataStreamResponse === 'function') {
+      return (result as any).toDataStreamResponse()
+    }
+
+    // Fallback: return JSON text
+    const text = (result as any)?.text || (result as any)?.output || JSON.stringify(result)
+    return NextResponse.json({ text })
   } catch (err) {
     console.error('app/api/chat error:', err)
     return NextResponse.json({ 
