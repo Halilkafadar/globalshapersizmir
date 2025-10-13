@@ -405,9 +405,9 @@ export default function Home() {
 									<Link href={`/members/${member.slug}`}>
 										<div className="group text-center">
 											<div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-gs-blue to-gs-purple p-1">
-												<div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-													<Users className="w-16 h-16 text-gs-blue" />
-												</div>
+												<div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+														<img src={member.image || member.photo} alt={member.name} className="w-full h-full object-cover" />
+													</div>
 											</div>
 											<h3 className="font-bold text-gs-navy group-hover:text-gs-blue transition-colors">
 												{member.name}
