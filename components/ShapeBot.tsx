@@ -73,7 +73,7 @@ export default function ShapeBot() {
 
       const botMessage: Message = {
         role: 'bot',
-        content: data.response || 'No response received',
+        content: String(data.response || 'No response received'),
         timestamp: new Date()
       }
 

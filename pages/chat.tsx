@@ -26,7 +26,7 @@ export default function Chat() {
     try {
   const res = await fetch('/api/gemini-chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: userMsg.content }) })
   const data = await res.json()
-  const assistantText = data?.response || data?.text || data?.reply || 'No response.'
+  const assistantText = String(data?.response || data?.text || data?.reply || 'No response.')
       const assistantMsg: Message = { id: String(Date.now() + 1), role: 'assistant', content: assistantText }
       setMessages((m) => [...m, assistantMsg])
     } catch (err) {
