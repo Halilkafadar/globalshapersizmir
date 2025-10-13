@@ -25,36 +25,37 @@ function selectProvider(userPreference?: AIProvider): 'gemini' | 'openrouter' {
 // Gemini API call
 async function callGemini(message: string): Promise<string> {
   const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-  
+
   if (!GEMINI_API_KEY) {
     throw new Error('Gemini API key not configured')
   }
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        contents: [{
-          parts: [{
-            text: message
-          }]
-        }]
-      })
-    }
-  )
+  // Use a configurable model name. Default to a known supported model name
+  // for the v1beta2 generateText endpoint. Override with GEMINI_MODEL env var.
+  const model = process.env.GEMINI_MODEL || 'gemini-1.5-pro'
+  const url = `https://generativelanguage.googleapis.com/v1beta2/models/${model}:generateText?key=${GEMINI_API_KEY}`
 
-  if (!response.ok) {
-    const errorText = await response.text()
-    console.error('Gemini API error:', response.status, errorText)
-    throw new Error(`Gemini API error: ${response.status}`)
+  const body = {
+    prompt: { text: message },
+    temperature: 0.2,
+    maxOutputTokens: 512,
   }
 
-  const data = await response.json()
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response generated'
+  const resp = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+
+  if (!resp.ok) {
+    const txt = await resp.text().catch(() => '<non-text upstream body>')
+    console.error('Gemini API error:', resp.status, txt)
+    throw new Error(`Gemini API error: ${resp.status}`)
+  }
+
+  const data = await resp.json()
+  // Support multiple possible shapes from different API versions
+  return data?.candidates?.[0]?.output || data?.candidates?.[0]?.content || data?.output || JSON.stringify(data)
 }
 
 // OpenRouter API call
