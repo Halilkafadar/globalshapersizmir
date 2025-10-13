@@ -17,7 +17,6 @@ function selectProvider(userPreference?: AIProvider): 'gemini' | 'openrouter' {
   if (preference === 'openrouter') return 'openrouter'
   
   // Auto mode: Load balancing based on time
-  // Alternate between providers for better distribution
   const hour = new Date().getHours()
   return hour % 2 === 0 ? 'gemini' : 'openrouter'
 }
@@ -30,15 +29,21 @@ async function callGemini(message: string): Promise<string> {
     throw new Error('Gemini API key not configured')
   }
 
-  // Use a configurable model name. Default to a known supported model name
-  // for the v1beta2 generateText endpoint. Override with GEMINI_MODEL env var.
-  const model = process.env.GEMINI_MODEL || 'gemini-1.5-pro'
-  const url = `https://generativelanguage.googleapis.com/v1beta2/models/${model}:generateText?key=${GEMINI_API_KEY}`
+  // UYGULAMA GÜNCELLEMESİ: Hata veren v1beta2 yerine güncel v1 API ve generateContent kullanılıyor.
+  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash' // Güncel, hızlı model
+  const url = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${GEMINI_API_KEY}`
 
   const body = {
-    prompt: { text: message },
-    temperature: 0.2,
-    maxOutputTokens: 512,
+    // v1 generateContent için uygun format
+    contents: [{
+      parts: [{
+        text: message
+      }]
+    }],
+    config: {
+      temperature: 0.2,
+      maxOutputTokens: 512,
+    }
   }
 
   const resp = await fetch(url, {
@@ -50,12 +55,13 @@ async function callGemini(message: string): Promise<string> {
   if (!resp.ok) {
     const txt = await resp.text().catch(() => '<non-text upstream body>')
     console.error('Gemini API error:', resp.status, txt)
-    throw new Error(`Gemini API error: ${resp.status}`)
+    // Hata mesajına detay ekleniyor
+    throw new Error(`Gemini API error ${resp.status}: ${txt}`)
   }
 
   const data = await resp.json()
-  // Support multiple possible shapes from different API versions
-  return data?.candidates?.[0]?.output || data?.candidates?.[0]?.content || data?.output || JSON.stringify(data)
+  // v1 generateContent formatından yanıtı alma
+  return data.candidates?.[0]?.content?.parts?.[0]?.text || data?.candidates?.[0]?.content || data?.output || JSON.stringify(data)
 }
 
 // OpenRouter API call
@@ -154,19 +160,21 @@ export default async function handler(
     }
 
   } catch (error) {
+    // GÜNCELLEME: Tüm sağlayıcılar başarısız olursa, UI'ın çökmesini önlemek için
+    // 200 OK ile okunabilir bir hata mesajı döndürülüyor.
     console.error('Smart Chat Error:', error)
-    // Return a safe fallback reply so the UI doesn't show a generic error.
     const errMsg = error instanceof Error ? error.message : String(error)
     console.error('Smart Chat full error:', errMsg)
 
-    const fallback = `Sorry — ShapeBot is temporarily unavailable (error: ${errMsg.slice(0,200)}). Please try again later.`
+    // Kullanıcıya UI'da gösterilecek safe fallback mesajı
+    const fallback = `Sorry — ShapeBot is temporarily unavailable (error: ${errMsg.slice(0, 50)}...). Please try again later. (See Vercel logs for full error.)`
+    
     return res.status(200).json({
       response: fallback,
       provider: 'none',
       error: 'All AI providers failed',
-      // include limited meta for debugging in logs (not exposing secrets)
       meta: {
-        providersChecked: ['gemini','openrouter']
+        providersChecked: ['gemini', 'openrouter']
       }
     })
   }
