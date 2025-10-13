@@ -4,6 +4,7 @@ type ChatResponse = {
   response?: string
   provider?: string
   error?: string
+  meta?: any
 }
 
 type AIProvider = 'gemini' | 'openrouter' | 'auto'
@@ -153,8 +154,19 @@ export default async function handler(
 
   } catch (error) {
     console.error('Smart Chat Error:', error)
-    return res.status(503).json({ 
-      error: 'AI service is currently unavailable. Please try again later.'
+    // Return a safe fallback reply so the UI doesn't show a generic error.
+    const errMsg = error instanceof Error ? error.message : String(error)
+    console.error('Smart Chat full error:', errMsg)
+
+    const fallback = `Sorry — ShapeBot is temporarily unavailable (error: ${errMsg.slice(0,200)}). Please try again later.`
+    return res.status(200).json({
+      response: fallback,
+      provider: 'none',
+      error: 'All AI providers failed',
+      // include limited meta for debugging in logs (not exposing secrets)
+      meta: {
+        providersChecked: ['gemini','openrouter']
+      }
     })
   }
 }
