@@ -65,12 +65,37 @@ async function callGemini(message: string): Promise<string> {
   }
 
   const data = await resp.json()
-  // v1 generateContent formatından yanıtı esnekçe al
-  const candidateText = data?.candidates?.[0]?.content?.parts?.[0]?.text
-  const candidateContent = data?.candidates?.[0]?.content
-  const output = data?.output
+  // Log a trimmed copy of the raw response for debugging (avoid huge logs)
+  try {
+    const dbg = JSON.stringify(data)
+    console.debug('Gemini raw response (trimmed):', dbg.length > 2000 ? dbg.slice(0, 2000) + '...[truncated]' : dbg)
+  } catch (e) {
+    // ignore stringify errors
+  }
 
-  const reply = candidateText || (typeof candidateContent === 'string' ? candidateContent : undefined) || (typeof output === 'string' ? output : undefined)
+  // v1 generateContent formatından veya diğer olası şekillerden yanıtı esnekçe al
+  const candidate = data?.candidates?.[0]
+
+  // Try multiple common shapes that Gemini may return
+  let reply: string | undefined = undefined
+
+  if (candidate) {
+    // content.parts[0].text (most common)
+    reply = reply || candidate?.content?.parts?.[0]?.text
+    // content.text
+    reply = reply || candidate?.content?.text
+    // content.parts[0] if it's a string
+    const part0 = candidate?.content?.parts?.[0]
+    if (!reply && typeof part0 === 'string') reply = part0
+    // message.content variants
+    reply = reply || candidate?.message?.content?.text
+    reply = reply || candidate?.message?.content
+    // output or other top-level fields
+    reply = reply || candidate?.output || data?.output || data?.response || data?.result || data?.text
+  } else {
+    // Fallback to other top-level shapes
+    reply = data?.output || data?.response || data?.result || data?.text
+  }
 
   if (reply) return String(reply)
 
