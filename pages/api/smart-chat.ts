@@ -117,46 +117,40 @@ export default async function handler(
   }
 
   try {
-    // Select AI provider
-    const selectedProvider = selectProvider(provider)
-    console.log(`Using AI provider: ${selectedProvider}`)
-
-    let aiResponse: string
-    
-    // Try primary provider
+    // Simplified flow: always try Gemini first, then fallback to OpenRouter
     try {
-      if (selectedProvider === 'gemini') {
-        aiResponse = await callGemini(message)
-      } else {
-        aiResponse = await callOpenRouter(message)
-      }
-      
-      return res.status(200).json({
-        response: aiResponse,
-        provider: selectedProvider
-      })
-    } catch (primaryError) {
-      console.error(`Primary provider (${selectedProvider}) failed:`, primaryError)
-      
-      // Fallback to alternative provider
-      const fallbackProvider = selectedProvider === 'gemini' ? 'openrouter' : 'gemini'
-      console.log(`Falling back to: ${fallbackProvider}`)
-      
+      let aiResponse: string
+      const primaryProvider: 'gemini' = 'gemini'
+
       try {
-        if (fallbackProvider === 'gemini') {
-          aiResponse = await callGemini(message)
-        } else {
-          aiResponse = await callOpenRouter(message)
-        }
-        
+        console.log(`Using primary provider: ${primaryProvider}`)
+        aiResponse = await callGemini(message)
+
         return res.status(200).json({
           response: aiResponse,
-          provider: `${fallbackProvider} (fallback)`
+          provider: primaryProvider,
         })
-      } catch (fallbackError) {
-        console.error(`Fallback provider (${fallbackProvider}) also failed:`, fallbackError)
-        throw new Error('All AI providers failed')
+      } catch (primaryError) {
+        console.error(`Primary provider (gemini) failed:`, primaryError)
+
+        const fallbackProvider: 'openrouter' = 'openrouter'
+        console.log(`Falling back to: ${fallbackProvider}`)
+
+        try {
+          aiResponse = await callOpenRouter(message)
+
+          return res.status(200).json({
+            response: aiResponse,
+            provider: `${fallbackProvider} (fallback)`,
+          })
+        } catch (fallbackError) {
+          console.error(`Fallback provider (openrouter) also failed:`, fallbackError)
+          throw new Error('All AI providers failed')
+        }
       }
+    } catch (err) {
+      // Let the outer catch handle the final wrapping and fallback message
+      throw err
     }
 
   } catch (error) {
