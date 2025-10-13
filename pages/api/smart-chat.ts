@@ -40,7 +40,7 @@ async function callGemini(message: string): Promise<string> {
         text: message
       }]
     }],
-    config: {
+    generationConfig: {
       temperature: 0.2,
       maxOutputTokens: 512,
     }
@@ -83,7 +83,7 @@ async function callOpenRouter(message: string): Promise<string> {
         'X-Title': 'Mindcraft AI',
       },
       body: JSON.stringify({
-        model: 'meta-llama/llama-3.1-8b-instruct:free', // Free model
+  model: 'meta-llama/llama-3-8b-instruct', // updated model name
         messages: [{
           role: 'user',
           content: message
