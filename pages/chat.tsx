@@ -24,7 +24,7 @@ export default function Chat() {
     setIsLoading(true)
 
     try {
-      const res = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: userMsg.content }) })
+  const res = await fetch('/api/gemini-chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: userMsg.content }) })
       const data = await res.json()
       const assistantText = data?.text || data?.reply || 'No response.'
       const assistantMsg: Message = { id: String(Date.now() + 1), role: 'assistant', content: assistantText }
