@@ -79,42 +79,29 @@ export default function ProjectsPage() {
                           {project.shortDescription}
                         </p>
 
-                        {/* Impact Metrics */}
+                        {/* Impact Preview (small) - show up to two metrics as preview */}
                         {project.impact && (
-                          <div className="grid grid-cols-2 gap-4 mb-8">
-                            {project.impact.participants && (
-                              <div className="bg-gradient-to-br from-gs-blue/5 to-gs-purple/5 rounded-xl p-5">
-                                <div className="text-3xl font-bold bg-gradient-to-r from-gs-blue to-gs-purple bg-clip-text text-transparent">
-                                  {project.impact.participants}
-                                </div>
-                                <div className="text-sm text-gray-600 mt-1">Participants</div>
+                          (() => {
+                            const metrics = [] as {value: string; label: string}[]
+                            if (project.impact.reach) metrics.push({ value: project.impact.reach, label: 'Reach' })
+                            if (project.impact.participants) metrics.push({ value: project.impact.participants, label: 'Participants' })
+                            if (project.impact.schools) metrics.push({ value: project.impact.schools, label: 'Schools' })
+                            if (project.impact.countries) metrics.push({ value: project.impact.countries, label: 'Countries' })
+
+                            const preview = metrics.slice(0, 2)
+                            return (
+                              <div className="grid grid-cols-2 gap-4 mb-8">
+                                {preview.map((m, i) => (
+                                  <div key={i} className={`rounded-xl p-4 ${i === 0 ? 'bg-gradient-to-br from-gs-blue/5 to-gs-purple/5' : 'bg-gradient-to-br from-gs-purple/5 to-gs-orange/5'}`}>
+                                    <div className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gs-blue to-gs-purple">
+                                      {m.value}
+                                    </div>
+                                    <div className="text-sm text-gray-600 mt-1">{m.label}</div>
+                                  </div>
+                                ))}
                               </div>
-                            )}
-                            {project.impact.reach && (
-                              <div className="bg-gradient-to-br from-gs-purple/5 to-gs-orange/5 rounded-xl p-5">
-                                <div className="text-3xl font-bold bg-gradient-to-r from-gs-purple to-gs-orange bg-clip-text text-transparent">
-                                  {project.impact.reach}
-                                </div>
-                                <div className="text-sm text-gray-600 mt-1">Reach</div>
-                              </div>
-                            )}
-                            {project.impact.schools && (
-                              <div className="bg-gradient-to-br from-gs-green/5 to-gs-blue/5 rounded-xl p-5">
-                                <div className="text-3xl font-bold bg-gradient-to-r from-gs-green to-gs-blue bg-clip-text text-transparent">
-                                  {project.impact.schools}
-                                </div>
-                                <div className="text-sm text-gray-600 mt-1">Schools</div>
-                              </div>
-                            )}
-                            {project.impact.countries && (
-                              <div className="bg-gradient-to-br from-gs-orange/5 to-gs-green/5 rounded-xl p-5">
-                                <div className="text-3xl font-bold bg-gradient-to-r from-gs-orange to-gs-green bg-clip-text text-transparent">
-                                  {project.impact.countries}
-                                </div>
-                                <div className="text-sm text-gray-600 mt-1">Countries</div>
-                              </div>
-                            )}
-                          </div>
+                            )
+                          })()
                         )}
 
                         {/* CTA */}

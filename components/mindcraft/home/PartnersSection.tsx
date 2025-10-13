@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import impactStats from '@/utils/impactStats'
 
 export default function PartnersSection() {
   const partners = [
@@ -9,12 +10,7 @@ export default function PartnersSection() {
     { name: 'Global Shapers', logo: '/partners/gs.svg' },
   ]
 
-  const stats = [
-    { value: '5,000+', label: 'Students Reached' },
-    { value: '15+', label: 'Countries' },
-    { value: '100+', label: 'Partner Schools' },
-    { value: '98%', label: 'Satisfaction Rate' },
-  ]
+  const stats = impactStats
 
   return (
     <section className="py-24 gradient-bg">
@@ -22,7 +18,7 @@ export default function PartnersSection() {
         {/* Impact Stats */}
         <div className="mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            <span className="gradient-text">Our Global Impact</span>
+            <span className="gradient-text">The Global Impact We’re Shaping</span>
           </h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
