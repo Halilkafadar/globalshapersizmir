@@ -33,12 +33,22 @@ async function callGemini(message: string): Promise<string> {
   const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
   const url = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${GEMINI_API_KEY}`
 
-  // v1 generateContent body with Google Search grounding enabled via tools
+  // Allow overriding the system prompt via env var; default enforces Turkish-only replies
+  const systemPrompt = process.env.SHAPEBOT_SYSTEM_PROMPT ||
+    "Sen, Global Shapers İzmir Hub'ın resmi yapay zeka asistanı olan ShapeBot'sun. En önemli görevin, kullanıcıya her zaman kibar, profesyonel ve kesinlikle SADECE TÜRKÇE yanıt vermektir. Türkçe yanıtlarının bozuk veya anlamsız olmamasını sağlamak birinci önceliğindir. Kendi kimliğin (kimin yarattığı, hangi model olduğun) hakkında sorulan sorulara her zaman şu metinle cevap ver: 'Ben, Global Shapers İzmir Hub tarafından geliştirilen ve Gemini büyük dil modelini kullanan bir yapay zeka asistanıyım. Amacım, topluluğumuz ve güncel olaylar hakkında bilgi vermektir.' Gerçek zamanlı ve güncel bilgilere (seçimler, haberler vb.) yanıt verirken Google Arama'yı (tools) kullan."
+
+  // v1 generateContent body with system instruction and Google Search grounding
   const body = {
-    contents: [{
-      role: 'user',
-      parts: [{ text: message }]
-    }],
+    contents: [
+      {
+        role: 'system',
+        parts: [{ text: systemPrompt }]
+      },
+      {
+        role: 'user',
+        parts: [{ text: message }]
+      }
+    ],
     generationConfig: {
       temperature: 0.2,
       maxOutputTokens: 512,
@@ -155,6 +165,26 @@ export default async function handler(
 
   if (!message) {
     return res.status(400).json({ error: 'Message is required' })
+  }
+
+  // Local preventive filter: answer identity / model questions locally to avoid
+  // persona contradictions and leaking provider info. Returns a stable Turkish
+  // reply without calling upstream providers.
+  try {
+    const msgLower = String(message).toLowerCase()
+    const identityRegex = /(who (created|made) you|who (are )?you|which model|hangi modeli|kim (seni|yarattı|yaptı)|kim (sizi) yarattı|kim (sizi) oluşturdu)/i
+    if (identityRegex.test(msgLower)) {
+      const localAnswer = process.env.SHAPEBOT_IDENTITY_REPLY ||
+        "Ben, Global Shapers İzmir Hub tarafından geliştirilen ve Gemini büyük dil modelini kullanan bir yapay zeka asistanıyım. Amacım, topluluğumuz ve güncel olaylar hakkında bilgi vermektir."
+
+      return res.status(200).json({
+        response: String(localAnswer),
+        provider: 'local',
+      })
+    }
+  } catch (filterErr) {
+    // If the filter fails for any reason, continue to normal flow
+    console.warn('Identity filter error:', filterErr)
   }
 
   try {
