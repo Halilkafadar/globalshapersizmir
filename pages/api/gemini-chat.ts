@@ -31,6 +31,7 @@ export default async function handler(
 
     if (!GEMINI_API_KEY) {
       console.error('Gemini API key not found in environment variables')
+      // Provide a clear response so client and logs both show the config issue
       return res.status(500).json({ error: 'API key not configured' })
     }
 
@@ -52,22 +53,39 @@ export default async function handler(
       maxOutputTokens: 512,
     }
 
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    })
+    // Perform upstream request to Gemini. Wrap in timeout/try to get better log visibility.
+    let upstreamText = null
+    try {
+      const controller = new AbortController()
+      const timeout = setTimeout(() => controller.abort(), 20000)
 
-    if (!response.ok) {
-      const txt = await response.text()
-      console.error('Gemini API returned error:', response.status, txt)
-      return res.status(502).json({ error: 'Upstream AI provider error', meta: { status: response.status, body: txt } })
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        signal: controller.signal,
+      })
+
+      clearTimeout(timeout)
+
+      if (!response.ok) {
+        upstreamText = await response.text().catch(() => '<non-text upstream body>')
+        console.error('Gemini API returned error:', response.status, upstreamText)
+        return res.status(502).json({ error: 'Upstream AI provider error', meta: { status: response.status, body: upstreamText } })
+      }
+
+      const data = await response.json()
+      const aiResponse = data?.candidates?.[0]?.output || data?.candidates?.[0]?.content || data?.output || JSON.stringify(data)
+      return res.status(200).json({ response: aiResponse })
+    } catch (upErr) {
+      const msg = upErr instanceof Error ? upErr.message : String(upErr)
+      console.error('Error calling Gemini upstream:', msg, { url, body })
+
+      // Fallback: return a safe mock reply so the UI doesn't break while debugging.
+      // This makes it obvious in the UI that we're in fallback mode.
+      const fallback = `Sorry — temporary fallback reply (upstream error: ${msg.slice(0, 200)})`
+      return res.status(200).json({ response: fallback, meta: { fallback: true, upstreamError: msg } })
     }
-
-    const data = await response.json()
-    const aiResponse = data?.candidates?.[0]?.output || data?.candidates?.[0]?.content || data?.output || JSON.stringify(data)
-
-    return res.status(200).json({ response: aiResponse })
 
   } catch (error) {
     console.error('Gemini Chat Error:', error instanceof Error ? error.message : String(error))
