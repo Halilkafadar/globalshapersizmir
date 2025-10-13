@@ -125,27 +125,35 @@ export default function ContactPage() {
                 <div className="bg-blue-50 p-6 rounded-xl">
                   <Mail className="w-8 h-8 text-blue-600 mb-4" />
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <a href="mailto:izmir@globalshapers.org" className="text-gray-600 hover:text-blue-600">
-                    izmir@globalshapers.org
+                  <a href="mailto:izmirglobalshapers@gmail.com" className="text-gray-600 hover:text-blue-600">
+                    izmirglobalshapers@gmail.com
                   </a>
                 </div>
 
                 <div className="bg-pink-50 p-6 rounded-xl">
                   <MapPin className="w-8 h-8 text-pink-600 mb-4" />
                   <h3 className="font-semibold mb-1">Location</h3>
-                  <p className="text-gray-600">Izmir, Turkey</p>
+                  <p className="text-gray-600">İzmir, Türkiye</p>
                 </div>
 
                 <div className="bg-green-50 p-6 rounded-xl">
                   <Phone className="w-8 h-8 text-green-600 mb-4" />
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-gray-600">+90 (232) 123 45 67</p>
+                  <p className="text-gray-600">+90 (000) 000 00 00</p>
                 </div>
               </div>
 
               <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-8 rounded-xl text-white">
-                <Globe className="w-12 h-12 mb-4" />
-                <h3 className="text-2xl font-bold mb-2">İzmir, Turkey</h3>
+                <div className="w-16 h-16 mb-4">
+                  <Image 
+                    src="/images/gs-logo.png" 
+                    alt="Global Shapers Logo" 
+                    width={64} 
+                    height={64}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">İzmir, Türkiye</h3>
                 <p>Shaping the Future Together</p>
               </div>
             </motion.div>
