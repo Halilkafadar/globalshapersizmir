@@ -109,7 +109,7 @@ export default function ProjectsPage() {
                         )}
 
                         {/* (Optional) Impact Preview override for specific projects */}
-                        {project.slug === 'financial-literacy' && (
+                        {String(project.slug) === 'financial-literacy' && (
                           <div className="grid grid-cols-1 gap-4 mb-6">
                             <div className="rounded-xl p-4 bg-gradient-to-br from-gs-blue/5 to-gs-purple/5">
                               <div className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gs-blue to-gs-purple">5,000+</div>
