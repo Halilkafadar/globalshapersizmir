@@ -29,39 +29,31 @@ async function callGemini(message: string): Promise<string> {
     throw new Error('Gemini API key not configured')
   }
 
-  // UYGULAMA GÜNCELLEMESİ: Hata veren v1beta2 yerine güncel v1 API ve generateContent kullanılıyor.
-  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash' // Güncel, hızlı model
-  const url = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${GEMINI_API_KEY}`
+    // Use the Generative Language v1beta2 generateText endpoint which accepts
+    // a simple prompt object. Make model configurable via GEMINI_MODEL.
+    const model = process.env.GEMINI_MODEL || 'gemini-1.5-pro'
+    const url = `https://generativelanguage.googleapis.com/v1beta2/models/${model}:generateText?key=${GEMINI_API_KEY}`
 
-  const body = {
-    // v1 generateContent için uygun format
-    contents: [{
-      parts: [{
-        text: message
-      }]
-    }],
-    config: {
+    const body = {
+      prompt: { text: message },
       temperature: 0.2,
       maxOutputTokens: 512,
     }
-  }
 
-  const resp = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  })
+    const resp = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
 
-  if (!resp.ok) {
-    const txt = await resp.text().catch(() => '<non-text upstream body>')
-    console.error('Gemini API error:', resp.status, txt)
-    // Hata mesajına detay ekleniyor
-    throw new Error(`Gemini API error ${resp.status}: ${txt}`)
-  }
+    if (!resp.ok) {
+      const txt = await resp.text().catch(() => '<non-text upstream body>')
+      console.error('Gemini API error:', resp.status, txt)
+      throw new Error(`Gemini API error ${resp.status}: ${txt}`)
+    }
 
-  const data = await resp.json()
-  // v1 generateContent formatından yanıtı alma
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || data?.candidates?.[0]?.content || data?.output || JSON.stringify(data)
+    const data = await resp.json()
+    return data?.candidates?.[0]?.output || data?.candidates?.[0]?.content || data?.output || JSON.stringify(data)
 }
 
 // OpenRouter API call
