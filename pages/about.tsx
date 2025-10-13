@@ -59,21 +59,23 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-8">Our Story</h2>
             
             <div className="space-y-6 text-gray-700 leading-relaxed">
+              <h3 className="text-lg font-semibold">Global Shapers Community</h3>
               <p>
-                The <strong>Global Shapers Community</strong> was founded by the <strong>World Economic Forum</strong> in <strong>2011</strong> as a global network 
-                bringing together young leaders aged <strong>20-30</strong>. With more than <strong>450 hubs</strong> in over <strong>150 countries</strong> and <strong>15,000+ 
-                members</strong> worldwide, we work to shape the future.
+                The Global Shapers Community was founded by the World Economic Forum (WEF) in 2011 as a global network that brings together inspiring young leaders aged 18 to 30.
               </p>
-              
+
               <p>
-                <strong>Global Shapers Izmir Hub</strong> was established in <strong>2015</strong> as one of Turkey's most active hubs. Since then, we have 
-                reached thousands of people in Izmir and Turkey by developing various projects in education, technology, 
-                sustainability and social entrepreneurship.
+                With over 500 local hubs across more than 150 countries and territories, and over 11,000 active Global Shapers worldwide, the Community works to shape the future and drive dialogue, action, and change.
               </p>
-              
+
+              <h3 className="text-lg font-semibold">Global Shapers Izmir Hub</h3>
               <p>
-                Our mission is <strong>unlock the potential of young leaders to create innovative solutions to local and global 
-                challenges</strong>, and to build a more sustainable, inclusive and equitable future.
+                The Global Shapers Izmir Hub was established in 2022 and has since become one of Türkiye's active hubs. Since its founding, the hub has reached thousands of people in Izmir and Türkiye by developing various projects focused on education, technology, sustainability, and social entrepreneurship.
+              </p>
+
+              <h3 className="text-lg font-semibold">Our Mission</h3>
+              <p>
+                Our mission is to unlock the potential of young leaders to create innovative solutions to local and global challenges, and to build a more sustainable, inclusive, and equitable future.
               </p>
             </div>
           </div>
