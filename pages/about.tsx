@@ -53,30 +53,41 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Our Story Section */}
-        <section className="py-20 bg-white">
+        {/* Our Story Section (background image) */}
+        <section
+          className="py-20"
+          style={{
+            backgroundImage: `url(${encodeURI('/images/WhatsApp Görsel 2025-10-11 saat 22.00.21_0266a1e6.jpg')})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-8">Our Story</h2>
-            
-            <div className="space-y-6 text-gray-700 leading-relaxed">
-              <h3 className="text-lg font-semibold">Global Shapers Community</h3>
-              <p>
-                The Global Shapers Community was founded by the World Economic Forum (WEF) in 2011 as a global network that brings together inspiring young leaders aged 18 to 30.
-              </p>
+            {/* semi-transparent overlay box for readable text */}
+            <div className="bg-white/80 backdrop-blur-md rounded-lg p-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-8">Our Story</h2>
 
-              <p>
-                With over 500 local hubs across more than 150 countries and territories, and over 11,000 active Global Shapers worldwide, the Community works to shape the future and drive dialogue, action, and change.
-              </p>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <h3 className="text-lg font-semibold">Global Shapers Community</h3>
+                <p>
+                  The Global Shapers Community was founded by the World Economic Forum (WEF) in 2011 as a global network that brings together inspiring young leaders aged 18 to 30.
+                </p>
 
-              <h3 className="text-lg font-semibold">Global Shapers Izmir Hub</h3>
-              <p>
-                The Global Shapers Izmir Hub was established in 2022 and has since become one of Türkiye's active hubs. Since its founding, the hub has reached thousands of people in Izmir and Türkiye by developing various projects focused on education, technology, sustainability, and social entrepreneurship.
-              </p>
+                <p>
+                  With over 500 local hubs across more than 150 countries and territories, and over 11,000 active Global Shapers worldwide, the Community works to shape the future and drive dialogue, action, and change.
+                </p>
 
-              <h3 className="text-lg font-semibold">Our Mission</h3>
-              <p>
-                Our mission is to unlock the potential of young leaders to create innovative solutions to local and global challenges, and to build a more sustainable, inclusive, and equitable future.
-              </p>
+                <h3 className="text-lg font-semibold">Global Shapers Izmir Hub</h3>
+                <p>
+                  The Global Shapers Izmir Hub was established in 2022 and has since become one of Türkiye's active hubs. Since its founding, the hub has reached thousands of people in Izmir and Türkiye by developing various projects focused on education, technology, sustainability, and social entrepreneurship.
+                </p>
+
+                <h3 className="text-lg font-semibold">Our Mission</h3>
+                <p>
+                  Our mission is to unlock the potential of young leaders to create innovative solutions to local and global challenges, and to build a more sustainable, inclusive, and equitable future.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -200,23 +211,49 @@ export default function AboutPage() {
             <p className="text-center text-white/90 mb-12">Global Shapers Izmir Hub by the Numbers</p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center">
-              {/** Use shared impact stats so numbers stay consistent across the site */}
-              {
-                // eslint-disable-next-line @typescript-eslint/no-var-requires
-                require('@/utils/impactStats').default.map((stat: any, idx: number) => (
-                  <motion.div
-                    key={idx}
-                    className="text-center"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.45, delay: idx * 0.08 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="text-4xl md:text-5xl font-extrabold">{stat.value}</div>
-                    <div className="text-white/90 text-sm md:text-base mt-2">{stat.label}</div>
-                  </motion.div>
-                ))
-              }
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.45 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl md:text-5xl font-extrabold">4</div>
+                <div className="text-white/90 text-sm md:text-base mt-2">Years Active</div>
+              </motion.div>
+              
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4</div>
+                <div className="text-white/90 text-sm md:text-base">Projects</div>
+              </motion.div>
+              
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">500+</div>
+                <div className="text-white/90 text-sm md:text-base">Participants</div>
+              </motion.div>
+              
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">50+</div>
+                <div className="text-white/90 text-sm md:text-base">Volunteers</div>
+              </motion.div>
             </div>
           </div>
         </section>
