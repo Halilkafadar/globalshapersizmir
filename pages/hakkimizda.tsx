@@ -217,22 +217,48 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {
-                // eslint-disable-next-line @typescript-eslint/no-var-requires
-                require('@/utils/impactStats').default.map((stat: any, idx: number) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.08 }}
-                    className="text-center"
-                  >
-                    <div className="text-5xl md:text-6xl font-bold text-white mb-2">{stat.value}</div>
-                    <div className="text-gray-200">{stat.label}</div>
-                  </motion.div>
-                ))
-              }
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4+</div>
+                <div className="text-gray-200">Years Active</div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-center"
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4</div>
+                <div className="text-gray-200">Projects</div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-center"
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">500+</div>
+                <div className="text-gray-200">Participants</div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="text-center"
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">50+</div>
+                <div className="text-gray-200">Volunteers</div>
+              </motion.div>
             </div>
           </div>
         </section>

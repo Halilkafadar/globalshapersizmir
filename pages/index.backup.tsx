@@ -89,7 +89,7 @@ export default function Home() {
 								</div>
 								<div className="text-center">
 									<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2">
-										15+
+										4
 									</div>
 									<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Projects</div>
 								</div>
