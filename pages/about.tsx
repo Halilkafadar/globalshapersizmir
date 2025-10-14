@@ -35,7 +35,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6 }}
             >
-              <div className="w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
+              <div className="w-[120px] h-[120px] flex-shrink-0">
                 <img 
                   src="/gs-logo-hakkimizda.png" 
                   alt="Global Shapers Izmir Logo"
