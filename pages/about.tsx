@@ -59,35 +59,42 @@ export default function AboutPage() {
           style={{
             backgroundImage: `url(${encodeURI('/images/our-story-bg.jpg')})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'right center',
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* semi-transparent overlay box for readable text */}
-            <div className="bg-white/80 backdrop-blur-md rounded-lg p-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-8">Our Story</h2>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center">
+              {/* Left: text box (takes half width on large screens) */}
+              <div className="w-full lg:w-1/2">
+                <div className="bg-white/80 backdrop-blur-md rounded-lg p-8 lg:p-10">
+                  <h2 className="text-3xl md:text-4xl font-bold text-gs-navy mb-6">Our Story</h2>
 
-              <div className="space-y-6 text-gray-700 leading-relaxed">
-                <h3 className="text-lg font-semibold">Global Shapers Community</h3>
-                <p>
-                  The Global Shapers Community was founded by the World Economic Forum (WEF) in 2011 as a global network that brings together inspiring young leaders aged 18 to 30.
-                </p>
+                  <div className="space-y-6 text-gray-700 leading-relaxed">
+                    <h3 className="text-lg font-semibold">Global Shapers Community</h3>
+                    <p>
+                      The Global Shapers Community was founded by the World Economic Forum (WEF) in 2011 as a global network that brings together inspiring young leaders aged 18 to 30.
+                    </p>
 
-                <p>
-                  With over 500 local hubs across more than 150 countries and territories, and over 11,000 active Global Shapers worldwide, the Community works to shape the future and drive dialogue, action, and change.
-                </p>
+                    <p>
+                      With over 500 local hubs across more than 150 countries and territories, and over 11,000 active Global Shapers worldwide, the Community works to shape the future and drive dialogue, action, and change.
+                    </p>
 
-                <h3 className="text-lg font-semibold">Global Shapers Izmir Hub</h3>
-                <p>
-                  The Global Shapers Izmir Hub was established in 2022 and has since become one of Türkiye's active hubs. Since its founding, the hub has reached thousands of people in Izmir and Türkiye by developing various projects focused on education, technology, sustainability, and social entrepreneurship.
-                </p>
+                    <h3 className="text-lg font-semibold">Global Shapers Izmir Hub</h3>
+                    <p>
+                      The Global Shapers Izmir Hub was established in 2022 and has since become one of Türkiye's active hubs. Since its founding, the hub has reached thousands of people in Izmir and Türkiye by developing various projects focused on education, technology, sustainability, and social entrepreneurship.
+                    </p>
 
-                <h3 className="text-lg font-semibold">Our Mission</h3>
-                <p>
-                  Our mission is to unlock the potential of young leaders to create innovative solutions to local and global challenges, and to build a more sustainable, inclusive, and equitable future.
-                </p>
+                    <h3 className="text-lg font-semibold">Our Mission</h3>
+                    <p>
+                      Our mission is to unlock the potential of young leaders to create innovative solutions to local and global challenges, and to build a more sustainable, inclusive, and equitable future.
+                    </p>
+                  </div>
+                </div>
               </div>
+
+              {/* Right: visual space (image visible behind) */}
+              <div className="hidden lg:block lg:w-1/2" aria-hidden="true" />
             </div>
           </div>
         </section>
