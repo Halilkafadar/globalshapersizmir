@@ -179,45 +179,47 @@ export default function FinancialLiteracyPage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 text-center">
-              {partnersList.length > 0 ? (
-                partnersList.map((partner, index) => (
-                  <motion.div
-                    key={partner.name || index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.08 }}
-                    className="bg-white rounded-xl p-8 shadow-lg"
-                  >
-                    <div className="text-4xl mb-4">🤝</div>
-                    {partner.logo ? (
-                      <img src={partner.logo} alt={partner.name} className="mx-auto max-h-12 object-contain" />
-                    ) : (
-                      <h3 className="font-bold text-lg text-gs-navy">{partner.name}</h3>
-                    )}
-                  </motion.div>
-                ))
-              ) : (
-                <>
-                  <div className="bg-white rounded-xl p-6 shadow-sm">Local Banks</div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm">Universities</div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm">UNDP</div>
-                </>
-              )}
+              {/* UNDP */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0 }}
+                className="bg-white rounded-xl p-8 shadow-lg"
+              >
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <img 
+                    src="/images/undp-logo.png" 
+                    alt="UNDP Logo" 
+                    className="w-8 h-8 object-contain"
+                  />
+                  <h3 className="font-bold text-lg text-gs-navy">UNDP</h3>
+                </div>
+              </motion.div>
 
-              {/* Ensure UNDP is visible even if not in partnersList */}
-              {!hasUNDP && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.15 }}
-                  className="bg-white rounded-xl p-8 shadow-lg"
-                >
-                  <div className="text-4xl mb-4">🌍</div>
-                  <a href="https://www.undp.org/" target="_blank" rel="noreferrer" className="font-bold text-gs-navy">UNDP</a>
-                </motion.div>
-              )}
+              {/* Local Banks */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.08 }}
+                className="bg-white rounded-xl p-8 shadow-lg"
+              >
+                <div className="text-4xl mb-4">🏦</div>
+                <h3 className="font-bold text-lg text-gs-navy">Local Banks</h3>
+              </motion.div>
+
+              {/* Universities */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.16 }}
+                className="bg-white rounded-xl p-8 shadow-lg"
+              >
+                <div className="text-4xl mb-4">�</div>
+                <h3 className="font-bold text-lg text-gs-navy">Universities</h3>
+              </motion.div>
             </div>
           </div>
         </section>
