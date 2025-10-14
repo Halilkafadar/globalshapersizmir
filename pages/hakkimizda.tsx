@@ -30,32 +30,13 @@ export default function AboutPage() {
                 Home
               </Link>
               
-              <div className="flex items-center gap-8">
-                {/* Logo */}
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="relative w-48 h-48 flex-shrink-0"
-                >
-                  <Image
-                    src="/images/gs-logo-hakkimizda.png"
-                    alt="Global Shapers Izmir Hub Logo"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </motion.div>
-                
-                {/* Text */}
-                <div>
-                  <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                    About Us
-                  </h1>
-                  <p className="text-xl text-gray-200 max-w-3xl">
-                    Building a better future by unlocking the potential of young people
-                  </p>
-                </div>
+              <div>
+                <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                  About Us
+                </h1>
+                <p className="text-xl text-gray-200 max-w-3xl">
+                  Building a better future by unlocking the potential of young people
+                </p>
               </div>
             </motion.div>
           </div>
