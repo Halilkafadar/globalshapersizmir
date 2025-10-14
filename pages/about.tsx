@@ -37,7 +37,7 @@ export default function AboutPage() {
             >
               <div className="w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
                 <img 
-                  src="/images/gs-logo.png" 
+                  src="/gs-logo-hakkimizda.png" 
                   alt="Global Shapers Izmir Logo"
                   className="w-full h-full object-contain" 
                 />
