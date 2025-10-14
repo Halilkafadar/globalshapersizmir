@@ -55,15 +55,27 @@ export default function AboutPage() {
 
         {/* Our Story Section (background image) */}
         <section
-          className="py-20 relative bg-cover bg-center bg-no-repeat"
+          className="relative"
           style={{
-            backgroundImage: `url(${encodeURI('/images/our-story-bg.jpg')})`,
+            minHeight: '60vh',
           }}
         >
-          {/* dark overlay for better contrast */}
-          <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
+          {/* Background layer: blurred photo + warm dark overlay */}
+          <div className="absolute inset-0" aria-hidden="true">
+            <div
+              className="absolute inset-0 bg-cover bg-no-repeat"
+              style={{
+                backgroundImage: `url(${encodeURI('/images/our-story-bg.jpg')})`,
+                backgroundPosition: 'center bottom',
+                transform: 'scale(1.03)',
+                filter: 'blur(4px) brightness(0.95)'
+              }}
+            />
+            {/* warm dark overlay to preserve tones and increase contrast */}
+            <div className="absolute inset-0" style={{ backgroundColor: 'rgba(12,8,6,0.55)' }} />
+          </div>
 
-          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
             {/* semi-transparent overlay box for readable text */}
             <div className="bg-white/80 backdrop-blur-md rounded-lg p-10">
               <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-8">Our Story</h2>
