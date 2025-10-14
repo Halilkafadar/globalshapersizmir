@@ -87,7 +87,7 @@ export default function AboutPage() {
 
               {/* Right: image column (visible on lg+) */}
               <div className="w-full lg:w-1/2 flex items-center justify-center">
-                <img src="/images/our-story-bg1.jpg" alt="Our Story" className="w-full h-[48vh] lg:h-[60vh] object-cover rounded-lg shadow-lg" />
+                <img src="/images/our-story-bg1.jpg" alt="Our Story" className="w-full max-h-[60vh] object-contain rounded-lg shadow-lg" />
               </div>
             </div>
           </div>
