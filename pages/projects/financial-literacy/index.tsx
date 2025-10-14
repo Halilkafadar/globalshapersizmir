@@ -30,7 +30,7 @@ export default function FinancialLiteracyPage() {
               <p className="text-lg text-gray-200 max-w-3xl">{project.shortDescription}</p>
               <div className="mt-6 flex gap-3">
                 <a href="/files/financial-literacy.pdf" className="inline-flex items-center gap-2 btn-primary" target="_blank" rel="noreferrer">Download PDF <Download className="w-4 h-4"/></a>
-                <Link href={project.links?.documentation || '#'} className="inline-flex items-center gap-2 btn-secondary">Curriculum <ArrowRight className="w-4 h-4"/></Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 btn-secondary">Contact <ArrowRight className="w-4 h-4"/></Link>
               </div>
             </motion.div>
           </div>
@@ -81,7 +81,7 @@ export default function FinancialLiteracyPage() {
                 <h4 className="text-sm font-semibold text-gray-700 mb-2">Status</h4>
                 <div className="text-sm text-gray-600 capitalize">{project.status}</div>
                 <div className="mt-4">
-                  <Link href={project.links?.documentation || '#'} className="inline-flex items-center gap-2 text-gs-blue font-semibold">Curriculum <ArrowRight className="w-4 h-4"/></Link>
+                  <Link href="/contact" className="inline-flex items-center gap-2 text-gs-blue font-semibold">Contact <ArrowRight className="w-4 h-4"/></Link>
                 </div>
               </div>
             </aside>
@@ -95,14 +95,15 @@ export default function FinancialLiteracyPage() {
             <div className="flex items-center justify-center gap-8 flex-wrap">
               {project.partners && project.partners.length > 0 ? (
                 project.partners.map((p) => (
-                  <a key={p.name} href={p.website} className="w-40 h-12 bg-white rounded-md flex items-center justify-center shadow-sm">
+                  <a key={p.name} href={p.website} className="w-40 h-12 bg-white rounded-md flex items-center justify-center shadow-sm p-2">
                     <img src={p.logo} alt={p.name} className="max-h-8 object-contain" />
                   </a>
                 ))
               ) : (
                 <>
-                  <div className="w-32 h-12 bg-gray-200 rounded-md flex items-center justify-center text-gray-600">Yerel Bankalar</div>
-                  <div className="w-32 h-12 bg-gray-200 rounded-md flex items-center justify-center text-gray-600">Üniversiteler</div>
+                  <div className="w-36 h-12 bg-gray-100 rounded-md flex items-center justify-center text-gray-700">Local Banks</div>
+                  <div className="w-36 h-12 bg-gray-100 rounded-md flex items-center justify-center text-gray-700">Universities</div>
+                  <div className="w-36 h-12 bg-gray-100 rounded-md flex items-center justify-center text-gray-700">UNDP</div>
                 </>
               )}
             </div>

@@ -8,6 +8,8 @@ import { projects } from '@/data/projects'
 
 export default function FinancialLiteracyPage() {
   const project = projects.find(p => p.slug === 'financial-literacy')!
+  const partnersList = project.partners ?? []
+  const hasUNDP = partnersList.some(p => (p.name || '').toLowerCase().includes('undp'))
 
   return (
     <>
@@ -89,157 +91,7 @@ export default function FinancialLiteracyPage() {
           </div>
         </section>
 
-        {/* Curriculum Modules */}
-        <section className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gs-navy mb-4">
-                Education Modules
-              </h2>
-              <p className="text-xl text-gray-600">
-                Comprehensive curriculum covering 4 main modules
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Module 1 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-gs-blue to-gs-purple rounded-xl flex items-center justify-center mb-6">
-                  <BookOpen className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gs-navy mb-4">
-                  1. Basic Financial Concepts
-                </h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Budget management and saving habits</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Income-expense balance and financial planning</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Borrowing and credit usage</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Setting financial goals</span>
-                  </li>
-                </ul>
-              </motion.div>
-
-              {/* Module 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-gs-purple to-gs-orange rounded-xl flex items-center justify-center mb-6">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gs-navy mb-4">
-                  2. Banking and Fintech
-                </h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Bank accounts and financial products</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Digital banking and mobile payment systems</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Fintech applications and innovative solutions</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Financial security and fraud prevention</span>
-                  </li>
-                </ul>
-              </motion.div>
-
-              {/* Module 3 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-gs-green to-gs-blue rounded-xl flex items-center justify-center mb-6">
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gs-navy mb-4">
-                  3. Investment and Entrepreneurship
-                </h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Basic investment instruments (stocks, bonds, funds)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Risk management and portfolio diversification</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Entrepreneurship fundamentals and business planning</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Social entrepreneurship and sustainable business models</span>
-                  </li>
-                </ul>
-              </motion.div>
-
-              {/* Module 4 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-gs-orange to-gs-green rounded-xl flex items-center justify-center mb-6">
-                  <Target className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gs-navy mb-4">
-                  4. Financial Planning
-                </h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Short, medium, and long-term financial goals</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Retirement planning and private pension systems</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Insurance and risk management</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gs-green mt-1">✓</span>
-                    <span>Tax awareness and legal rights</span>
-                  </li>
-                </ul>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+        {/* (Curriculum section removed - summarized in Overview above) */}
 
         {/* Methodology */}
         <section className="py-24 bg-white">
@@ -319,35 +171,56 @@ export default function FinancialLiteracyPage() {
         </section>
 
         {/* Partners & Impact */}
-        {project.partners && (
-          <section className="py-24 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-gs-navy mb-4">
-                  Partnerships
-                </h2>
-                <p className="text-xl text-gray-600">
-                  Organizations bringing this project to life
-                </p>
-              </div>
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                {project.partners.map((partner, index) => (
+        <section className="py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gs-navy mb-4">Partnerships</h2>
+              <p className="text-xl text-gray-600">Organizations bringing this project to life</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              {partnersList.length > 0 ? (
+                partnersList.map((partner, index) => (
                   <motion.div
-                    key={index}
+                    key={partner.name || index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.08 }}
                     className="bg-white rounded-xl p-8 shadow-lg"
                   >
                     <div className="text-4xl mb-4">🤝</div>
-                    <h3 className="font-bold text-lg text-gs-navy">{partner.name}</h3>
+                    {partner.logo ? (
+                      <img src={partner.logo} alt={partner.name} className="mx-auto max-h-12 object-contain" />
+                    ) : (
+                      <h3 className="font-bold text-lg text-gs-navy">{partner.name}</h3>
+                    )}
                   </motion.div>
-                ))}
-              </div>
+                ))
+              ) : (
+                <>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">Local Banks</div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">Universities</div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">UNDP</div>
+                </>
+              )}
+
+              {/* Ensure UNDP is visible even if not in partnersList */}
+              {!hasUNDP && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.15 }}
+                  className="bg-white rounded-xl p-8 shadow-lg"
+                >
+                  <div className="text-4xl mb-4">🌍</div>
+                  <a href="https://www.undp.org/" target="_blank" rel="noreferrer" className="font-bold text-gs-navy">UNDP</a>
+                </motion.div>
+              )}
             </div>
-          </section>
-        )}
+          </div>
+        </section>
 
         {/* CTA */}
         <section className="py-24 bg-gradient-to-r from-gs-green to-gs-blue">
