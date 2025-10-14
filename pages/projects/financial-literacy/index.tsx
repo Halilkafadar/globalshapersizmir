@@ -29,7 +29,7 @@ export default function FinancialLiteracyPage() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">{project.title}</h1>
               <p className="text-lg text-gray-200 max-w-3xl">{project.shortDescription}</p>
               <div className="mt-6 flex gap-3">
-                <a href="/files/financial-literacy.pdf" className="inline-flex items-center gap-2 btn-primary" target="_blank" rel="noreferrer">Download PDF <Download className="w-4 h-4"/></a>
+                <a href="/files/MeryemileBirikiminSirriwatermarked2025.pdf" className="inline-flex items-center gap-2 btn-primary" target="_blank" rel="noreferrer">Download PDF <Download className="w-4 h-4"/></a>
                 <Link href="/contact" className="inline-flex items-center gap-2 btn-secondary">Contact <ArrowRight className="w-4 h-4"/></Link>
               </div>
             </motion.div>

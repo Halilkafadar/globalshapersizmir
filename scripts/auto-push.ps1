@@ -21,7 +21,7 @@ Param(
 Write-Host "Starting auto-push watcher on: $Path"
 Write-Host "Debounce: ${DebounceMs}ms. Press Ctrl+C to stop."
 
-$exclude = @('.git', 'node_modules', 'venv', '\\public\\files\\financial-literacy.pdf')
+$exclude = @('.git', 'node_modules', 'venv', '\\public\\files\\MeryemileBirikiminSirriwatermarked2025.pdf')
 
 $changedFiles = [System.Collections.Generic.HashSet[string]]::new()
 $timer = $null

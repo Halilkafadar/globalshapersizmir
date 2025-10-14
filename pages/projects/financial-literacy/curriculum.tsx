@@ -42,7 +42,7 @@ export default function CurriculumPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-start justify-between mb-6">
               <h1 className="text-4xl font-bold text-gs-navy">{project.title} — Curriculum</h1>
-              <a href="/files/financial-literacy.pdf" className="inline-flex items-center gap-2 btn-primary" target="_blank" rel="noreferrer">Download PDF <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10l4-4"/></svg></a>
+              <a href="/files/MeryemileBirikiminSirriwatermarked2025.pdf" className="inline-flex items-center gap-2 btn-primary" target="_blank" rel="noreferrer">Download PDF <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10l4-4"/></svg></a>
             </div>
 
             <div className="prose lg:prose-xl text-gray-700" dangerouslySetInnerHTML={{ __html: html.replace(/\n/g, '<br/>') }} />
