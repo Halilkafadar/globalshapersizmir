@@ -57,7 +57,7 @@ export default function AboutPage() {
         <section
           className="py-20"
           style={{
-            backgroundImage: `url(${encodeURI('/images/WhatsApp Görsel 2025-10-11 saat 22.00.21_0266a1e6.jpg')})`,
+            backgroundImage: `url(${encodeURI('/images/our-story-bg.jpg')})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
