@@ -43,7 +43,8 @@ export default function MemberPage({ member }: MemberPageProps) {
                       <img 
                         src={member.image} 
                         alt={member.name}
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-cover scale-125"
+                        style={{ objectPosition: 'center 35%' }}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
