@@ -92,19 +92,19 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-center mb-8">Our Impact</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>
-                <div className="text-4xl font-extrabold">0</div>
+                <div className="text-4xl font-extrabold">4</div>
                 <div className="mt-2 text-sm">Years Active</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold">0</div>
+                <div className="text-4xl font-extrabold">4</div>
                 <div className="mt-2 text-sm">Projects</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold">0</div>
+                <div className="text-4xl font-extrabold">500+</div>
                 <div className="mt-2 text-sm">Participants</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold">0</div>
+                <div className="text-4xl font-extrabold">50+</div>
                 <div className="mt-2 text-sm">Volunteers</div>
               </div>
             </div>

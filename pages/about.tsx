@@ -107,7 +107,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.45 }}
                 viewport={{ once: true }}
               >
-                <div className="text-4xl md:text-5xl font-extrabold">0</div>
+                <div className="text-4xl md:text-5xl font-extrabold">4</div>
                 <div className="text-white/90 text-sm md:text-base mt-2">Years Active</div>
               </motion.div>
               
@@ -118,7 +118,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">0</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4</div>
                 <div className="text-white/90 text-sm md:text-base">Projects</div>
               </motion.div>
               
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">0</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">500+</div>
                 <div className="text-white/90 text-sm md:text-base">Participants</div>
               </motion.div>
               
@@ -140,7 +140,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">0</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">50+</div>
                 <div className="text-white/90 text-sm md:text-base">Volunteers</div>
               </motion.div>
             </div>
