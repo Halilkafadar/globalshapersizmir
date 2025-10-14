@@ -83,7 +83,7 @@ export default function Home() {
 							>
 								<div className="text-center">
 									<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
-										8+
+										4+
 									</div>
 									<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Years Active</div>
 								</div>
@@ -95,7 +95,7 @@ export default function Home() {
 								</div>
 								<div className="text-center">
 									<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-2">
-										7K+
+										500+
 									</div>
 									<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Participants</div>
 								</div>
