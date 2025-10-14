@@ -38,17 +38,16 @@ export default function AboutPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="flex-shrink-0"
                 >
-                  {/* Outer circle (144x144) */}
-                  <div style={{ width: 144, height: 144 }} className="rounded-full bg-white/10 flex items-center justify-center">
-                    {/* Inner circle (95.99 x 95.99) - exact pixel size using inline style */}
-                    <div style={{ width: 95.99, height: 95.99 }} className="rounded-full overflow-hidden bg-white flex items-center justify-center">
-                      {/* Use regular img to control exact size and object-fit */}
+                  {/* Outer ring slightly larger so the inner logo can be 144x144 and still have a visible border */}
+                  <div style={{ width: 176, height: 176 }} className="rounded-full bg-white/10 flex items-center justify-center shadow-md">
+                    {/* Inner circle now 144 x 144 (logo itself) */}
+                    <div style={{ width: 144, height: 144 }} className="rounded-full overflow-hidden bg-white flex items-center justify-center">
                       <img
                         src="/images/gs-logo-hakkimizda.png"
                         alt="Global Shapers Izmir Hub Logo"
-                        width={96}
-                        height={96}
-                        style={{ width: 95.99, height: 95.99, objectFit: 'cover', display: 'block' }}
+                        width={144}
+                        height={144}
+                        style={{ width: 144, height: 144, objectFit: 'cover', display: 'block' }}
                       />
                     </div>
                   </div>
