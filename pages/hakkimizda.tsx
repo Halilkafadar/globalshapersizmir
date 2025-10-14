@@ -38,18 +38,15 @@ export default function AboutPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="flex-shrink-0"
                 >
-                  {/* Outer ring slightly larger so the inner logo can be 144x144 and still have a visible border */}
-                  <div style={{ width: 176, height: 176 }} className="rounded-full bg-white/10 flex items-center justify-center shadow-md">
-                    {/* Inner circle now 144 x 144 (logo itself) */}
-                    <div style={{ width: 144, height: 144 }} className="rounded-full overflow-hidden bg-white flex items-center justify-center">
-                      <img
-                        src="/images/gs-logo-hakkimizda.png"
-                        alt="Global Shapers Izmir Hub Logo"
-                        width={144}
-                        height={144}
-                        style={{ width: 144, height: 144, objectFit: 'cover', display: 'block' }}
-                      />
-                    </div>
+                  {/* Make outer container exactly 144x144 and remove inner padding so logo fully fills the circle */}
+                  <div style={{ width: 144, height: 144 }} className="rounded-full overflow-hidden flex items-center justify-center">
+                    <img
+                      src="/images/gs-logo-hakkimizda.png"
+                      alt="Global Shapers Izmir Hub Logo"
+                      width={144}
+                      height={144}
+                      style={{ width: 144, height: 144, objectFit: 'cover', display: 'block' }}
+                    />
                   </div>
                 </motion.div>
                 

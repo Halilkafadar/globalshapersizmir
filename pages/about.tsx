@@ -35,17 +35,15 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6 }}
             >
-              {/* Outer ring slightly larger so inner logo can be 144x144 */}
-              <div style={{ width: 176, height: 176 }} className="rounded-full bg-white p-3 flex items-center justify-center flex-shrink-0 shadow-2xl ring-4 ring-white/20">
-                <div style={{ width: 144, height: 144 }} className="rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/images/gs-logo.png"
-                    alt="Global Shapers Logo"
-                    width={144}
-                    height={144}
-                    style={{ width: 144, height: 144, objectFit: 'cover', display: 'block' }}
-                  />
-                </div>
+              {/* Make outer container exactly 144x144 and remove inner padding so logo fully fills the circle */}
+              <div style={{ width: 144, height: 144 }} className="rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 shadow-2xl">
+                <img
+                  src="/images/gs-logo.png"
+                  alt="Global Shapers Logo"
+                  width={144}
+                  height={144}
+                  style={{ width: 144, height: 144, objectFit: 'cover', display: 'block' }}
+                />
               </div>
 
               <div>
