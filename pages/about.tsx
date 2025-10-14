@@ -35,12 +35,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6 }}
             >
-              <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-white overflow-hidden flex-shrink-0 shadow-2xl ring-4 ring-white/20">
-                <img 
-                  src="/images/gs-logo.png" 
-                  alt="Global Shapers Logo" 
-                  className="w-full h-full" 
-                />
+              <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-white flex-shrink-0 shadow-2xl ring-4 ring-white/20">
               </div>
 
               <div>
