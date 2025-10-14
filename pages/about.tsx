@@ -152,7 +152,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-gs-navy mb-4">Join Us</h2>
             <p className="text-gray-600 text-lg mb-8">
-              If you're between <strong>20-30 years old</strong> and want to make an impact, <strong>join us!</strong>
+              If you're between <strong>18-30 years old</strong> and want to make an impact, <strong>join us!</strong>
             </p>
             <Link 
               href="/contact"
