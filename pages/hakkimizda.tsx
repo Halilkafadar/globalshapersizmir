@@ -219,7 +219,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">8+</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4</div>
                 <div className="text-gray-200">Years Active</div>
               </motion.div>
 
@@ -230,7 +230,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">15+</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4</div>
                 <div className="text-gray-200">Projects</div>
               </motion.div>
 
@@ -241,7 +241,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.2 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">7,000+</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">500+</div>
                 <div className="text-gray-200">Participants</div>
               </motion.div>
 
