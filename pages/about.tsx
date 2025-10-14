@@ -55,27 +55,15 @@ export default function AboutPage() {
 
         {/* Our Story Section (background image) */}
         <section
-          className="relative"
+          className="py-20"
           style={{
-            minHeight: '60vh',
+            backgroundImage: `url(${encodeURI('/images/WhatsApp Görsel 2025-10-11 saat 22.00.21_0266a1e6.jpg')})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }}
         >
-          {/* Background layer: blurred photo + warm dark overlay */}
-          <div className="absolute inset-0" aria-hidden="true">
-            <div
-              className="absolute inset-0 bg-cover bg-no-repeat"
-              style={{
-                backgroundImage: `url(${encodeURI('/images/our-story-bg.jpg')})`,
-                backgroundPosition: 'center bottom',
-                transform: 'scale(1.03)',
-                filter: 'blur(4px) brightness(0.95)'
-              }}
-            />
-            {/* warm dark overlay to preserve tones and increase contrast */}
-            <div className="absolute inset-0" style={{ backgroundColor: 'rgba(12,8,6,0.55)' }} />
-          </div>
-
-          <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* semi-transparent overlay box for readable text */}
             <div className="bg-white/80 backdrop-blur-md rounded-lg p-10">
               <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-8">Our Story</h2>
@@ -100,118 +88,6 @@ export default function AboutPage() {
                   Our mission is to unlock the potential of young leaders to create innovative solutions to local and global challenges, and to build a more sustainable, inclusive, and equitable future.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Values Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-3">Our Values</h2>
-            <p className="text-center text-gray-600 mb-12">The core principles that guide us</p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Impact Driven */}
-              <motion.div 
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 rounded-md bg-gs-blue/10 flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-gs-blue" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gs-navy mb-2">Impact Driven</h3>
-                <p className="text-gray-600">We work to create measurable and lasting change in society.</p>
-              </motion.div>
-
-              {/* Collaboration */}
-              <motion.div 
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 rounded-md bg-gs-purple/10 flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-gs-purple" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gs-navy mb-2">Collaboration</h3>
-                <p className="text-gray-600">We bring diverse perspectives together to create stronger solutions.</p>
-              </motion.div>
-
-              {/* Innovation */}
-              <motion.div 
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 rounded-md bg-gs-green/10 flex items-center justify-center mb-4">
-                  <svg className="w-8 h-8 text-gs-green" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gs-navy mb-2">Innovation</h3>
-                <p className="text-gray-600">We develop creative solutions by challenging traditional methods.</p>
-              </motion.div>
-
-              {/* Inclusivity */}
-              <motion.div 
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 rounded-md bg-gs-orange/10 flex items-center justify-center mb-4">
-                  <svg className="w-8 h-8 text-gs-orange" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V18H6v-1.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91zM4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58C.48 14.9 0 15.62 0 16.43V18h4.5v-1.61c0-.83.23-1.61.63-2.29zM20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 3.43c0-.81-.48-1.53-1.22-1.85-.85-.37-1.79-.58-2.78-.58-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H24v-1.57zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gs-navy mb-2">Inclusivity</h3>
-                <p className="text-gray-600">We create a society where everyone's voice is heard and included.</p>
-              </motion.div>
-
-              {/* Sustainability */}
-              <motion.div 
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 rounded-md bg-gs-blue/10 flex items-center justify-center mb-4">
-                  <svg className="w-8 h-8 text-gs-blue" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.07-.22c.38-1.18.95-2.92 2.11-4.56C10.18 14.56 14 14 14 14s-1.12 2.19-2.12 4c-.37.65-.72 1.24-1.04 1.75-.35.57-.67 1.1-.94 1.59l1.84.67c.25-.5.54-1.05.85-1.65.32-.63.69-1.35 1.13-2.15C14.87 16.12 16 14 16 14s-1.03 2.11-2.03 4c-.37.65-.72 1.24-1.04 1.75-.35.57-.67 1.1-.94 1.59l1.84.67c.25-.5.54-1.05.85-1.65.32-.63.69-1.35 1.13-2.15C16.87 16.12 18 14 18 14s3-5 3-7c0-2.76-2.24-5-5-5-1.24 0-2.37.46-3.24 1.21C11.97 3.76 11 5.27 11 7c0 .34.03.68.08 1z"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gs-navy mb-2">Sustainability</h3>
-                <p className="text-gray-600">We're building a more livable planet for future generations.</p>
-              </motion.div>
-
-              {/* Excellence */}
-              <motion.div 
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 rounded-md bg-gs-purple/10 flex items-center justify-center mb-4">
-                  <svg className="w-8 h-8 text-gs-purple" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gs-navy mb-2">Excellence</h3>
-                <p className="text-gray-600">We strive to uphold the highest standards in every project.</p>
-              </motion.div>
             </div>
           </div>
         </section>
