@@ -127,7 +127,7 @@ Our program has enabled participants to act 85% more consciously in their financ
   documentation: "/projects/financial-literacy/curriculum"
     },
     impact: {
-      reach: "2,000+ participants",
+      reach: "500+ participants",
       beneficiaries: "50+ schools",
       duration: "2023-Ongoing"
     }
