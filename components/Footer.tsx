@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Linkedin, Twitter, Heart } from 'lucide-react'
+import { Mail, Linkedin, Instagram, Heart } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -28,21 +28,23 @@ export default function Footer() {
               leading the way for young people to shape the future.
             </p>
             <div className="flex space-x-4">
-              <a href="mailto:izmir@globalshapers.org" 
-                 className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
-                <Mail className="w-5 h-5" />
-              </a>
               <a href="https://www.linkedin.com/company/global-shapers-izmir" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com/GS_Izmir" 
+
+              <a href="https://www.instagram.com/shapersizmir/?hl=en" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
-                <Twitter className="w-5 h-5" />
+                <Instagram className="w-5 h-5" />
+              </a>
+
+              <a href="mailto:izmir@globalshapers.org" 
+                 className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+                <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
