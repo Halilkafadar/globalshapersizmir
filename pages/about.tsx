@@ -49,7 +49,7 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-2">About Us test</h1>
+                <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-2">About Us</h1>
                 <p className="text-lg md:text-xl text-white/95">
                   Building a better future by unlocking the potential of young people
                 </p>
