@@ -82,28 +82,28 @@ export default function Home() {
 								className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
 							>
 								<div className="text-center">
-									<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
-										4+
-									</div>
-									<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Years Active</div>
+								<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
+									4
+								</div>
+								<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Years Active</div>
 								</div>
 								<div className="text-center">
-									<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2">
-										15+
-									</div>
-									<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Projects</div>
+								<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2">
+									4
+								</div>
+								<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Projects</div>
 								</div>
 								<div className="text-center">
-									<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-2">
-										500+
-									</div>
-									<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Participants</div>
+								<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-2">
+									500+
+								</div>
+								<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Participants</div>
 								</div>
 								<div className="text-center">
-									<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-2">
-										50+
-									</div>
-									<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Volunteers</div>
+								<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-2">
+									50+
+								</div>
+								<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Volunteers</div>
 								</div>
 							</motion.div>
 						</motion.div>

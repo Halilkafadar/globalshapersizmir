@@ -35,6 +35,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6 }}
             >
+
               {/* Make outer container exactly 144x144 and remove inner padding so logo fully fills the circle */}
               <div style={{ width: 180, height: 180, transform: 'translateX(12px)' }} className="rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
                 <img
@@ -43,6 +44,7 @@ export default function AboutPage() {
                   width={180}
                   height={180}
                   style={{ width: 180, height: 180, objectFit: 'cover', display: 'block', maxWidth: 'none' }}
+
                 />
               </div>
 
@@ -157,12 +159,14 @@ export default function AboutPage() {
             <p className="text-gray-600 text-lg mb-8">
               If you're between <strong>18-30 years old</strong> and want to make an impact, <strong>join us!</strong>
             </p>
-            <Link 
-              href="/contact"
+            <a 
+              href="https://wefglobal.eu.qualtrics.com/jfe/form/SV_6F4bAg3fL2x1eXb?fbclid=PAb21jcANbj6lleHRuA2FlbQIxMQABp29VZnEm_dKVI-bxciOje6xnpan-rzB4tdDGQz0f7RmQK_0qvidAX_UoMjcA_aem_kCQampAlMhl-mvdfAOO20A"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-full font-semibold text-lg hover:opacity-95 transition-all shadow-lg"
             >
               Get in Touch
-            </Link>
+            </a>
           </div>
         </section>
       </main>

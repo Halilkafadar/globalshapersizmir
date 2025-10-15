@@ -169,9 +169,14 @@ export default function MembersPage() {
               <p className="text-xl text-gray-600 mb-8">
                 Get in touch to become a member of Global Shapers Izmir Hub or volunteer for our projects.
               </p>
-            <Link href="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
+            <a 
+              href="https://wefglobal.eu.qualtrics.com/jfe/form/SV_6F4bAg3fL2x1eXb?fbclid=PAb21jcANbj6lleHRuA2FlbQIxMQABp29VZnEm_dKVI-bxciOje6xnpan-rzB4tdDGQz0f7RmQK_0qvidAX_UoMjcA_aem_kCQampAlMhl-mvdfAOO20A"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+            >
               Get in Touch
-            </Link>
+            </a>
           </div>
         </section>
       </main>

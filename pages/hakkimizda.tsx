@@ -10,8 +10,8 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-  <title>About Us - Global Shapers Izmir Hub</title>
-  <meta name="description" content="Learn about Global Shapers Izmir Hub" />
+        <title>About Us - Global Shapers Izmir Hub</title>
+        <meta name="description" content="Learn about Global Shapers Izmir Hub" />
       </Head>
 
       <Navbar />
@@ -29,13 +29,16 @@ export default function AboutPage() {
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 Home
               </Link>
-              
+
               <div className="flex items-center gap-8">
+
                 {/* Logo: outer circle 144x144, inner filled circle exactly 95.99x95.99 */}
+
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
+
                   className="flex-shrink-0"
                 >
                   {/* Make outer container exactly 144x144 and remove inner padding so logo fully fills the circle */}
@@ -48,9 +51,9 @@ export default function AboutPage() {
                       style={{ width: 180, height: 180, objectFit: 'cover', display: 'block', maxWidth: 'none' }}
                     />
                   </div>
+
                 </motion.div>
-                
-                {/* Text */}
+
                 <div>
                   <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
                     About Us
@@ -77,17 +80,17 @@ export default function AboutPage() {
               </h2>
               <div className="prose prose-lg max-w-none space-y-6 text-gray-600">
                 <p>
-                  The Global Shapers Community was founded by the <strong>World Economic Forum</strong> in 2011 
-                  as a global network bringing together young leaders aged 18-30. With more than 450 hubs in over 
+                  The Global Shapers Community was founded by the <strong>World Economic Forum</strong> in 2011
+                  as a global network bringing together young leaders aged 18-30. With more than 450 hubs in over
                   150 countries and 15,000+ members worldwide, we work to shape the future.
                 </p>
                 <p>
-                  <strong>Global Shapers Izmir Hub</strong> was established in 2015 as one of Türkiye's most active hubs. 
-                  Since then, we have reached thousands of people in Izmir and Türkiye by developing various projects in 
+                  <strong>Global Shapers Izmir Hub</strong> was established in 2015 as one of Türkiye's most active hubs.
+                  Since then, we have reached thousands of people in Izmir and Türkiye by developing various projects in
                   education, technology, sustainability and social entrepreneurship.
                 </p>
                 <p>
-                  Our mission is to unlock the potential of young leaders to create innovative solutions to local and 
+                  Our mission is to unlock the potential of young leaders to create innovative solutions to local and
                   global challenges, and to build a more sustainable, inclusive and equitable future.
                 </p>
               </div>
@@ -226,7 +229,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">8+</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4</div>
                 <div className="text-gray-200">Years Active</div>
               </motion.div>
 
@@ -237,7 +240,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">15+</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4</div>
                 <div className="text-gray-200">Projects</div>
               </motion.div>
 
@@ -248,7 +251,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.2 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">7,000+</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">500+</div>
                 <div className="text-gray-200">Participants</div>
               </motion.div>
 

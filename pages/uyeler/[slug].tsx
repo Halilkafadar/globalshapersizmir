@@ -38,10 +38,19 @@ export default function MemberPage({ member }: MemberPageProps) {
               <div className="grid md:grid-cols-3 gap-12 items-center">
                 {/* Member Photo */}
                 <div className="md:col-span-1">
-                  <div className="relative w-64 h-64 mx-auto rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm p-1">
-                    <div className="w-full h-full rounded-xl bg-gradient-to-br from-gs-orange to-gs-green flex items-center justify-center">
-                      <Users className="w-32 h-32 text-white" />
-                    </div>
+                  <div className="relative w-64 h-64 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-gs-orange to-gs-green">
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover scale-125"
+                        style={{ objectPosition: 'center 35%' }}
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Users className="w-32 h-32 text-white" />
+                      </div>
+                    )}
                   </div>
                 </div>
 

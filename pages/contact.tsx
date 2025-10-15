@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
-import { MapPin, Mail, Phone, Send, Globe, ArrowLeft, HelpCircle } from 'lucide-react'
+import { MapPin, Mail, Send, Globe, ArrowLeft, HelpCircle } from 'lucide-react'
 
 export default function ContactPage() {
   return (
@@ -134,12 +134,6 @@ export default function ContactPage() {
                   <MapPin className="w-8 h-8 text-pink-600 mb-4" />
                   <h3 className="font-semibold mb-1">Location</h3>
                   <p className="text-gray-600">İzmir, Türkiye</p>
-                </div>
-
-                <div className="bg-green-50 p-6 rounded-xl">
-                  <Phone className="w-8 h-8 text-green-600 mb-4" />
-                  <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-gray-600">+90 (000) 000 00 00</p>
                 </div>
               </div>
 
