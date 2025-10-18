@@ -38,7 +38,7 @@ export default function Home() {
 							{/* Badge removed per request: Global Shapers İzmir Hub */}
 
 							{/* Main Heading */}
-							<h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-normal antialiased subpixel-antialiased">
+							<h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-relaxed tracking-normal antialiased subpixel-antialiased" style={{ lineHeight: '1.3', paddingBottom: '0.2em' }}>
 								<span className="block text-gray-900 mb-4 antialiased">Shaping the</span>
 								<span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 antialiased">
 									Future Together
