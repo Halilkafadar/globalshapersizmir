@@ -105,6 +105,8 @@ export const members: Member[] = [
     social: {
       linkedin: "https://www.linkedin.com/in/oguzhanakbas/"
     }
+    ,
+    image: "/images/members/oguzhan-akbas.svg"
   },
   {
     slug: "erce-bilgen",
@@ -205,6 +207,8 @@ export const members: Member[] = [
       email: "gamzeeinanlii@gmail.com",
       linkedin: "https://www.linkedin.com/in/gamze-inanli?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
     }
+    ,
+    image: "/images/members/gamze-inanli.svg"
   },
   {
     slug: "gizem-donmez",
