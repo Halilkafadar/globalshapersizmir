@@ -157,8 +157,8 @@ export default function FinancialLiteracyPage() {
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="bg-white rounded-xl p-4">
-                    <div className="text-2xl font-bold text-gs-blue">{project.impact?.duration ?? '—'}</div>
-                    <div className="text-sm text-gray-600">Duration</div>
+                    <div className="text-2xl font-bold text-gs-blue">8+</div>
+                    <div className="text-sm text-gray-600">Weeks Duration</div>
                   </div>
                   <div className="bg-white rounded-xl p-4">
                     <div className="text-2xl font-bold text-gs-purple">32</div>

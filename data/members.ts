@@ -5,7 +5,7 @@ export interface Member {
   shortBio: string
   longBio: string
   // legacy 'photo' kept for backwards compatibility; prefer 'image' where available
-  photo: string
+  photo: string 
   image?: string
   // optional top-level social fields (convenience) - existing code may still use `social`
   linkedin?: string
@@ -99,9 +99,14 @@ export const members: Member[] = [
     name: "Oğuzhan Akbaş",
     role: "Ex Curator",
     shortBio: "Former Curator",
-    longBio: "Former Curator of the Hub.",
+    longBio: "Entrepreneurship Associate at Arya Women Investment Platform. Holds a Bachelor's in Economics from Dokuz Eylul University and is pursuing an M.S. in Finance Management at Istanbul University. Founder of two startups with internships at TUSIAD and QNB Finansbank. Former curator of Global Shapers Izmir and member of the United Nations Turkey Youth Advisory Board. Expertise in startup analysis, investment management, market research, business development and strategic planning. Passionate about supporting women entrepreneurs and fostering innovation in the entrepreneurial ecosystem.",
     photo: "https://via.placeholder.com/400x400/FFAA00/FFFFFF?text=OA",
-    social: {}
+    linkedin: "https://www.linkedin.com/in/oguzhanakbas/",
+    social: {
+      linkedin: "https://www.linkedin.com/in/oguzhanakbas/"
+    }
+    ,
+    image: "/images/members/oguzhan-akbas.jpg"
   },
   {
     slug: "erce-bilgen",
@@ -194,9 +199,16 @@ export const members: Member[] = [
     name: "Gamze İnanlı",
     role: "Shaper",
     shortBio: "Shaper",
-    longBio: "Member of the Hub.",
+    longBio: "Long-standing member of the Global Shapers Izmir Hub who contributes to projects focused on sustainability and financial literacy. With a background in food engineering and a strong interest in marketing, she develops creative ideas that connect people and inspire sustainable futures.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=GI",
-    social: {}
+    email: "gamzeeinanlii@gmail.com",
+    linkedin: "https://www.linkedin.com/in/gamze-inanli?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    social: {
+      email: "gamzeeinanlii@gmail.com",
+      linkedin: "https://www.linkedin.com/in/gamze-inanli?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    }
+    ,
+    image: "/images/members/gamze-inanli.jpg"
   },
   {
     slug: "gizem-donmez",
