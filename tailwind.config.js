@@ -12,18 +12,22 @@ module.exports = {
         'gs-orange': '#FF5630',
         'gs-green': '#36B37E',
         'gs-purple': '#6554C0',
-        // Mindcraft colors
+        // Mindcraft colors - Dark Navy + Gold Theme (PDF Vision)
         'mindcraft-blue': '#3B82F6',
         'mindcraft-purple': '#A855F7',
         'mindcraft-green': '#10B981',
         'mindcraft-dark': '#1E293B',
         'mindcraft-light': '#F8FAFC',
+        // Intelligence Age Colors (PDF)
+        'intelligence-dark': '#0F172A',
+        'intelligence-navy': '#1E3A8A',
+        'intelligence-gold': '#FDD34D',
+        'intelligence-light-gold': '#FEFFB8',
       },
       fontFamily: {
-        // Use Noto Sans (latin-ext) as primary sans to support Turkish characters
-        sans: ['"Noto Sans"', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
-        body: ['"Manrope"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        body: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
