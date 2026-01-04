@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import impactStats from '@/utils/impactStats'
 
 export default function PartnersSection() {
   const partners = [
@@ -10,15 +9,20 @@ export default function PartnersSection() {
     { name: 'Global Shapers', logo: '/partners/gs.svg' },
   ]
 
-  const stats = impactStats
+  const stats = [
+    { value: '5,000+', label: 'Students Reached' },
+    { value: '15+', label: 'Countries' },
+    { value: '100+', label: 'Partner Schools' },
+    { value: '98%', label: 'Satisfaction Rate' },
+  ]
 
   return (
-    <section className="py-24 gradient-bg">
+    <section id="partners" className="py-24 gradient-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Impact Stats */}
         <div className="mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            <span className="gradient-text">The Global Impact We Are Shaping</span>
+            <span className="gradient-text">Our Global Impact</span>
           </h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -74,14 +78,19 @@ export default function PartnersSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-            <h3 className="text-3xl font-bold mb-4 gradient-text">
-              Built by Global Shapers Izmir Hub
+          <h3 className="text-3xl font-bold mb-4 gradient-text">
+            Built by Global Shapers İzmir Hub
           </h3>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
             A diverse community of young leaders committed to creating positive change 
             through innovative education and AI literacy initiatives.
           </p>
-          {/* CTA removed per visual clean-up request */}
+          <a 
+            href="mailto:izmirglobalshapers@gmail.com"
+            className="inline-block btn-primary"
+          >
+            Get in Touch
+          </a>
         </motion.div>
       </div>
     </section>
