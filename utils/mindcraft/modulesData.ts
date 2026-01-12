@@ -123,7 +123,7 @@ export const modulesData: Module[] = [
     ]
   },
   {
-    id: 'ai-art',
+    id: 'ai-art-creation',
     title: 'AI Art Creation',
     description: 'Every great artist has a unique signature—a style that screams "this is mine." In the age of AI art, your job isn\'t to compete with machines, but to use them as the ultimate creative tool while keeping your human signature front and center.',
     hook: 'Every great artist has a unique signature—a style that screams "this is mine." In the age of AI art, your job isn\'t to compete with machines, but to use them as the ultimate creative tool while keeping your human signature front and center.',
