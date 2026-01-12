@@ -507,8 +507,9 @@ export default function ScientificResearchPage() {
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row gap-6">
-              <motion.div
-                className="flex-1 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8"
+              <motion.a
+                href="/projects/mindcraft/ai-art-creation"
+                className="flex-1 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border border-purple-100 hover:border-purple-200 transition-all"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
@@ -524,10 +525,11 @@ export default function ScientificResearchPage() {
                 <p className="text-sm text-gray-600">
                   Revisit AI-powered art creation topics
                 </p>
-              </motion.div>
+              </motion.a>
 
-              <motion.div
-                className="flex-1 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8"
+              <motion.a
+                href="/projects/mindcraft/creative-innovation"
+                className="flex-1 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 border border-yellow-100 hover:border-yellow-200 transition-all"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
@@ -543,7 +545,7 @@ export default function ScientificResearchPage() {
                 <p className="text-sm text-gray-600">
                   Explore creative innovation and global impact topics
                 </p>
-              </motion.div>
+              </motion.a>
             </div>
           </div>
         </section>
