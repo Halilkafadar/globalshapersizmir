@@ -28,7 +28,7 @@ export interface Module {
 export const modulesData: Module[] = [
   {
     id: 'ai-ethics',
-    title: 'The AI Conscience - Ethics in the Age of Algorithms',
+    title: 'AI & Ethics',
     description: 'What if your phone\'s AI started making decisions about who gets hired, who gets loans, or even who gets medical treatment? In a world where algorithms shape our reality, understanding AI ethics isn\'t just smart—it\'s survival.',
     hook: 'What if your phone\'s AI started making decisions about who gets hired, who gets loans, or even who gets medical treatment? In a world where algorithms shape our reality, understanding AI ethics isn\'t just smart—it\'s survival.',
     schwabInsight: 'In the Intelligent Age, you have a choice: become a "Navigator" who maintains cognitive sovereignty over AI systems, or become a "Slave" to algorithms that think for you. The difference lies in understanding how AI can be biased, how your data is used, and choosing when to trust the machine versus your human judgment.',
@@ -60,7 +60,7 @@ export const modulesData: Module[] = [
   },
   {
     id: 'prompt-engineering',
-    title: 'The Art of AI Conversation - Master Prompt Engineering',
+    title: 'Prompt Engineering',
     description: 'Imagine having a conversation with the smartest person in the world, but they only answer exactly what you ask. Learning to "speak AI" through prompt engineering is like unlocking a superpower that lets you get incredible results from any AI tool.',
     hook: 'Imagine having a conversation with the smartest person in the world, but they only answer exactly what you ask. Learning to "speak AI" through prompt engineering is like unlocking a superpower that lets you get incredible results from any AI tool.',
     schwabInsight: 'In the Intelligent Age, your ability to communicate with AI systems determines your success. Master prompt engineering, and you become a "Navigator" who directs AI\'s power. Ignore it, and you become dependent on whatever the AI decides to give you.',
@@ -92,7 +92,7 @@ export const modulesData: Module[] = [
   },
   {
     id: 'coding-automation',
-    title: 'Code to Create - Computational Thinking Unlocked',
+    title: 'Coding & Automation',
     description: 'What if you could teach a computer to do all the boring, repetitive work while you focus on the creative, meaningful stuff? Programming with AI isn\'t about becoming a robot—it\'s about freeing your mind to solve bigger problems.',
     hook: 'What if you could teach a computer to do all the boring, repetitive work while you focus on the creative, meaningful stuff? Programming with AI isn\'t about becoming a robot—it\'s about freeing your mind to solve bigger problems.',
     schwabInsight: 'The Intelligent Age doesn\'t require everyone to become programmers, but it does require "computational thinking"—breaking down complex problems into steps that machines can help solve. This partnership lets humans focus on creativity, empathy, and innovation while AI handles the computational "drudgery."',
@@ -124,7 +124,7 @@ export const modulesData: Module[] = [
   },
   {
     id: 'ai-art',
-    title: 'Digital Renaissance - AI Art with Human Soul',
+    title: 'AI Art Creation',
     description: 'Every great artist has a unique signature—a style that screams "this is mine." In the age of AI art, your job isn\'t to compete with machines, but to use them as the ultimate creative tool while keeping your human signature front and center.',
     hook: 'Every great artist has a unique signature—a style that screams "this is mine." In the age of AI art, your job isn\'t to compete with machines, but to use them as the ultimate creative tool while keeping your human signature front and center.',
     schwabInsight: 'AI can generate thousands of images per minute, but it can\'t generate meaning, emotion, or authentic human experience. In the Intelligent Age, AI becomes a "bicycle for the mind"—amplifying human creativity rather than replacing it. The value lies not in what AI creates, but in how humans direct, curate, and infuse it with purpose.',
@@ -156,7 +156,7 @@ export const modulesData: Module[] = [
   },
   {
     id: 'scientific-research',
-    title: 'Truth Seekers - Scientific Methods for the Information Age',
+    title: 'Scientific Research Methods',
     description: 'In a world where AI can confidently tell you that penguins live in the Arctic, how do you separate facts from fiction? Learning to verify information and detect AI "hallucinations" is your superpower for navigating the flood of information in the digital age.',
     hook: 'In a world where AI can confidently tell you that penguins live in the Arctic, how do you separate facts from fiction? Learning to verify information and detect AI "hallucinations" is your superpower for navigating the flood of information in the digital age.',
     schwabInsight: 'The Intelligent Age creates an abundance of information but not necessarily an abundance of wisdom. Developing the ability to transform "data to wisdom" through scientific thinking and fact-checking becomes crucial for maintaining cognitive sovereignty and making informed decisions.',
@@ -188,7 +188,7 @@ export const modulesData: Module[] = [
   },
   {
     id: 'creative-innovation',
-    title: 'Innovation Lab - Collective Intelligence for Global Impact',
+    title: 'Creative Innovation',
     description: 'What if your generation could solve climate change, end poverty, or create global peace not through individual genius, but through intelligent collaboration between humans and AI? Welcome to the era of collective intelligence, where your ideas can scale to change the world.',
     hook: 'What if your generation could solve climate change, end poverty, or create global peace not through individual genius, but through intelligent collaboration between humans and AI? Welcome to the era of collective intelligence, where your ideas can scale to change the world.',
     schwabInsight: 'The Intelligent Age\'s greatest opportunity lies in combining human creativity, empathy, and values with AI\'s computational power to tackle humanity\'s biggest challenges. True innovation emerges not from humans versus machines, but from humans with machines working toward shared goals.',

@@ -34,41 +34,146 @@ export default function ModuleQuiz({ moduleId }: ModuleQuizProps) {
         explanation: 'Algorithmic bias occurs when AI systems produce systematically unfair outcomes, often due to biased training data or flawed assumptions.'
       },
       {
-        question: 'Which principle is most important in AI ethics?',
+        question: 'In Klaus Schwab\'s "Intelligent Age," what is cognitive sovereignty?',
         options: [
-          'Speed',
-          'Cost-effectiveness',
-          'Transparency and explainability',
-          'Complexity'
+          'Being smarter than AI',
+          'Controlling AI companies',
+          'Maintaining human agency in decision-making with AI',
+          'Avoiding AI completely'
         ],
         correct: 2,
-        explanation: 'Transparency and explainability are crucial for ethical AI, allowing people to understand how AI makes decisions.'
+        explanation: 'Cognitive sovereignty means maintaining your ability to think independently and make decisions even when using AI tools.'
+      },
+      {
+        question: 'What\'s the difference between being a "Navigator" vs a "Slave" to AI?',
+        options: [
+          'Navigators use expensive AI, slaves use free AI',
+          'Navigators direct AI tools, slaves depend on AI decisions',
+          'Navigators build AI, slaves just use it',
+          'There is no difference'
+        ],
+        correct: 1,
+        explanation: 'Navigators maintain control and direct AI as a tool, while slaves become dependent on AI for thinking and decision-making.'
       }
     ],
     'prompt-engineering': [
       {
-        question: 'What makes a good AI prompt?',
+        question: 'What are the three components of the PTC framework?',
         options: [
-          'Being vague to let AI be creative',
-          'Using complex vocabulary',
-          'Being clear, specific, and providing context',
-          'Making it as short as possible'
+          'Prompt, Text, Code',
+          'Person, Time, Context',
+          'Persona, Context, Task',
+          'Purpose, Topic, Conclusion'
         ],
         correct: 2,
-        explanation: 'Good prompts are clear, specific, and provide necessary context to help the AI understand exactly what you need.'
+        explanation: 'The PTC framework stands for Persona (who the AI should be), Context (the situation), and Task (what you want accomplished).'
+      },
+      {
+        question: 'What makes a good AI prompt according to Socratic dialogue principles?',
+        options: [
+          'Being as brief as possible',
+          'Asking questions that lead to deeper thinking',
+          'Using complex vocabulary',
+          'Giving all the answers upfront'
+        ],
+        correct: 1,
+        explanation: 'Like Socrates, good prompts ask questions that guide AI toward deeper analysis and better reasoning.'
       }
     ],
     'coding-automation': [
       {
-        question: 'What is a variable in programming?',
+        question: 'What is computational thinking?',
         options: [
-          'A bug in the code',
-          'A container for storing data',
-          'A type of loop',
-          'An error message'
+          'Thinking like a computer',
+          'Breaking problems into logical steps machines can help solve',
+          'Only thinking about coding',
+          'Avoiding human creativity'
         ],
         correct: 1,
-        explanation: 'A variable is like a labeled container that stores data values that can be used and changed in your program.'
+        explanation: 'Computational thinking means breaking down complex problems into logical steps that both humans and computers can understand and solve together.'
+      },
+      {
+        question: 'How does AI remove "drudgery" in programming?',
+        options: [
+          'By making programming unnecessary',
+          'By handling repetitive tasks so humans can focus on creativity',
+          'By making everything automatic',
+          'By replacing all programmers'
+        ],
+        correct: 1,
+        explanation: 'AI handles repetitive coding tasks, freeing humans to focus on creative problem-solving, design, and innovation.'
+      }
+    ],
+    'ai-art': [
+      {
+        question: 'What is the "human signature" in AI art?',
+        options: [
+          'Signing your name on AI artwork',
+          'Your unique perspective and experiences that give meaning to AI creations',
+          'Using only human-made tools',
+          'Avoiding AI completely'
+        ],
+        correct: 1,
+        explanation: 'Your human signature is your unique perspective, experiences, and cultural context that gives meaning and purpose to AI-generated art.'
+      },
+      {
+        question: 'How is AI a "bicycle for the mind" in art creation?',
+        options: [
+          'It replaces human creativity',
+          'It amplifies human creativity without replacing human vision',
+          'It makes art faster',
+          'It only helps with technical skills'
+        ],
+        correct: 1,
+        explanation: 'Like a bicycle amplifies your ability to move without replacing your legs, AI amplifies creativity without replacing human vision and meaning-making.'
+      }
+    ],
+    'scientific-research': [
+      {
+        question: 'What is the "data-to-wisdom" pipeline?',
+        options: [
+          'Raw data → verified data → knowledge → wisdom',
+          'Data → computer → answer → truth',
+          'Information → AI → result → fact',
+          'Research → analysis → conclusion → publication'
+        ],
+        correct: 0,
+        explanation: 'The pipeline moves from raw information to verified data, then meaningful knowledge, and finally actionable wisdom through human judgment.'
+      },
+      {
+        question: 'What is an AI hallucination?',
+        options: [
+          'When AI becomes self-aware',
+          'When AI generates plausible-sounding but false information',
+          'When AI refuses to answer',
+          'When AI makes typos'
+        ],
+        correct: 1,
+        explanation: 'AI hallucinations are when AI confidently presents false information that sounds plausible but isn\'t actually true.'
+      }
+    ],
+    'creative-innovation': [
+      {
+        question: 'What is collective intelligence?',
+        options: [
+          'Everyone thinking the same way',
+          'AI replacing human teams',
+          'Diverse human perspectives combined with AI analytical power',
+          'Only using group decisions'
+        ],
+        correct: 2,
+        explanation: 'Collective intelligence combines diverse human creativity and empathy with AI\'s computational power to solve complex problems.'
+      },
+      {
+        question: 'How do the UN Sustainable Development Goals relate to innovation?',
+        options: [
+          'They limit what you can innovate',
+          'They provide a framework for meaningful global impact',
+          'They only apply to governments',
+          'They\'re not relevant to young innovators'
+        ],
+        correct: 1,
+        explanation: 'SDGs provide a framework for channeling human-AI partnerships toward solving humanity\'s biggest challenges.'
       }
     ]
   }

@@ -23,17 +23,128 @@ export default function InteractiveDemo({ moduleId }: InteractiveDemoProps) {
   }
 
   const getDemoResult = (id: string, input: string) => {
-    // Mock responses based on module
+    // Enhanced responses based on module
     const responses: Record<string, string> = {
-      'ai-ethics': `Ethical Analysis: "${input}"\n\nKey Considerations:\n• Privacy implications\n• Bias detection\n• Fairness assessment\n• Societal impact\n\nRecommendation: This scenario requires careful consideration of user consent and data protection.`,
-      'prompt-engineering': `Improved Prompt: "${input}"\n\nEnhancement Suggestions:\n• Add specific context\n• Define desired format\n• Include constraints\n• Specify tone and style\n\nOptimized Version: "${input} Please provide a detailed response in bullet points, focusing on practical examples suitable for beginners."`,
-      'ai-art': `🎨 Generating art with prompt: "${input}"\n\nSuggested enhancements:\n• "Vibrant, ${input}, digital art, trending on ArtStation"\n• "Photorealistic ${input}, 8k resolution, studio lighting"\n• "Watercolor painting of ${input}, soft pastels, dreamy atmosphere"\n\n[Image would appear here in production]`,
-      'coding-automation': `# Python Code for: ${input}\n\ndef solve_task():\n    # Automated solution\n    result = "${input}"\n    print(f"Processing: {result}")\n    return True\n\nsolve_task()\n\n# This code demonstrates basic automation principles!`,
-      'scientific-research': `Research Framework for: "${input}"\n\n1. Hypothesis: [Your hypothesis here]\n2. Variables: Independent, Dependent, Control\n3. Methodology: Data collection approach\n4. Expected Outcomes: Predicted results\n5. AI Tools: Recommended analysis platforms\n\nNext Steps: Design your experiment protocol.`,
-      'creative-innovation': `Innovation Blueprint: "${input}"\n\n💡 Empathize: Understand user needs\n🎯 Define: Clarify the problem\n🌟 Ideate: Brainstorm solutions\n🔨 Prototype: Build quick mockup\n✅ Test: Get feedback and iterate\n\nYour idea has potential! Let's prototype it.`
+      'ai-ethics': `🤖 Ethical Analysis: "${input}"
+
+🔍 Key Considerations:
+• Privacy implications: Does this collect personal data?
+• Bias detection: Could this discriminate against any groups?
+• Fairness assessment: Are outcomes equitable for all users?
+• Transparency: Can users understand how decisions are made?
+• Accountability: Who is responsible for AI mistakes?
+
+💡 Schwab Insight: In the Intelligent Age, maintaining cognitive sovereignty means actively questioning AI systems rather than blindly trusting them.
+
+🎯 Recommendation: This scenario requires careful consideration of user consent, data protection, and ongoing bias monitoring. Consider implementing human oversight for critical decisions.`,
+
+      'prompt-engineering': `✨ Prompt Enhancement: "${input}"
+
+🔧 Using the PTC Framework:
+• Persona: "You are an expert tutor specializing in [subject]"
+• Context: "I am a [age/level] student learning [topic]"
+• Task: "Please explain [concept] using simple examples"
+
+🎨 Improved Version:
+"You are an encouraging AI tutor specializing in ${input}. I am a curious student who learns best through examples and analogies. Please explain ${input} in simple terms, using real-world examples and analogies that a teenager would understand. Format your response with clear headings and bullet points."
+
+💡 Socratic Enhancement: Try asking follow-up questions like:
+- "Can you give me an analogy for this concept?"
+- "What would happen if we changed this variable?"
+- "How does this connect to what I already know?"`,
+
+      'coding-automation': `💻 Automation Solution: "${input}"
+
+🧠 Computational Thinking Breakdown:
+1. Problem Definition: What exactly needs to be automated?
+2. Pattern Recognition: What repeats in this task?
+3. Decomposition: Break into smaller steps
+4. Algorithm Design: Create logical sequence
+5. Implementation: Code the solution
+
+🐍 Python Pseudocode:
+def automate_${input.toLowerCase().replace(/\s+/g, '_')}():
+    # Step 1: Identify the pattern
+    pattern = detect_pattern("${input}")
+    
+    # Step 2: Set up automation
+    while task_not_complete:
+        execute_step(pattern)
+        check_progress()
+    
+    # Step 3: Human creativity focus
+    return "Time freed for creative work!"
+
+💡 Liberation Insight: By automating "${input}", you free up [estimated time] to focus on creative problem-solving, relationship building, and innovation!`,
+
+      'ai-art': `🎨 AI Art Creation: "${input}"
+
+🖌️ Human Signature Elements:
+• Your unique perspective: What personal experience influences this?
+• Cultural context: How does your background shape this vision?
+• Emotional intent: What feeling do you want to convey?
+• Story elements: What narrative does this tell?
+
+🤖 AI Bicycle Prompts:
+Enhanced prompts for "${input}":
+1. "Artistic interpretation of ${input}, inspired by [your cultural background], [emotion], digital art, trending on ArtStation"
+2. "Personal story about ${input}, [your unique experience], watercolor style, emotional depth"
+3. "${input} through the lens of a teenager in [your location], vibrant, hopeful, mixed media"
+
+💡 Human-AI Collaboration: The magic happens when AI handles technical execution while you provide the vision, meaning, and cultural context. Your human signature is irreplaceable!
+
+🎯 Next Steps: Create variations, curate the best, and tell the story behind your choices.`,
+
+      'scientific-research': `🔬 Research Framework: "${input}"
+
+📊 Data-to-Wisdom Pipeline:
+1. Raw Data: Collect information about "${input}"
+2. Verified Data: Cross-reference with 3+ credible sources
+3. Knowledge: Analyze patterns and connections
+4. Wisdom: Apply insights to real-world decisions
+
+🕵️ Fact-Check Protocol:
+• Primary sources: Find original research
+• Authority check: Verify author credentials
+• Recency: Is information current?
+• Cross-reference: Compare multiple sources
+• Bias detection: Identify potential conflicts of interest
+
+🤖 AI Hallucination Check:
+Common warning signs for "${input}":
+- Overly specific statistics without sources
+- Claims that seem too good to be true
+- Conflicting information from AI vs. verified sources
+
+💡 Scientific Skepticism: In the Intelligent Age, your ability to verify information is your superpower against misinformation.`,
+
+      'creative-innovation': `💡 Innovation Blueprint: "${input}"
+
+🌍 SDG Connection: How does "${input}" address:
+• Quality Education (SDG 4)
+• Reduced Inequalities (SDG 10)
+• Climate Action (SDG 13)
+• Peace & Justice (SDG 16)
+
+🎯 Collective Intelligence Approach:
+1. Human Empathy: Understand real user needs
+2. AI Analysis: Process large datasets for insights
+3. Diverse Perspectives: Include different viewpoints
+4. Rapid Prototyping: Test ideas quickly with AI tools
+5. Human Values: Ensure ethical impact
+
+🚀 Prototype-to-Scale Path:
+Week 1: Define problem with human interviews
+Week 2: AI-assisted research and ideation
+Week 3: Build minimum viable prototype
+Week 4: Test with real users and iterate
+
+💝 Human-AI Partnership: Your creativity + empathy + AI's computational power = Solutions that can change the world!
+
+🎯 Global Impact Potential: This idea could reach [estimated] people and create [positive change] in your community.`
     }
     
-    return responses[id] || `Processing: ${input}\n\nThis is an interactive demo. In production, this would connect to actual AI services!`
+    return responses[id] || `🤖 Processing: ${input}\n\n✨ This is an interactive demo showcasing AI capabilities for this module. In production, this would connect to specialized AI services tailored for ${id}!\n\n💡 Try different inputs to see how AI responds to various prompts and scenarios.`
   }
 
   return (
