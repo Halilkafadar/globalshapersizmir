@@ -14,7 +14,8 @@ import {
   ArrowRight, 
   Play, 
   MessageSquare,
-  Palette
+  Palette,
+  Microscope
 } from 'lucide-react'
 
 export default function CodingAutomationPage() {
@@ -356,22 +357,22 @@ export default function CodingAutomationPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <motion.a
-                  href="/projects/mindcraft/ai-art-creation"
+                  href="/projects/mindcraft/scientific-research"
                   className="group bg-gradient-to-br from-blue-600/20 to-indigo-600/20 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/30 hover:border-blue-400/50 transition-all"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
-                      <Palette className="w-6 h-6 text-white" />
+                      <Microscope className="w-6 h-6 text-white" />
                     </div>
                     <div className="text-left">
                       <h3 className="text-xl font-bold text-white">Next Module</h3>
-                      <p className="text-blue-300">AI Art Creation</p>
+                      <p className="text-blue-300">Scientific Research Methods</p>
                     </div>
                   </div>
                   <p className="text-gray-300 text-left group-hover:text-white transition-colors">
-                    Explore creative AI applications in visual art and design
+                    Master research methodology and scientific thinking
                   </p>
                   <ArrowRight className="w-5 h-5 text-blue-400 ml-auto mt-4 group-hover:translate-x-1 transition-transform" />
                 </motion.a>
