@@ -257,7 +257,7 @@ export default function ModuleContent({ module }: ModuleContentProps) {
               <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
                 <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
                   <Brain className="w-6 h-6 text-amber-600" />
-                  The Schwab Insight
+                  The Navigator's Insight
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed italic">{module.schwabInsight}</p>
               </div>
@@ -283,7 +283,7 @@ export default function ModuleContent({ module }: ModuleContentProps) {
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
                   <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
                     <Target className="w-6 h-6 text-emerald-600" />
-                    Interactive Element
+                    Navigator Challenge
                   </h2>
                   <p className="text-gray-700 leading-relaxed">{module.interactiveElement}</p>
                 </div>
@@ -292,7 +292,7 @@ export default function ModuleContent({ module }: ModuleContentProps) {
                 <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-8">
                   <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
                     <Lightbulb className="w-6 h-6 text-rose-600" />
-                    The Mindcraft Challenge
+                    The Sparring Partner Challenge
                   </h2>
                   <p className="text-gray-700 leading-relaxed">{module.mindcraftChallenge}</p>
                 </div>
@@ -415,7 +415,7 @@ export default function ModuleContent({ module }: ModuleContentProps) {
                 
                 <div className="mt-6">
                   <button className="btn-primary w-full">
-                    Start Learning
+                    Start Your Navigator Journey
                   </button>
                 </div>
               </div>
