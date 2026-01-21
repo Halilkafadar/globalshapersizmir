@@ -379,6 +379,59 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
+        {/* What is Artificial Intelligence? - Foundation Block */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-indigo-900/30 to-blue-900/30 backdrop-blur-lg rounded-2xl p-8 border border-indigo-500/30"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-indigo-400" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-white mb-2">
+                    What is Artificial Intelligence?
+                  </h2>
+                  <p className="text-indigo-300 text-lg">
+                    Understanding the foundation of modern AI systems
+                  </p>
+                </div>
+              </div>
+              
+              <div className="space-y-6 text-gray-300">
+                <p className="text-lg leading-relaxed">
+                  Artificial Intelligence (AI) refers to computer systems that can perform tasks typically requiring human intelligence. 
+                  Modern AI works through <strong className="text-white">machine learning</strong> - algorithms that learn patterns from vast amounts of data.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-white mb-3">🧠 Machine Learning</h3>
+                    <p className="text-gray-300">Systems that improve automatically through experience, finding patterns in data without explicit programming.</p>
+                  </div>
+                  <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-white mb-3">🤖 Deep Learning</h3>
+                    <p className="text-gray-300">Neural networks with multiple layers that can process complex data like images, text, and speech.</p>
+                  </div>
+                </div>
+                
+                <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">⚡ Key Insight</h3>
+                  <p className="text-gray-300">
+                    AI systems don't "think" like humans - they recognize patterns and make predictions based on training data. 
+                    This fundamental difference is crucial for understanding AI's capabilities and limitations.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* 1. Module Introduction and Foundations */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -764,124 +817,8 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Knowledge Block 1: What is Artificial Intelligence? */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-indigo-900/30 to-blue-900/30 backdrop-blur-lg rounded-2xl p-8 border border-indigo-500/30"
-            >
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center">
-                  <Brain className="w-6 h-6 text-indigo-400" />
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-white mb-2">
-                    What is Artificial Intelligence?
-                  </h2>
-                  <p className="text-indigo-300 text-lg">
-                    Understanding the foundation of modern AI systems
-                  </p>
-                </div>
-              </div>
-              
-              <div className="space-y-6 text-gray-300">
-                <p className="text-lg leading-relaxed">
-                  Artificial Intelligence (AI) refers to computer systems that can perform tasks typically requiring human intelligence. 
-                  Modern AI works through <strong className="text-white">machine learning</strong> - algorithms that learn patterns from vast amounts of data.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-white mb-3">🧠 Machine Learning</h3>
-                    <p className="text-gray-300">Systems that improve automatically through experience, finding patterns in data without explicit programming.</p>
-                  </div>
-                  <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-white mb-3">🤖 Deep Learning</h3>
-                    <p className="text-gray-300">Neural networks with multiple layers that can process complex data like images, text, and speech.</p>
-                  </div>
-                </div>
-                
-                <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-white mb-3">⚡ Key Insight</h3>
-                  <p className="text-gray-300">
-                    AI systems don't "think" like humans - they recognize patterns and make predictions based on training data. 
-                    This fundamental difference is crucial for understanding AI's capabilities and limitations.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Knowledge Block 2: Environmental Impact - Water Consumption */}
+        {/* Knowledge Block 1: Algorithmic Bias and Manipulation */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-teal-900/30 to-cyan-900/30 backdrop-blur-lg rounded-2xl p-8 border border-teal-500/30"
-            >
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-teal-500/20 flex items-center justify-center">
-                  <Droplets className="w-6 h-6 text-teal-400" />
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-white mb-2">
-                    The Hidden Water Cost of AI
-                  </h2>
-                  <p className="text-teal-300 text-lg">
-                    Environmental impact of training and running AI models
-                  </p>
-                </div>
-              </div>
-              
-              <div className="bg-teal-950/30 border border-teal-500/50 rounded-xl p-6 mb-6">
-                <h3 className="text-xl font-semibold text-white mb-3">💧 Shocking Statistics</h3>
-                <div className="grid md:grid-cols-3 gap-4 text-center">
-                  <div className="bg-teal-900/30 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-teal-400">700,000L</div>
-                    <div className="text-sm text-gray-300">Water used to train GPT-3</div>
-                  </div>
-                  <div className="bg-teal-900/30 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-teal-400">500mL</div>
-                    <div className="text-sm text-gray-300">Per 20-50 ChatGPT queries</div>
-                  </div>
-                  <div className="bg-teal-900/30 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-teal-400">1.7B L</div>
-                    <div className="text-sm text-gray-300">Google's AI water use (2021)</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-6 text-gray-300">
-                <p className="text-lg leading-relaxed">
-                  AI data centers require massive amounts of water for cooling. Training large language models like GPT-4 
-                  consumes water equivalent to producing hundreds of cars. Every AI query has an environmental footprint.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-teal-950/30 border border-teal-500/50 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-white mb-3">🏭 Data Center Cooling</h3>
-                    <p className="text-gray-300">Servers generate heat that requires water-based cooling systems, especially for intensive AI computations.</p>
-                  </div>
-                  <div className="bg-teal-950/30 border border-teal-500/50 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-white mb-3">🌍 Global Impact</h3>
-                    <p className="text-gray-300">As AI adoption grows, water consumption for tech infrastructure is becoming a significant environmental concern.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Knowledge Block 3: Algorithmic Bias and Manipulation */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -932,7 +869,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Knowledge Block 4: Digital Addiction and Dependency Risk */}
+        {/* Knowledge Block 2: Digital Addiction and Dependency Risk */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -1016,7 +953,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Knowledge Block 5: Impact on Human Creativity */}
+        {/* Knowledge Block 3: Impact on Human Creativity */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -1116,7 +1053,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Knowledge Block 6: Moral Choices and Responsibility */}
+        {/* Knowledge Block 4: Moral Choices and Responsibility */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -1230,6 +1167,69 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
+        {/* Knowledge Block 5: The Hidden Water Cost of AI */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-teal-900/30 to-cyan-900/30 backdrop-blur-lg rounded-2xl p-8 border border-teal-500/30"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-teal-500/20 flex items-center justify-center">
+                  <Droplets className="w-6 h-6 text-teal-400" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-white mb-2">
+                    The Hidden Water Cost of AI
+                  </h2>
+                  <p className="text-teal-300 text-lg">
+                    Environmental impact of training and running AI models
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-teal-950/30 border border-teal-500/50 rounded-xl p-6 mb-6">
+                <h3 className="text-xl font-semibold text-white mb-3">💧 Shocking Statistics</h3>
+                <div className="grid md:grid-cols-3 gap-4 text-center">
+                  <div className="bg-teal-900/30 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-teal-400">700,000L</div>
+                    <div className="text-sm text-gray-300">Water used to train GPT-3</div>
+                  </div>
+                  <div className="bg-teal-900/30 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-teal-400">500mL</div>
+                    <div className="text-sm text-gray-300">Per 20-50 ChatGPT queries</div>
+                  </div>
+                  <div className="bg-teal-900/30 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-teal-400">1.7B L</div>
+                    <div className="text-sm text-gray-300">Google's AI water use (2021)</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6 text-gray-300">
+                <p className="text-lg leading-relaxed">
+                  AI data centers require massive amounts of water for cooling. Training large language models like GPT-4 
+                  consumes water equivalent to producing hundreds of cars. Every AI query has an environmental footprint.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-teal-950/30 border border-teal-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-white mb-3">🏭 Data Center Cooling</h3>
+                    <p className="text-gray-300">Servers generate heat that requires water-based cooling systems, especially for intensive AI computations.</p>
+                  </div>
+                  <div className="bg-teal-950/30 border border-teal-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-white mb-3">🌍 Global Impact</h3>
+                    <p className="text-gray-300">As AI adoption grows, water consumption for tech infrastructure is becoming a significant environmental concern.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Component 2: Social Proof Choice Mirroring */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -1333,7 +1333,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Knowledge Block 7: Digital Reality and Trust */}
+        {/* Knowledge Block 6: Digital Reality and Trust */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
