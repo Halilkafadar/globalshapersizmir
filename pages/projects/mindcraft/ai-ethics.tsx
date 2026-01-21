@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '@/components/mindcraft/layout/Navbar'
 import Footer from '@/components/mindcraft/layout/Footer'
 import { modulesData } from '@/utils/mindcraft/modulesData'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Brain, 
   Shield, 
@@ -14,203 +14,211 @@ import {
   Play, 
   Target,
   Zap,
-  Heart
+  Heart,
+  Sliders,
+  BarChart3,
+  Download,
+  FileText,
+  AlertTriangle,
+  ChevronDown,
+  ChevronRight
 } from 'lucide-react'
+
+// Interactive Components
+interface HiringAlgorithmState {
+  experience: number
+  age: number
+  genderBalance: boolean
+}
+
+interface BiasRadarState {
+  currentQuestion: number
+  userChoices: string[]
+  gameComplete: boolean
+}
+
+interface EthicsJourneyState {
+  notes: string
+  manifesto: string[]
+}
 
 export default function AIEthicsPage() {
   const [currentSection, setCurrentSection] = useState(0)
   const [reflectionText, setReflectionText] = useState('')
+  
+  // Component 1: Interactive Hiring Algorithm
+  const [hiringAlgorithm, setHiringAlgorithm] = useState<HiringAlgorithmState>({
+    experience: 50,
+    age: 30,
+    genderBalance: false
+  })
+  const [diversityScore, setDiversityScore] = useState(50)
+  const [showAgeismWarning, setShowAgeismWarning] = useState(false)
+
+  // Component 2: Social Proof Choice Mirroring
+  const [carDilemmaChoice, setCarDilemmaChoice] = useState<string | null>(null)
+  const [showMoralStats, setShowMoralStats] = useState(false)
+
+  // Component 3: Bias Radar Mini-Game
+  const [biasRadar, setBiasRadar] = useState<BiasRadarState>({
+    currentQuestion: 0,
+    userChoices: [],
+    gameComplete: false
+  })
+
+  // Component 4: Ethics Journey Tracker
+  const [ethicsJourney, setEthicsJourney] = useState<EthicsJourneyState>({
+    notes: '',
+    manifesto: []
+  })
+
+  const [expandedAccordion, setExpandedAccordion] = useState<string | null>(null)
 
   const module = modulesData.find(m => m.id === 'ai-ethics')
   
   if (!module) return null
 
-  const learningObjectives = [
-    "Understand what AI is and how it makes decisions",
-    "Recognize bias and unfairness in AI systems",
-    "Protect personal privacy when using AI tools",
-    "Think critically about AI recommendations",
-    "Use AI responsibly in school and daily life",
-    "Make ethical choices about AI technology"
-  ]
+  // Effect for hiring algorithm calculations
+  useEffect(() => {
+    const diversityPenalty = hiringAlgorithm.genderBalance ? 0 : 20
+    const agePenalty = hiringAlgorithm.age > 50 ? (hiringAlgorithm.age - 50) : 0
+    const newDiversityScore = Math.max(0, 100 - diversityPenalty - agePenalty)
+    setDiversityScore(newDiversityScore)
+    setShowAgeismWarning(hiringAlgorithm.age > 80)
+  }, [hiringAlgorithm])
 
-  const learningContent = [
-    {
-      title: "What Is AI (and What It Is Not)",
-      subtitle: "Lesson 1: AI Basics",
-      description: "Understanding AI without the hype - what it can and can't actually do",
-      keyPoints: ["Pattern Recognition", "Data Processing", "Human vs AI Thinking"],
-      interactive: "AI or Not AI Quiz",
-      icon: Target,
-      content: "AI is like a very smart pattern-finding tool. Think of it like having a friend who's really good at spotting similarities in things. If you show this friend 1000 photos of cats, they'll get really good at recognizing cats in new photos. But they won't understand what it feels like to pet a cat or why cats purr. AI can find patterns in data, but it doesn't truly 'understand' like humans do.",
-      scenarios: [
-        "Your music app suggests songs you might like",
-        "A photo app automatically tags your friends",
-        "Your phone's voice assistant answers questions"
-      ],
-      reflectionQuestions: [
-        "Think of an AI tool you use daily. What patterns do you think it learned from?",
-        "What's something AI will never be able to do as well as humans?"
-      ]
-    },
-    {
-      title: "Bias and Fairness in AI",
-      subtitle: "Lesson 2: When AI Gets It Wrong",
-      description: "Why AI sometimes makes unfair decisions and how to spot bias",
-      keyPoints: ["Algorithmic Bias", "Fair Representation", "Equal Treatment"],
-      interactive: "Bias Detective Challenge",
-      icon: Eye,
-      content: "Imagine you're teaching someone to recognize 'good students' but you only show them photos of students from one school. They might think all good students look a certain way! AI has the same problem. If the data used to train AI doesn't include everyone fairly, the AI might make unfair decisions about people.",
-      scenarios: [
-        "A hiring AI that prefers certain names over others",
-        "A photo recognition system that works better for some skin tones",
-        "A loan approval system that discriminates by neighborhood"
-      ],
-      reflectionQuestions: [
-        "Have you ever noticed an app or website treating people differently? How?",
-        "If you were designing an AI system, how would you make sure it's fair to everyone?"
-      ]
-    },
-    {
-      title: "Privacy and Personal Data",
-      subtitle: "Lesson 3: Your Digital Footprint",
-      description: "Understanding what data you share and how to protect yourself",
-      keyPoints: ["Personal Information", "Data Collection", "Privacy Rights"],
-      interactive: "Privacy Settings Workshop",
-      icon: Shield,
-      content: "Every time you use an app, website, or AI tool, you leave digital breadcrumbs. These breadcrumbs tell a story about you - what you like, where you go, who your friends are. While this helps AI give you better recommendations, it's important to understand what you're sharing and have control over your personal information.",
-      scenarios: [
-        "A social media app using your photos to train face recognition",
-        "A shopping website tracking your browsing to show targeted ads",
-        "A study app collecting data about your learning habits"
-      ],
-      reflectionQuestions: [
-        "What personal information do you think your favorite apps know about you?",
-        "When is it okay to share personal data, and when should you be careful?"
-      ]
-    },
-    {
-      title: "Responsibility and Accountability",
-      subtitle: "Lesson 4: Who's in Charge?",
-      description: "Understanding who's responsible when AI makes mistakes",
-      keyPoints: ["Human Oversight", "AI Limitations", "Responsibility"],
-      interactive: "Who's Responsible? Game",
-      icon: Users,
-      content: "When an AI makes a mistake, who's fault is it? The person who built it? The person using it? Or the AI itself? The answer is: AI is a tool, like a calculator or a car. The humans who build, program, and use AI are responsible for making sure it's used safely and fairly. This means we all need to think carefully about how we use AI.",
-      scenarios: [
-        "An AI homework helper gives you wrong information for a school project",
-        "A delivery robot causes an accident because it was programmed poorly",
-        "An AI chatbot gives harmful advice to a user"
-      ],
-      reflectionQuestions: [
-        "If you use AI to help with homework, what's your responsibility as a student?",
-        "Who should be held accountable when AI systems cause problems?"
-      ]
-    },
-    {
-      title: "Power, Society, and AI",
-      subtitle: "Lesson 5: AI's Impact on Everyone",
-      description: "How AI affects different people and communities around the world",
-      keyPoints: ["Digital Divide", "Global Impact", "Equity"],
-      interactive: "AI Impact Mapper",
-      icon: Brain,
-      content: "AI doesn't affect everyone the same way. Some people have access to the latest AI tools and education, while others don't. Some communities benefit from AI innovations, while others might be left behind or even harmed. Understanding these differences helps us work toward AI that benefits everyone, not just those with the most resources.",
-      scenarios: [
-        "Students in wealthy schools get AI tutoring tools, while others don't",
-        "AI translation helps connect people globally, but only works for major languages",
-        "AI job automation affects some workers more than others"
-      ],
-      reflectionQuestions: [
-        "How might AI tools create advantages for some students but not others?",
-        "What can young people like you do to help make AI more fair and accessible?"
-      ]
-    },
-    {
-      title: "Using AI Responsibly",
-      subtitle: "Lesson 6: Your AI Code of Ethics",
-      description: "Creating your personal guidelines for ethical AI use",
-      keyPoints: ["Ethical Use", "Critical Thinking", "Responsible Creation"],
-      interactive: "Create Your AI Ethics Code",
-      icon: Heart,
-      content: "Now that you understand AI better, it's time to create your own rules for using it responsibly. Think of it like having good manners, but for technology. Just like you wouldn't copy someone else's homework, you need guidelines for using AI fairly, honestly, and in ways that help rather than harm others.",
-      scenarios: [
-        "Using AI to help brainstorm ideas vs. having AI do your entire assignment",
-        "Sharing AI-generated content without labeling it as AI-made",
-        "Using AI tools that might have been trained on stolen or private data"
-      ],
-      reflectionQuestions: [
-        "What are your personal rules for using AI in school?",
-        "How will you make sure AI helps you learn rather than replacing your thinking?"
-      ]
+  // Load ethics journey from localStorage on component mount
+  useEffect(() => {
+    const savedJourney = localStorage.getItem('mindcraft-ethics-journey')
+    if (savedJourney) {
+      setEthicsJourney(JSON.parse(savedJourney))
     }
+  }, [])
+
+  // Save ethics journey to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('mindcraft-ethics-journey', JSON.stringify(ethicsJourney))
+  }, [ethicsJourney])
+
+  const biasRadarQuestions = [
+    { label: "Mühendis", personas: ["Person A (Genç kadın)", "Person B (Yaşlı erkek)"] },
+    { label: "Bakıcı", personas: ["Person A (Genç erkek)", "Person B (Orta yaşlı kadın)"] },
+    { label: "Lider", personas: ["Person A (Genç kadın)", "Person B (Orta yaşlı erkek)"] },
+    { label: "Öğretmen", personas: ["Person A (Genç erkek)", "Person B (Yaşlı kadın)"] },
+    { label: "Doktor", personas: ["Person A (Orta yaşlı kadın)", "Person B (Genç erkek)"] }
   ]
 
-  const responsibleAIGuidelines = {
-    do: [
-      "Always verify AI-generated information with reliable sources",
-      "Label content when you use AI to create it",
-      "Respect others' privacy and don't share personal information with AI",
-      "Use AI to enhance your learning, not replace critical thinking",
-      "Choose AI tools from companies that are transparent about their practices",
-      "Speak up when you see AI being used unfairly"
-    ],
-    dont: [
-      "Don't trust AI blindly - always think for yourself",
-      "Don't use AI to cheat on homework or tests",
-      "Don't share others' personal photos or information with AI systems",
-      "Don't believe everything AI tells you without checking",
-      "Don't use AI to create content that could hurt or mislead others",
-      "Don't give up your ability to think independently"
-    ]
+  const handleBiasRadarChoice = (choice: string) => {
+    const newChoices = [...biasRadar.userChoices, choice]
+    setBiasRadar(prev => ({
+      ...prev,
+      userChoices: newChoices
+    }))
+
+    if (biasRadar.currentQuestion < biasRadarQuestions.length - 1) {
+      setBiasRadar(prev => ({
+        ...prev,
+        currentQuestion: prev.currentQuestion + 1
+      }))
+    } else {
+      setBiasRadar(prev => ({
+        ...prev,
+        gameComplete: true
+      }))
+    }
   }
 
-  const ethicalScenarios = [
+  const calculateBiasRadar = () => {
+    // Simple bias calculation based on choices
+    const genderBias = biasRadar.userChoices.filter(choice => choice.includes('erkek')).length
+    const ageBias = biasRadar.userChoices.filter(choice => choice.includes('Genç')).length
+    
+    return {
+      genderBias: (genderBias / biasRadarQuestions.length) * 100,
+      ageBias: (ageBias / biasRadarQuestions.length) * 100,
+      diversityAwareness: 100 - ((genderBias + ageBias) / biasRadarQuestions.length) * 50
+    }
+  }
+
+  const generatePDFManifesto = () => {
+    const manifestoContent = `
+# Etik Manifestom - ${new Date().toLocaleDateString('tr-TR')}
+
+## Geleceğin AI dünyasında ihtiyaç duyduğum etik kurallar:
+${ethicsJourney.notes}
+
+## Kişisel AI Kullanım Prensipllerim:
+${ethicsJourney.manifesto.map((principle, i) => `${i + 1}. ${principle}`).join('\n')}
+
+## Bu manifestoyu oluşturan: Mindcraft AI & Ethics Laboratory
+Tarih: ${new Date().toLocaleDateString('tr-TR')}
+    `
+    
+    const blob = new Blob([manifestoContent], { type: 'text/plain;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'etik-manifestom.txt'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
+
+  const addManifestoPrinciple = () => {
+    if (ethicsJourney.notes.trim()) {
+      setEthicsJourney(prev => ({
+        ...prev,
+        manifesto: [...prev.manifesto, prev.notes],
+        notes: ''
+      }))
+    }
+  }
+
+  const learningObjectives = [
+    "Understand AI decision-making processes and bias detection",
+    "Recognize ethical dilemmas in AI applications",
+    "Develop critical thinking about algorithmic fairness",
+    "Create personal ethical frameworks for AI use",
+    "Practice hands-on bias detection and mitigation",
+    "Build cognitive sovereignty in the Intelligence Age"
+  ]
+
+  const interactiveLabs = [
     {
-      title: "AI Homework Helper Dilemma",
-      scenario: "You're struggling with a math assignment and your friend suggests using an AI tool that can solve the problems instantly. Your teacher said to show your work and explain your thinking. What do you do?",
-      options: [
-        "Use AI to get the answers and copy them",
-        "Use AI to check your work after solving it yourself",
-        "Ask AI to explain the concepts so you can learn",
-        "Avoid AI completely and struggle alone"
-      ],
-      correct: 2,
-      explanation: "Using AI to understand concepts helps you learn while being honest about your process. This builds real knowledge instead of just getting grades."
+      id: 'hiring-algorithm',
+      title: 'İşe Alım Algoritmanı Tasarla',
+      description: 'Ağırlıkları değiştirerek algoritmanın kimi \'ideal aday\' olarak gördüğünü keşfet.',
+      component: 'HiringAlgorithm'
     },
     {
-      title: "Biased Photo Tagging",
-      scenario: "You notice that the photo app on your phone consistently fails to recognize faces of your friends from different ethnic backgrounds, but it easily recognizes others. What should you do?",
-      options: [
-        "Ignore it - that's just how technology works",
-        "Stop using the app and tell your friends",
-        "Report the issue to the app company",
-        "Manually tag photos to help improve the system"
-      ],
-      correct: 2,
-      explanation: "Reporting bias helps companies understand and fix problems. Your voice matters in making technology fairer for everyone."
+      id: 'moral-choice',
+      title: 'Ahlaki Seçim Aynası',
+      description: 'Kararlarını analiz et ve toplumsal tercihlerle karşılaştır.',
+      component: 'MoralChoice'
     },
     {
-      title: "Personal Data Sharing",
-      scenario: "A fun new app wants access to your photos, location, contacts, and browsing history to give you 'personalized experiences.' All your friends are using it. What do you do?",
-      options: [
-        "Give all permissions - everyone else does it",
-        "Don't use the app at all",
-        "Only give permissions that seem necessary for the app's function",
-        "Lie about your age to avoid giving permissions"
-      ],
-      correct: 2,
-      explanation: "Being selective about permissions protects your privacy while still letting you enjoy apps. You have the right to control your personal data."
+      id: 'bias-radar',
+      title: 'Önyargı Radar Oyunu',
+      description: 'Bilinçaltı önyargılarını keşfet ve AI\'ın nasıl öğrendiğini anla.',
+      component: 'BiasRadar'
+    },
+    {
+      id: 'ethics-journey',
+      title: 'Etik Yolculuk Takipçisi',
+      description: 'Kişisel etik manifestonu oluştur ve PDF olarak indir.',
+      component: 'EthicsJourney'
     }
   ]
 
   return (
     <>
       <Head>
-        <title>AI & Ethics: Building Cognitive Sovereignty | Mindcraft</title>
-        <meta name="description" content="Learn to navigate the AI age with ethical thinking, bias detection, and cognitive sovereignty. Part of the Mindcraft Global Multiplier Network." />
-        <meta name="keywords" content="AI ethics, cognitive sovereignty, algorithmic bias, privacy protection, digital autonomy, Klaus Schwab" />
-        <meta property="og:title" content="AI & Ethics: Building Cognitive Sovereignty" />
-        <meta property="og:description" content="Master ethical AI thinking and maintain human agency in the Intelligence Age" />
+        <title>AI & Ethics Laboratory: Building Cognitive Sovereignty | Mindcraft</title>
+        <meta name="description" content="Interactive AI ethics laboratory with hands-on simulations for bias detection, moral reasoning, and cognitive sovereignty." />
+        <meta name="keywords" content="AI ethics, cognitive sovereignty, algorithmic bias, interactive laboratory, moral reasoning" />
+        <meta property="og:title" content="AI & Ethics Laboratory: Interactive Learning" />
+        <meta property="og:description" content="Master ethical AI thinking through interactive simulations and real-time bias detection" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -224,262 +232,55 @@ export default function AIEthicsPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-12"
+              className="relative"
             >
-              {/* Brain-Circuit Icon */}
-              <div className="relative mx-auto mb-8 w-32 h-32">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full animate-pulse"></div>
-                <div className="relative w-full h-full bg-white rounded-full flex items-center justify-center shadow-2xl">
-                  <Brain className="w-16 h-16 text-blue-600" />
+              <div className="relative mb-8">
+                <div className="relative w-32 h-32 mx-auto mb-8">
+                  <div className="relative w-full h-full bg-white rounded-full flex items-center justify-center shadow-2xl">
+                    <Brain className="w-16 h-16 text-blue-600" />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400/30 to-cyan-400/30 rounded-full blur-xl"></div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/30 to-cyan-400/30 rounded-full blur-xl"></div>
-              </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-                AI & Ethics
-                <span className="block text-3xl md:text-4xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mt-4">
-                  Building Cognitive Sovereignty
-                </span>
-              </h1>
+                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+                  AI & Ethics
+                  <span className="block text-3xl md:text-4xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mt-4">
+                    Interactive Laboratory
+                  </span>
+                </h1>
 
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/30 mb-8">
-                <h2 className="text-2xl md:text-3xl text-blue-300 mb-4 font-semibold">
-                  Klaus Schwab's Challenge
-                </h2>
-                <p className="text-xl text-gray-300 italic">
-                  "Will you be the Navigator or the Slave of AI?"
+                <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                  Bilişsel egemenliğini güçlendir. AI'ın etik boyutlarını keşfet, önyargıları tespit et, 
+                  ve gelecek için kendi etik çerçeveni oluştur.
                 </p>
               </div>
-
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-                {module.description}
-              </p>
-
-              {/* Learning Objectives */}
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-cyan-500/30 mb-8">
-                <h3 className="text-2xl font-bold text-cyan-300 mb-4 text-center">What You'll Learn</h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {learningObjectives.map((objective, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">{objective}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Quick Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
-            >
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-purple-500/30">
-                <div className="text-3xl font-bold text-purple-400">6</div>
-                <div className="text-gray-300">Learning Lessons</div>
-              </div>
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-blue-500/30">
-                <div className="text-3xl font-bold text-blue-400">Ages 9-17</div>
-                <div className="text-gray-300">All Levels</div>
-              </div>
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-cyan-500/30">
-                <div className="text-3xl font-bold text-cyan-400">Interactive</div>
-                <div className="text-gray-300">Hands-on Learning</div>
-              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Core Learning Sections */}
+        {/* Learning Objectives */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-white text-center mb-16">
-              Your Journey to <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Ethical AI Thinking</span>
-            </h2>
-
-            <div className="space-y-12">
-              {learningContent.map((section, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/50"
-                >
-                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                    <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                          <section.icon className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-white">{section.title}</h3>
-                          <p className="text-blue-300">{section.subtitle}</p>
-                        </div>
-                      </div>
-
-                      <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                        {section.content}
-                      </p>
-
-                      {/* Real-world scenarios */}
-                      <div className="bg-slate-700/30 rounded-xl p-4 mb-6">
-                        <h4 className="text-white font-semibold mb-3">Real-World Examples:</h4>
-                        <ul className="space-y-2">
-                          {section.scenarios?.map((scenario, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="text-gray-300 text-sm">{scenario}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                        {section.keyPoints.map((point, i) => (
-                          <div key={i} className="flex items-center gap-2 text-sm">
-                            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                            <span className="text-gray-300">{point}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Reflection Questions */}
-                      <div className="bg-purple-900/20 rounded-xl p-4 mb-6">
-                        <h4 className="text-purple-300 font-semibold mb-3">Think About This:</h4>
-                        <div className="space-y-2">
-                          {section.reflectionQuestions?.map((question, i) => (
-                            <p key={i} className="text-gray-300 text-sm italic">• {question}</p>
-                          ))}
-                        </div>
-                      </div>
-
-                      <button className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all">
-                        <Play className="w-5 h-5" />
-                        {section.interactive}
-                      </button>
-                    </div>
-
-                    <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                      <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-2xl p-8 border border-blue-500/30">
-                        <div className="text-center">
-                          <section.icon className="w-24 h-24 text-blue-400 mx-auto mb-4" />
-                          <h4 className="text-xl font-semibold text-white mb-2">Interactive Learning</h4>
-                          <p className="text-gray-300">{section.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Responsible AI Guidelines */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">
-                <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-                  Your AI Ethics Checklist
-                </span>
-              </h2>
-              <p className="text-xl text-gray-300">
-                Simple guidelines for using AI responsibly in your daily life
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* DO List */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="bg-emerald-900/20 backdrop-blur-lg rounded-2xl p-8 border border-emerald-500/30"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <CheckCircle className="w-8 h-8 text-emerald-400" />
-                  <h3 className="text-2xl font-bold text-white">DO These Things</h3>
-                </div>
-                <div className="space-y-4">
-                  {responsibleAIGuidelines.do.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-300">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* DON'T List */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="bg-red-900/20 backdrop-blur-lg rounded-2xl p-8 border border-red-500/30"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <Shield className="w-8 h-8 text-red-400" />
-                  <h3 className="text-2xl font-bold text-white">DON'T Do These</h3>
-                </div>
-                <div className="space-y-4">
-                  {responsibleAIGuidelines.dont.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-300">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Ethics in Action
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  Öğrenme Hedefleri
                 </span>
               </h2>
-              <p className="text-xl text-gray-300">
-                Practice ethical decision-making with real scenarios you might face
-              </p>
             </div>
-
-            <div className="space-y-8">
-              {ethicalScenarios.map((scenario, index) => (
+            <div className="grid md:grid-cols-2 gap-6">
+              {learningObjectives.map((objective, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30"
+                  className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-blue-500/30"
                 >
-                  <h3 className="text-2xl font-bold text-white mb-4">{scenario.title}</h3>
-                  <p className="text-gray-300 text-lg mb-6">{scenario.scenario}</p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    {scenario.options.map((option, i) => (
-                      <button
-                        key={i}
-                        className="text-left p-4 bg-slate-700/50 hover:bg-purple-600/30 border border-slate-600 hover:border-purple-500 rounded-xl transition-all"
-                      >
-                        <span className="text-white">{option}</span>
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="bg-purple-900/30 rounded-xl p-4 border border-purple-500/50">
-                    <h4 className="text-purple-300 font-semibold mb-2">Reflection</h4>
-                    <p className="text-gray-300 text-sm">{scenario.explanation}</p>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
+                    <p className="text-gray-300">{objective}</p>
                   </div>
                 </motion.div>
               ))}
@@ -487,7 +288,123 @@ export default function AIEthicsPage() {
           </div>
         </section>
 
-        {/* Personal Reflection */}
+        {/* Component 1: Interactive Hiring Algorithm */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  İşe Alım Algoritmanı Tasarla
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300">
+                Ağırlıkları değiştirerek algoritmanın kimi 'ideal aday' olarak gördüğünü keşfet.
+              </p>
+            </motion.div>
+
+            <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30">
+              <div className="grid lg:grid-cols-2 gap-8">
+                {/* Controls */}
+                <div className="space-y-6">
+                  <div>
+                    <label className="flex items-center gap-3 text-white text-lg mb-3">
+                      <Sliders className="w-5 h-5" />
+                      Deneyim Ağırlığı: {hiringAlgorithm.experience}%
+                    </label>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={hiringAlgorithm.experience}
+                      onChange={(e) => setHiringAlgorithm(prev => ({ ...prev, experience: Number(e.target.value) }))}
+                      className="w-full h-3 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="flex items-center gap-3 text-white text-lg mb-3">
+                      <Sliders className="w-5 h-5" />
+                      Yaş Ağırlığı: {hiringAlgorithm.age}%
+                    </label>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={hiringAlgorithm.age}
+                      onChange={(e) => setHiringAlgorithm(prev => ({ ...prev, age: Number(e.target.value) }))}
+                      className="w-full h-3 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="flex items-center gap-3 text-white text-lg">
+                      <input
+                        type="checkbox"
+                        checked={hiringAlgorithm.genderBalance}
+                        onChange={(e) => setHiringAlgorithm(prev => ({ ...prev, genderBalance: e.target.checked }))}
+                        className="w-5 h-5 text-purple-600"
+                      />
+                      Cinsiyet Dengesi Kontrolü
+                    </label>
+                  </div>
+                </div>
+
+                {/* Real-time Results */}
+                <div className="space-y-6">
+                  <div className="bg-slate-700/50 rounded-xl p-6">
+                    <h4 className="text-white text-lg mb-4 flex items-center gap-2">
+                      <BarChart3 className="w-5 h-5" />
+                      Çeşitlilik vs. Verimlilik Metre
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-300">Çeşitlilik Puanı</span>
+                        <span className="text-cyan-400">{diversityScore}%</span>
+                      </div>
+                      <div className="w-full bg-slate-600 rounded-full h-3">
+                        <motion.div
+                          className="bg-gradient-to-r from-cyan-400 to-blue-500 h-3 rounded-full"
+                          initial={{ width: "50%" }}
+                          animate={{ width: `${diversityScore}%` }}
+                          transition={{ duration: 0.5 }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <AnimatePresence>
+                    {showAgeismWarning && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="bg-red-900/30 border border-red-500/50 rounded-xl p-4"
+                      >
+                        <div className="flex items-start gap-3">
+                          <AlertTriangle className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" />
+                          <div>
+                            <h5 className="text-red-400 font-semibold mb-1">Dikkat!</h5>
+                            <p className="text-red-200 text-sm">
+                              Algoritman yaş ayrımcılığı (ageism) yapmaya başladı. Deneyimli adaylar eleniyor!
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Component 2: Social Proof Choice Mirroring */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -495,60 +412,266 @@ export default function AIEthicsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-slate-800/50 to-purple-800/30 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30"
+              className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-white mb-6 text-center">
-                My AI Learning Journey
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                  Ahlaki Seçim Aynası
+                </span>
               </h2>
-              <p className="text-gray-300 text-lg mb-8 text-center">
-                Reflect on what you've learned about AI and ethics
+              <p className="text-xl text-gray-300">
+                Kararlarını analiz et ve toplumsal tercihlerle karşılaştır.
               </p>
-
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-white font-semibold mb-2">
-                    Before this lesson: What I thought about AI
-                  </label>
-                  <textarea
-                    placeholder="I used to think AI was just..."
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
-                    rows={3}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-white font-semibold mb-2">
-                    After this lesson: How I will use AI responsibly
-                  </label>
-                  <textarea
-                    value={reflectionText}
-                    onChange={(e) => setReflectionText(e.target.value)}
-                    placeholder="Now I understand that I should..."
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
-                    rows={3}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-white font-semibold mb-2">
-                    My personal AI ethics rule
-                  </label>
-                  <textarea
-                    placeholder="The most important thing I'll remember is..."
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
-                    rows={2}
-                  />
-                </div>
-
-                <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all">
-                  Save My AI Ethics Commitment
-                </button>
-              </div>
             </motion.div>
+
+            <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-green-500/30">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                Frenleri patlayan otonom araç, yaşlı birini mi yoksa bir çocuğu mu kurtarmalı?
+              </h3>
+
+              {!carDilemmaChoice ? (
+                <div className="grid md:grid-cols-2 gap-4">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      setCarDilemmaChoice('child')
+                      setShowMoralStats(true)
+                    }}
+                    className="p-6 bg-green-600/20 hover:bg-green-600/30 border border-green-500/50 rounded-xl transition-all"
+                  >
+                    <h4 className="text-white font-semibold mb-2">Çocuğu Kurtarmalı</h4>
+                    <p className="text-gray-300 text-sm">Genç yaşamı önceliklendirme</p>
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      setCarDilemmaChoice('elderly')
+                      setShowMoralStats(true)
+                    }}
+                    className="p-6 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/50 rounded-xl transition-all"
+                  >
+                    <h4 className="text-white font-semibold mb-2">Yaşlı Kişiyi Kurtarmalı</h4>
+                    <p className="text-gray-300 text-sm">Yaşam deneyimini önceliklendirme</p>
+                  </motion.button>
+                </div>
+              ) : (
+                <div className="text-center">
+                  <p className="text-white mb-6">
+                    Seçimin: <span className="font-bold text-green-400">
+                      {carDilemmaChoice === 'child' ? 'Çocuğu Kurtarmalı' : 'Yaşlı Kişiyi Kurtarmalı'}
+                    </span>
+                  </p>
+                </div>
+              )}
+
+              <AnimatePresence>
+                {showMoralStats && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-8 bg-slate-700/50 rounded-xl p-6"
+                  >
+                    <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
+                      <BarChart3 className="w-5 h-5" />
+                      Toplumsal Tercih Analizi
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-300">Çocukları kurtarmayı seçti</span>
+                        <span className="text-green-400 font-bold">68%</span>
+                      </div>
+                      <div className="w-full bg-slate-600 rounded-full h-2">
+                        <div className="bg-green-400 h-2 rounded-full w-[68%]"></div>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-300">Yaşlıları kurtarmayı seçti</span>
+                        <span className="text-blue-400 font-bold">32%</span>
+                      </div>
+                      <div className="w-full bg-slate-600 rounded-full h-2">
+                        <div className="bg-blue-400 h-2 rounded-full w-[32%]"></div>
+                      </div>
+                    </div>
+                    <p className="text-yellow-300 text-sm mt-4 italic">
+                      * Öğrencilerin %68'i çocukları kurtarmayı seçti.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </section>
 
-        {/* Next Steps */}
+        {/* Component 3: Bias Radar Mini-Game */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
+                  Önyargı Radar Oyunu
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300">
+                Bilinçaltı önyargılarını keşfet ve AI'ın nasıl öğrendiğini anla.
+              </p>
+            </motion.div>
+
+            <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-red-500/30">
+              {!biasRadar.gameComplete ? (
+                <div>
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold text-white mb-4">
+                      {biasRadarQuestions[biasRadar.currentQuestion].label} kimdir?
+                    </h3>
+                    <p className="text-gray-300">
+                      Soru {biasRadar.currentQuestion + 1} / {biasRadarQuestions.length}
+                    </p>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {biasRadarQuestions[biasRadar.currentQuestion].personas.map((persona, index) => (
+                      <motion.button
+                        key={index}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => handleBiasRadarChoice(persona)}
+                        className="p-8 bg-slate-700/50 hover:bg-red-600/20 border border-slate-600 hover:border-red-500 rounded-xl transition-all text-center"
+                      >
+                        <div className="w-24 h-24 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <Users className="w-12 h-12 text-white" />
+                        </div>
+                        <h4 className="text-white font-semibold">{persona}</h4>
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center"
+                >
+                  <h3 className="text-2xl font-bold text-white mb-6">Önyargı Radar Sonuçların</h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-6 mb-8">
+                    <div className="bg-slate-700/50 rounded-xl p-6">
+                      <h4 className="text-red-400 font-semibold mb-2">Cinsiyet Önyargısı</h4>
+                      <div className="text-3xl font-bold text-white">{Math.round(calculateBiasRadar().genderBias)}%</div>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-xl p-6">
+                      <h4 className="text-yellow-400 font-semibold mb-2">Yaş Önyargısı</h4>
+                      <div className="text-3xl font-bold text-white">{Math.round(calculateBiasRadar().ageBias)}%</div>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-xl p-6">
+                      <h4 className="text-green-400 font-semibold mb-2">Çeşitlilik Bilinci</h4>
+                      <div className="text-3xl font-bold text-white">{Math.round(calculateBiasRadar().diversityAwareness)}%</div>
+                    </div>
+                  </div>
+
+                  <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-xl p-6">
+                    <h4 className="text-yellow-400 font-semibold mb-3">💡 Anahtar Mesaj</h4>
+                    <p className="text-white">
+                      AI da tıpkı senin gibi toplumdaki önyargıları (bias) verilerden öğrenir. 
+                      Bu sonuçlar AI sistemlerinin nasıl öğrendiğini ve neden adil veriye ihtiyaç duyduğunu gösteriyor.
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Component 4: Ethics Journey Tracker */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                  Etik Yolculuk Takipçisi
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300">
+                Kişisel etik manifestonu oluştur ve PDF olarak indir.
+              </p>
+            </motion.div>
+
+            <div className="space-y-8">
+              <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-indigo-500/30">
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Geleceğin AI dünyasında en çok hangi etik kurala ihtiyaç var?
+                </h3>
+                <textarea
+                  value={ethicsJourney.notes}
+                  onChange={(e) => setEthicsJourney(prev => ({ ...prev, notes: e.target.value }))}
+                  placeholder="Düşüncelerini buraya yaz... Örn: AI sistemleri şeffaf olmalı, kullanıcılar nasıl çalıştığını anlamalı..."
+                  className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 resize-none focus:border-indigo-500 focus:outline-none"
+                  rows={4}
+                />
+                <button
+                  onClick={addManifestoPrinciple}
+                  disabled={!ethicsJourney.notes.trim()}
+                  className="mt-4 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-xl transition-all flex items-center gap-2"
+                >
+                  <Target className="w-5 h-5" />
+                  Manifestoma Ekle
+                </button>
+              </div>
+
+              {ethicsJourney.manifesto.length > 0 && (
+                <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30">
+                  <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <FileText className="w-6 h-6" />
+                    Etik Manifestom
+                  </h3>
+                  
+                  <div className="space-y-4 mb-6">
+                    {ethicsJourney.manifesto.map((principle, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="bg-slate-700/50 rounded-xl p-4 border border-slate-600"
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className="text-purple-400 font-bold">{index + 1}.</span>
+                          <p className="text-gray-300">{principle}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={generatePDFManifesto}
+                    className="w-full p-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl transition-all flex items-center justify-center gap-3 text-lg font-semibold"
+                  >
+                    <Download className="w-6 h-6" />
+                    Etik Manifestomu İndir (PDF)
+                  </motion.button>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Next Steps Section */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -557,62 +680,50 @@ export default function AIEthicsPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Ready for <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Your Next Adventure</span>?
+              <h2 className="text-4xl font-bold text-white mb-8">
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  Bilişsel Egemenlik Yolculuğuna Devam Et
+                </span>
               </h2>
-              <p className="text-xl text-gray-300 mb-12">
-                Great job learning about AI ethics! Now let's discover how to communicate with AI effectively.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <motion.a
-                  href="/projects/mindcraft/prompt-engineering"
-                  className="group bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30 hover:border-purple-400/50 transition-all"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                      <Users className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="text-left">
-                      <h3 className="text-xl font-bold text-white">Next Module</h3>
-                      <p className="text-purple-300">Prompt Engineering</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-300 text-left group-hover:text-white transition-colors">
-                    Learn how to give clear instructions to AI and get amazing results
-                  </p>
-                  <ArrowRight className="w-5 h-5 text-purple-400 ml-auto mt-4 group-hover:translate-x-1 transition-transform" />
-                </motion.a>
-
-                <motion.a
-                  href="/projects/mindcraft"
-                  className="group bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/30 hover:border-blue-400/50 transition-all"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="text-left">
-                      <h3 className="text-xl font-bold text-white">Module Hub</h3>
-                      <p className="text-blue-300">All Modules</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-300 text-left group-hover:text-white transition-colors">
-                    Explore all learning modules in your Mindcraft journey
-                  </p>
-                  <ArrowRight className="w-5 h-5 text-blue-400 ml-auto mt-4 group-hover:translate-x-1 transition-transform" />
-                </motion.a>
-              </div>
+              
+              <motion.a
+                href="/mindcraft"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all"
+              >
+                <Zap className="w-6 h-6" />
+                Diğer Modülleri Keşfet
+                <ArrowRight className="w-5 h-5" />
+              </motion.a>
             </motion.div>
           </div>
         </section>
 
         <Footer />
       </div>
+
+      <style jsx>{`
+        .slider::-webkit-slider-thumb {
+          appearance: none;
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+          cursor: pointer;
+          box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+
+        .slider::-moz-range-thumb {
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+          cursor: pointer;
+          border: none;
+          box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+      `}</style>
     </>
   )
 }
