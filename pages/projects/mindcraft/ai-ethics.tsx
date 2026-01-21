@@ -41,7 +41,9 @@ import {
   TreePine,
   Recycle,
   Clock,
-  Video
+  Video,
+  X,
+  Trash2
 } from 'lucide-react'
 
 // Interactive Components
@@ -210,6 +212,23 @@ Date: ${new Date().toLocaleDateString('en-US')}
       setEthicsJourney(prev => ({
         ...prev,
         manifesto: [...prev.manifesto, prev.notes],
+        notes: ''
+      }))
+    }
+  }
+
+  const removeManifestoPrinciple = (indexToRemove: number) => {
+    setEthicsJourney(prev => ({
+      ...prev,
+      manifesto: prev.manifesto.filter((_, index) => index !== indexToRemove)
+    }))
+  }
+
+  const clearAllManifesto = () => {
+    if (confirm('Tüm bilişsel kalkanı temizlemek istediğinizden emin misiniz?')) {
+      setEthicsJourney(prev => ({
+        ...prev,
+        manifesto: [],
         notes: ''
       }))
     }
@@ -1311,10 +1330,20 @@ Date: ${new Date().toLocaleDateString('en-US')}
 
               {ethicsJourney.manifesto.length > 0 && (
                 <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30">
-                  <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                    <Shield className="w-6 h-6" />
-                    My Cognitive Shield
-                  </h3>
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                      <Shield className="w-6 h-6" />
+                      My Cognitive Shield
+                    </h3>
+                    <button
+                      onClick={clearAllManifesto}
+                      className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm transition-all flex items-center gap-2"
+                      title="Tüm bilişsel kalkanı temizle"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                      Tümünü Temizle
+                    </button>
+                  </div>
                   
                   <div className="space-y-4 mb-6">
                     {ethicsJourney.manifesto.map((principle, index) => (
@@ -1322,12 +1351,20 @@ Date: ${new Date().toLocaleDateString('en-US')}
                         key={index}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
                         transition={{ delay: index * 0.1 }}
                         className="bg-slate-700/50 rounded-xl p-4 border border-slate-600"
                       >
                         <div className="flex items-start gap-3">
-                          <span className="text-purple-400 font-bold">{index + 1}.</span>
-                          <p className="text-gray-300">{principle}</p>
+                          <span className="text-purple-400 font-bold flex-shrink-0">{index + 1}.</span>
+                          <p className="text-gray-300 flex-1">{principle}</p>
+                          <button
+                            onClick={() => removeManifestoPrinciple(index)}
+                            className="p-2 text-red-400 hover:text-red-300 hover:bg-red-900/20 rounded-lg transition-all flex-shrink-0"
+                            title="Bu prensibi sil"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
                         </div>
                       </motion.div>
                     ))}
