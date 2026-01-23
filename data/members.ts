@@ -45,12 +45,15 @@ export const members: Member[] = [
     social: {}
   },
   {
-    slug: "taskin-akalin",
-    name: "Taşkın Akalın",
-    role: "Vice Curator",
-    shortBio: "Vice Curator",
-    longBio: "Vice Curator supporting hub operations.",
-    photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=TA",
+    slug: "halil-kafadar",
+    name: "Halil Kafadar",
+    role: "Shaper",
+    shortBio: "Shaper",
+    longBio: "Member of the Hub.",
+    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=HK",
+    image: "/images/members/halil-kafadar.jpg",
+    email: "halil.kfdr6@gmail.com",
+    linkedin: "https://www.linkedin.com/in/halil-kafadar-426a63221?utm_source...",
     social: {}
   },
   {
@@ -219,15 +222,12 @@ export const members: Member[] = [
     social: {}
   },
   {
-    slug: "halil-kafadar",
-    name: "Halil Kafadar",
-    role: "Shaper",
-    shortBio: "Shaper",
-    longBio: "Member of the Hub.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=HK",
-    image: "/images/members/halil-kafadar.jpg",
-    email: "halil.kfdr6@gmail.com",
-    linkedin: "https://www.linkedin.com/in/halil-kafadar-426a63221?utm_source...",
+    slug: "taskin-akalin",
+    name: "Taşkın Akalın",
+    role: "Vice Curator",
+    shortBio: "Vice Curator",
+    longBio: "Vice Curator supporting hub operations.",
+    photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=TA",
     social: {}
   },
   {
