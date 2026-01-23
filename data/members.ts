@@ -47,10 +47,10 @@ export const members: Member[] = [
   {
     slug: "halil-kafadar",
     name: "Halil Kafadar",
-    role: "Shaper",
-    shortBio: "Shaper",
-    longBio: "Member of the Hub.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=HK",
+    role: "Vice Curator",
+    shortBio: "Vice Curator",
+    longBio: "Vice Curator supporting hub operations.",
+    photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=HK",
     image: "/images/members/halil-kafadar.jpg",
     email: "halil.kfdr6@gmail.com",
     linkedin: "https://www.linkedin.com/in/halil-kafadar-426a63221?utm_source...",
@@ -224,10 +224,10 @@ export const members: Member[] = [
   {
     slug: "taskin-akalin",
     name: "Taşkın Akalın",
-    role: "Vice Curator",
-    shortBio: "Vice Curator",
-    longBio: "Vice Curator supporting hub operations.",
-    photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=TA",
+    role: "Shaper",
+    shortBio: "Shaper",
+    longBio: "Member of the Hub.",
+    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=TA",
     social: {}
   },
   {
