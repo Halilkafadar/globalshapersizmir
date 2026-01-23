@@ -235,9 +235,15 @@ export const members: Member[] = [
     name: "İpek Doğusoy",
     role: "Shaper",
     shortBio: "Shaper",
-    longBio: "Member of the Hub.",
+    longBio: "I am studying International Relations, with a minor in Law. I am currently focusing on developing myself in the fields of International Economic Relations, sustainability,energy diplomacy, and diplomacy. I am an effective actor in generating solutions from locol to global in a participatory and inclusive manner.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=ID",
-    social: {}
+    image: "/images/members/ipek-dogusoy.jpg",
+    email: "dogusoyipek@gmail.com",
+    linkedin: "https://www.linkedin.com/in/ipek-do%C4%9Fusoy-699b18271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    social: {
+      email: "dogusoyipek@gmail.com",
+      linkedin: "https://www.linkedin.com/in/ipek-do%C4%9Fusoy-699b18271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
   },
   {
     slug: "kerem-ergun",
