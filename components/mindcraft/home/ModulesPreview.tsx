@@ -56,19 +56,6 @@ export default function ModulesPreview() {
             </motion.div>
           ))}
         </div>
-
-        {/* View All Button */}
-        <div className="text-center">
-          <Link href="/projects/mindcraft">
-            <motion.button
-              className="btn-primary text-lg px-10 py-4"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View All Modules
-            </motion.button>
-          </Link>
-        </div>
       </div>
     </section>
   )

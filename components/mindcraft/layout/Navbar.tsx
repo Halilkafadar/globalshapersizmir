@@ -21,7 +21,7 @@ export default function Navbar() {
     { name: 'Impact', href: '/#impact' },
     { name: 'Hubs', href: '/#hubs' },
     { name: 'Partners', href: '/#partners' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Contact', href: '/#partners' },
   ]
 
   return (
