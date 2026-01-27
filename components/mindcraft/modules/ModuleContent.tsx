@@ -158,10 +158,6 @@ export default function ModuleContent({ module }: ModuleContentProps) {
           {/* Module Stats */}
           <div className="flex flex-wrap gap-6 mb-8">
             <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border">
-              <Clock className="w-4 h-4 text-mindcraft-purple" />
-              <span className="text-sm font-medium">{module.duration}</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border">
               <Users className="w-4 h-4 text-mindcraft-blue" />
               <span className="text-sm font-medium">Ages {module.ageRange}</span>
             </div>

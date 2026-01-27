@@ -47,7 +47,6 @@ export default function ModulesPreview() {
 
                   {/* Meta Info */}
                   <div className="flex items-center justify-between text-sm text-gray-500">
-                    <span>{module.duration}</span>
                     <span className="flex items-center gap-1 text-mindcraft-purple font-semibold group-hover:gap-2 transition-all">
                       Explore <ArrowRight className="w-4 h-4" />
                     </span>
