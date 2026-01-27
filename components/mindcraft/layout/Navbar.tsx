@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Menu, X, Sparkles, ArrowLeft } from 'lucide-react'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,14 +16,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Mindcraft ana sayfasında mıyız yoksa modül sayfasında mı kontrol et
+  const isOnMindcraftHomePage = router.pathname === '/projects/mindcraft'
+  const mindcraftBasePath = '/projects/mindcraft'
+
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Modules', href: '#modules' },
-    { name: 'Impact', href: '#impact' },
-    { name: 'Hubs', href: '#partners' },
-    { name: 'Partners', href: '#partners' },
-    { name: 'Contact', href: '#partners' },
+    { name: 'Home', href: isOnMindcraftHomePage ? '#hero' : `${mindcraftBasePath}#hero` },
+    { name: 'About', href: isOnMindcraftHomePage ? '#about' : `${mindcraftBasePath}#about` },
+    { name: 'Modules', href: isOnMindcraftHomePage ? '#modules' : `${mindcraftBasePath}#modules` },
+    { name: 'Impact', href: isOnMindcraftHomePage ? '#impact' : `${mindcraftBasePath}#impact` },
+    { name: 'Hubs', href: isOnMindcraftHomePage ? '#partners' : `${mindcraftBasePath}#partners` },
+    { name: 'Partners', href: isOnMindcraftHomePage ? '#partners' : `${mindcraftBasePath}#partners` },
+    { name: 'Contact', href: isOnMindcraftHomePage ? '#partners' : `${mindcraftBasePath}#partners` },
   ]
 
   return (
