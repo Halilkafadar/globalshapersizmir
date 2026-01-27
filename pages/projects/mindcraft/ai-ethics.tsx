@@ -608,15 +608,43 @@ Date: ${new Date().toLocaleDateString('en-US')}
               </h3>
               
               <div className="grid md:grid-cols-4 gap-6">
-                <div className="space-y-4">
+                  <div className="space-y-4">
                   <div className="flex items-center gap-3 mb-4">
                     <FileText className="w-6 h-6 text-blue-400" />
-                    <h4 className="text-lg font-bold text-white">Text & Learning</h4>
+                    <h4 className="text-lg font-bold text-white">Text</h4>
                   </div>
                   <div className="space-y-3">
                     <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
                       <h5 className="text-white font-semibold mb-1">ChatGPT</h5>
                       <p className="text-gray-300 text-sm">Learning assistance & writing</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Claude</h5>
+                      <p className="text-gray-300 text-sm">Advanced reasoning & analysis</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Gemini</h5>
+                      <p className="text-gray-300 text-sm">Multimodal AI assistant</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">GitHub Copilot</h5>
+                      <p className="text-gray-300 text-sm">Code generation & programming</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Grammarly</h5>
+                      <p className="text-gray-300 text-sm">Writing enhancement</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">DeepSeek</h5>
+                      <p className="text-gray-300 text-sm">Advanced reasoning AI</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Microsoft Copilot</h5>
+                      <p className="text-gray-300 text-sm">Microsoft AI assistant</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Perplexity</h5>
+                      <p className="text-gray-300 text-sm">AI-powered search engine</p>
                     </div>
                   </div>
                 </div>
@@ -633,7 +661,23 @@ Date: ${new Date().toLocaleDateString('en-US')}
                     </div>
                     <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
                       <h5 className="text-white font-semibold mb-1">Sora</h5>
-                      <p className="text-gray-300 text-sm">Video generation</p>
+                      <p className="text-gray-300 text-sm">Image & video generation</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Runway ML</h5>
+                      <p className="text-gray-300 text-sm">Video editing & effects</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Canva AI</h5>
+                      <p className="text-gray-300 text-sm">Design automation</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Adobe Firefly</h5>
+                      <p className="text-gray-300 text-sm">Creative content generation</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">VEO 3</h5>
+                      <p className="text-gray-300 text-sm">Google's video generation</p>
                     </div>
                   </div>
                 </div>
@@ -648,6 +692,22 @@ Date: ${new Date().toLocaleDateString('en-US')}
                       <h5 className="text-white font-semibold mb-1">ElevenLabs</h5>
                       <p className="text-gray-300 text-sm">Voice synthesis</p>
                     </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Murf</h5>
+                      <p className="text-gray-300 text-sm">AI voice generator</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">AIVA</h5>
+                      <p className="text-gray-300 text-sm">Music composition</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Descript</h5>
+                      <p className="text-gray-300 text-sm">Audio editing & transcription</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Speechify</h5>
+                      <p className="text-gray-300 text-sm">Text-to-speech</p>
+                    </div>
                   </div>
                 </div>
 
@@ -660,6 +720,14 @@ Date: ${new Date().toLocaleDateString('en-US')}
                     <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
                       <h5 className="text-white font-semibold mb-1">NotebookLM</h5>
                       <p className="text-gray-300 text-sm">Research assistant</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Khan Academy AI</h5>
+                      <p className="text-gray-300 text-sm">Personalized tutoring</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Socratic</h5>
+                      <p className="text-gray-300 text-sm">Homework help</p>
                     </div>
                   </div>
                 </div>
