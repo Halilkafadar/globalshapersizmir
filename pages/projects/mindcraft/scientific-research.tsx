@@ -1780,8 +1780,6 @@ export default function ScientificResearchPage() {
         </div>
       </section>
 
-      <Footer />
-
       {/* Module Navigation */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
         <div className="max-w-4xl mx-auto">
@@ -1837,6 +1835,8 @@ export default function ScientificResearchPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }

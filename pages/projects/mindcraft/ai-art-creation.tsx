@@ -1097,8 +1097,6 @@ This manifesto represents my journey in understanding AI art as a collaborative 
           </div>
         </section>
 
-        <Footer />
-
         {/* Module Navigation */}
         <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
           <div className="max-w-4xl mx-auto">
@@ -1154,6 +1152,8 @@ This manifesto represents my journey in understanding AI art as a collaborative 
             </div>
           </div>
         </section>
+
+        <Footer />
       </div>
     </>
   )

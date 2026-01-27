@@ -1956,8 +1956,6 @@ Powered by Human Creativity + AI Assistance
         </div>
       </section>
 
-      <Footer />
-
       {/* Module Navigation */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
         <div className="max-w-4xl mx-auto">
@@ -2010,6 +2008,8 @@ Powered by Human Creativity + AI Assistance
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   )
 }

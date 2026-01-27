@@ -858,8 +858,6 @@ ${reflection || 'No reflection written yet.'}
           </div>
         </section>
 
-        <Footer />
-
         {/* Module Navigation */}
         <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
           <div className="max-w-4xl mx-auto">
@@ -915,6 +913,8 @@ ${reflection || 'No reflection written yet.'}
             </div>
           </div>
         </section>
+
+        <Footer />
       </div>
     </>
   )

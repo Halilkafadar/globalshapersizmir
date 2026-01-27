@@ -1857,8 +1857,6 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        <Footer />
-
         {/* Learning Moments Popup */}
         <AnimatePresence>
           {showLearningMoment && (
@@ -1943,6 +1941,8 @@ Date: ${new Date().toLocaleDateString('en-US')}
             </motion.div>
           )}
         </AnimatePresence>
+
+        <Footer />
       </div>
 
       <style jsx>{`
