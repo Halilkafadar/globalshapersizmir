@@ -852,6 +852,7 @@ This manifesto represents my journey in understanding AI art as a collaborative 
                     <div className="py-16 text-center animate-pulse">
                       <Camera className="w-12 h-12 text-purple-400 mx-auto mb-2" />
                       <p className="text-sm text-gray-300">Generating preview...</p>
+                      <p className="text-xs text-gray-400 mt-2">This may take a few moments.</p>
                     </div>
                   ) : previewImage ? (
                     <img
