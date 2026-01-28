@@ -972,7 +972,7 @@ export default function PromptEngineeringPage() {
                     <h5 className="text-cyan-400 font-semibold mb-2">🔄 Iterative Refinement</h5>
                     <p className="text-gray-300 text-sm mb-3">Develop prompts step by step</p>
                     <div className="text-xs text-green-400 bg-slate-900/50 rounded p-2">
-                      "Bu yanıtı daha detaylandır... Şimdi örnekler ekle... Son olarak..."
+                      "Expand this answer in more detail... Now add examples... Finally..."
                     </div>
                   </div>
                   <div className="bg-slate-800/50 rounded-xl p-4">
@@ -1077,15 +1077,15 @@ export default function PromptEngineeringPage() {
                   
                   <div className="mt-4 grid md:grid-cols-3 gap-3">
                     <div className="bg-slate-800/50 rounded-lg p-3 text-center">
-                      <div className="text-red-400 font-bold mb-1">⚠️ Tehlike</div>
+                      <div className="text-red-400 font-bold mb-1">⚠️ Danger</div>
                       <div className="text-gray-300 text-sm">Accepting without thinking</div>
                     </div>
                     <div className="bg-slate-800/50 rounded-lg p-3 text-center">
-                      <div className="text-yellow-400 font-bold mb-1">⚖️ Denge</div>
+                      <div className="text-yellow-400 font-bold mb-1">⚖️ Balance</div>
                       <div className="text-gray-300 text-sm">AI + Human intelligence</div>
                     </div>
                     <div className="bg-slate-800/50 rounded-lg p-3 text-center">
-                      <div className="text-green-400 font-bold mb-1">✅ Güvenli</div>
+                      <div className="text-green-400 font-bold mb-1">✅ Safe</div>
                       <div className="text-gray-300 text-sm">Use with critical thinking</div>
                     </div>
                   </div>

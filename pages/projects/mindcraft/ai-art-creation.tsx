@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Navbar from '@/components/mindcraft/layout/Navbar'
 import Footer from '@/components/mindcraft/layout/Footer'
 import { modulesData } from '@/utils/mindcraft/modulesData'
@@ -41,6 +41,7 @@ export default function AIArtCreationPage() {
   const [isPreviewLoading, setIsPreviewLoading] = useState(false)
   const [isPreviewImageLoading, setIsPreviewImageLoading] = useState(false)
   const [previewError, setPreviewError] = useState<string | null>(null)
+  const imageLoadTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   
   // Ownership Decision Tree State
   const [currentScenario, setCurrentScenario] = useState(0)
@@ -80,12 +81,20 @@ export default function AIArtCreationPage() {
     setPreviewError(null)
     setPreviewImage(null)
     setIsPreviewImageLoading(false)
+    if (imageLoadTimeoutRef.current) {
+      clearTimeout(imageLoadTimeoutRef.current)
+      imageLoadTimeoutRef.current = null
+    }
+
+    const controller = new AbortController()
+    const requestTimeout = setTimeout(() => controller.abort(), 20000)
 
     try {
       const response = await fetch('/api/generate-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt })
+        body: JSON.stringify({ prompt }),
+        signal: controller.signal
       })
 
       if (!response.ok) {
@@ -98,10 +107,21 @@ export default function AIArtCreationPage() {
       }
       setPreviewImage(data.imageUrl)
       setIsPreviewImageLoading(true)
+      imageLoadTimeoutRef.current = setTimeout(() => {
+        setIsPreviewImageLoading(false)
+        setPreviewError('Preview is taking too long to load. Please try again.')
+        setPreviewImage(null)
+        imageLoadTimeoutRef.current = null
+      }, 15000)
     } catch (error) {
       console.error(error)
-      setPreviewError('Preview could not be generated. Please try again.')
+      setPreviewError(
+        error instanceof DOMException && error.name === 'AbortError'
+          ? 'Preview request timed out. Please try again.'
+          : 'Preview could not be generated. Please try again.'
+      )
     } finally {
+      clearTimeout(requestTimeout)
       setIsPreviewLoading(false)
     }
   }
@@ -391,7 +411,7 @@ This manifesto represents my journey in understanding AI art as a collaborative 
               className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16"
             >
               <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-pink-500/30">
-                <div className="text-3xl font-bold text-pink-400">4</div>
+                <div className="text-3xl font-bold text-pink-400">3</div>
                 <div className="text-gray-300">Learning Modules</div>
               </div>
               <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-purple-500/30">
@@ -789,8 +809,18 @@ This manifesto represents my journey in understanding AI art as a collaborative 
                     <img
                       src={previewImage}
                       alt="Generated preview"
-                      onLoad={() => setIsPreviewImageLoading(false)}
+                      onLoad={() => {
+                        if (imageLoadTimeoutRef.current) {
+                          clearTimeout(imageLoadTimeoutRef.current)
+                          imageLoadTimeoutRef.current = null
+                        }
+                        setIsPreviewImageLoading(false)
+                      }}
                       onError={() => {
+                        if (imageLoadTimeoutRef.current) {
+                          clearTimeout(imageLoadTimeoutRef.current)
+                          imageLoadTimeoutRef.current = null
+                        }
                         setIsPreviewImageLoading(false)
                         setPreviewError('Image failed to load. Please try again.')
                         setPreviewImage(null)

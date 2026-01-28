@@ -110,7 +110,8 @@ export default function AIEthicsPage() {
   useEffect(() => {
     const diversityPenalty = hiringAlgorithm.genderBalance ? 0 : 20
     const agePenalty = hiringAlgorithm.age > 50 ? (hiringAlgorithm.age - 50) : 0
-    const newDiversityScore = Math.max(0, 100 - diversityPenalty - agePenalty)
+    const experiencePenalty = hiringAlgorithm.experience > 60 ? (hiringAlgorithm.experience - 60) : 0
+    const newDiversityScore = Math.max(0, 100 - diversityPenalty - agePenalty - experiencePenalty)
     setDiversityScore(newDiversityScore)
     const newAgeismWarning = hiringAlgorithm.age > 80
     setShowAgeismWarning(newAgeismWarning)
@@ -511,12 +512,12 @@ Date: ${new Date().toLocaleDateString('en-US')}
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <Lightbulb className="w-8 h-8 text-yellow-400" />
-                    <h4 className="text-yellow-300 font-bold text-xl">Biliyor muydun?</h4>
+                    <h4 className="text-yellow-300 font-bold text-xl">Did you know?</h4>
                   </div>
                   <p className="text-yellow-100 text-lg font-medium italic">
-                    "Yapay zeka, hata yaparak öğrenen bir bebeğe benzer. Milyonlarca örnek görerek, 
-                    desenler keşfeder ve kararlar almayı öğrenir. Tıpkı bir bebek yürümeyi öğrenirken 
-                    düşüp kalktığı gibi!"
+                    "AI is like a baby learning through mistakes. By seeing millions of examples, 
+                    it discovers patterns and learns to make decisions—just like a baby learning to walk 
+                    by falling and getting back up!"
                   </p>
                 </motion.div>
               </div>
@@ -779,7 +780,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <AlertTriangle className="w-8 h-8 text-red-400" />
-                  <h4 className="text-red-300 font-bold text-xl">⚠️ Critical Reality Check</h4>
+                  <h4 className="text-red-300 font-bold text-xl">Critical Reality Check</h4>
                 </div>
                 <p className="text-red-100 text-lg leading-relaxed mb-4">
                   <strong>AI success depends on data quality.</strong> Biased data leads to unfair and discriminatory results. 
@@ -1791,16 +1792,6 @@ Date: ${new Date().toLocaleDateString('en-US')}
                 </div>
               </div>
               
-              <motion.a
-                href="/mindcraft"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all"
-              >
-                <Zap className="w-6 h-6" />
-                Continue Your Navigator Journey
-                <ArrowRight className="w-5 h-5" />
-              </motion.a>
             </motion.div>
           </div>
         </section>
