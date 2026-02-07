@@ -140,7 +140,7 @@ export default function Home() {
 						>
 							{/* Video Container - Responsive with proper aspect ratio */}
 							<div className="flex justify-center">
-								<div className="relative w-full max-w-4xl mx-auto">
+								<div className="relative w-full max-w-2xl mx-auto">
 									{/* Local video player with rounded corners and shadow - maintains original video dimensions */}
 									<div className="relative bg-black rounded-2xl shadow-2xl overflow-hidden">
 										<video
