@@ -26,7 +26,9 @@ import {
   Gavel,
   Camera,
   ImageIcon,
-  Cpu
+  Cpu,
+  Copy,
+  Check
 } from 'lucide-react'
 
 export default function AIArtCreationPage() {
@@ -37,11 +39,7 @@ export default function AIArtCreationPage() {
   const [selectedSubject, setSelectedSubject] = useState('Forest')
   const [selectedStyle, setSelectedStyle] = useState('Cyberpunk')
   const [selectedLighting, setSelectedLighting] = useState('Golden Hour')
-  const [previewImage, setPreviewImage] = useState<string | null>(null)
-  const [isPreviewLoading, setIsPreviewLoading] = useState(false)
-  const [isPreviewImageLoading, setIsPreviewImageLoading] = useState(false)
-  const [previewError, setPreviewError] = useState<string | null>(null)
-  const imageLoadTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [isCopied, setIsCopied] = useState(false)
   
   // Ownership Decision Tree State
   const [currentScenario, setCurrentScenario] = useState(0)
@@ -75,54 +73,14 @@ export default function AIArtCreationPage() {
     return `A beautiful ${selectedSubject.toLowerCase()} scene in ${selectedStyle} style, illuminated by ${selectedLighting.toLowerCase()}, high quality, detailed, artistic composition`
   }
 
-  const handlePreviewGenerate = async () => {
+  const handleCopyPrompt = async () => {
     const prompt = generateMockPrompt()
-    setIsPreviewLoading(true)
-    setPreviewError(null)
-    setPreviewImage(null)
-    setIsPreviewImageLoading(false)
-    if (imageLoadTimeoutRef.current) {
-      clearTimeout(imageLoadTimeoutRef.current)
-      imageLoadTimeoutRef.current = null
-    }
-
-    const controller = new AbortController()
-    const requestTimeout = setTimeout(() => controller.abort(), 10000)
-
     try {
-      const response = await fetch('/api/generate-image', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt }),
-        signal: controller.signal
-      })
-
-      if (!response.ok) {
-        throw new Error('Failed to generate image')
-      }
-
-      const data = await response.json()
-      if (!data?.imageUrl) {
-        throw new Error('No image URL returned')
-      }
-      setPreviewImage(data.imageUrl)
-      setIsPreviewImageLoading(true)
-      imageLoadTimeoutRef.current = setTimeout(() => {
-        setIsPreviewImageLoading(false)
-        setPreviewError('Preview is taking too long to load. Please try again.')
-        setPreviewImage(null)
-        imageLoadTimeoutRef.current = null
-      }, 8000)
+      await navigator.clipboard.writeText(prompt)
+      setIsCopied(true)
+      setTimeout(() => setIsCopied(false), 2000)
     } catch (error) {
-      console.error(error)
-      setPreviewError(
-        error instanceof DOMException && error.name === 'AbortError'
-          ? 'Preview request timed out. Please try again.'
-          : 'Preview could not be generated. Please try again.'
-      )
-    } finally {
-      clearTimeout(requestTimeout)
-      setIsPreviewLoading(false)
+      console.error('Failed to copy:', error)
     }
   }
 
@@ -782,12 +740,20 @@ This manifesto represents my journey in understanding AI art as a collaborative 
                       Randomize
                     </button>
                     <button
-                      onClick={handlePreviewGenerate}
-                      disabled={isPreviewLoading}
-                      className="bg-pink-600 hover:bg-pink-700 disabled:bg-pink-700/60 disabled:cursor-not-allowed text-white px-3 py-1 rounded-lg text-sm transition-colors flex items-center gap-2"
+                      onClick={handleCopyPrompt}
+                      className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-lg text-sm transition-colors flex items-center gap-2"
                     >
-                      <Camera className="w-4 h-4" />
-                      {isPreviewLoading ? 'Generating...' : 'View Preview'}
+                      {isCopied ? (
+                        <>
+                          <Check className="w-4 h-4" />
+                          Copied!
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4" />
+                          Copy
+                        </>
+                      )}
                     </button>
                   </div>
                 </div>
@@ -796,62 +762,8 @@ This manifesto represents my journey in understanding AI art as a collaborative 
                 </p>
               </div>
 
-              {/* Preview */}
-              <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-8 text-center">
-                <div className="w-full max-w-md mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center mb-4 overflow-hidden">
-                  {isPreviewLoading || isPreviewImageLoading ? (
-                    <div className="py-16 text-center">
-                      <div className="w-12 h-12 mx-auto mb-3 rounded-full border-2 border-purple-400/40 border-t-purple-400 animate-spin" />
-                      <p className="text-sm text-gray-200 font-medium">Generating preview…</p>
-                      <p className="text-xs text-gray-400 mt-2">Please wait — this may take a few moments.</p>
-                    </div>
-                  ) : previewImage ? (
-                    <img
-                      src={previewImage}
-                      alt="Generated preview"
-                      onLoad={() => {
-                        if (imageLoadTimeoutRef.current) {
-                          clearTimeout(imageLoadTimeoutRef.current)
-                          imageLoadTimeoutRef.current = null
-                        }
-                        setIsPreviewImageLoading(false)
-                      }}
-                      onError={() => {
-                        if (imageLoadTimeoutRef.current) {
-                          clearTimeout(imageLoadTimeoutRef.current)
-                          imageLoadTimeoutRef.current = null
-                        }
-                        setIsPreviewImageLoading(false)
-                        setPreviewError('Image failed to load. Please try again.')
-                        setPreviewImage(null)
-                      }}
-                      className="w-full h-auto rounded-lg"
-                    />
-                  ) : (
-                    <div className="py-16 text-center">
-                      <Camera className="w-12 h-12 text-purple-400 mx-auto mb-2" />
-                      <p className="text-sm text-gray-400">Stylized preview would appear here</p>
-                    </div>
-                  )}
-                </div>
-                {previewError ? (
-                  <p className="text-sm text-red-300">{previewError}</p>
-                ) : (
-                  <p className="text-gray-300 text-sm">
-                    This demonstrates how different prompt elements affect the final artwork. In real AI art tools, 
-                    you would see dramatic changes based on your style and lighting choices.
-                  </p>
-                )}
-              </div>
-
-              {/* AI Playground Navigation Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="mt-8 text-center"
-              >
+              {/* AI Playground Navigation Button - Always Visible */}
+              <div className="mt-8 text-center">
                 <a
                   href="/projects/mindcraft/playground"
                   className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-purple-500/50"
@@ -863,7 +775,7 @@ This manifesto represents my journey in understanding AI art as a collaborative 
                 <p className="text-gray-400 text-sm mt-3">
                   Experiment with advanced AI tools and unleash your creativity
                 </p>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </section>
