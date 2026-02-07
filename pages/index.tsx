@@ -141,19 +141,20 @@ export default function Home() {
 							{/* Video Container - Responsive with proper aspect ratio */}
 							<div className="flex justify-center">
 								<div className="relative w-full max-w-4xl mx-auto">
-									{/* YouTube embed with rounded corners and shadow - replaced local video for better repository health */}
+									{/* Local video player with rounded corners and shadow */}
 									<div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
-										<iframe
-											src="https://www.youtube.com/embed/YSBuspfGB28?autoplay=0&mute=0&loop=1&playlist=YSBuspfGB28&controls=1&modestbranding=1&playsinline=1"
+										<video
 											className="w-full block"
 											width="800"
 											height="450"
 											style={{ aspectRatio: '16/9' }}
-											title="Global Shapers Izmir Hub promotional video"
-											frameBorder="0"
-											allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-											allowFullScreen
-										/>
+											controls
+											preload="metadata"
+											playsInline
+										>
+											<source src="/videos/gsc_izmir_tanitim.mp4" type="video/mp4" />
+											Your browser does not support the video tag.
+										</video>
 									</div>
 									
 									{/* Optional Caption */}
