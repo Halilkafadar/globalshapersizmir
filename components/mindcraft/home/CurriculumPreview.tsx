@@ -70,10 +70,10 @@ export default function CurriculumPreview() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            The <span className="text-yellow-400">5 Pillars</span> of Mindcraft
+            The <span className="text-yellow-400">6 Pillars</span> of Mindcraft
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            A comprehensive curriculum spanning 6 interactive modules across 5 critical pillars. Each pillar builds cognitive sovereignty and ethical leadership.
+            A comprehensive curriculum spanning 6 interactive modules across 6 critical pillars. Each pillar builds cognitive sovereignty and ethical leadership.
           </p>
         </motion.div>
 

@@ -141,7 +141,13 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=BA",
-    social: {}
+    image: "/images/members/bilal-al-khateeb.jpg",
+    email: "scorkels@gmail.com",
+    linkedin: "https://www.linkedin.com/in/bilal-al-khateeb/",
+    social: {
+      email: "scorkels@gmail.com",
+      linkedin: "https://www.linkedin.com/in/bilal-al-khateeb/"
+    }
   },
   {
     slug: "ayse-ada-altinbilek",
