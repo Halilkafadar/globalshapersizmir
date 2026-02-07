@@ -312,8 +312,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-                  From Alan Turing's visionary question to today's cognitive sovereignty challenge. 
-                  Build your ethical framework through hands-on exploration and critical thinking.
+                  From Turing's vision to today's AI ethics. Build your framework through hands-on labs.
                 </p>
 
                 {/* Alan Turing Opening Question */}
@@ -325,8 +324,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
                 >
                   <Quote className="w-12 h-12 text-indigo-400 mx-auto mb-4" />
                   <blockquote className="text-lg md:text-xl text-white italic text-center leading-relaxed">
-                    "Can machines think? This is the question that sparked the artificial intelligence revolution. 
-                    Today, we're not just asking if they can think, but how they should think ethically."
+                    "Can machines think? Today we ask: How should they think ethically?"
                   </blockquote>
                   <cite className="block text-indigo-300 text-center mt-4 font-semibold">— Alan Turing's Legacy in the Ethics Age</cite>
                 </motion.div>
@@ -343,8 +341,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
                     <h3 className="text-2xl font-bold text-white">Module Objectives</h3>
                   </div>
                   <p className="text-gray-300 text-lg leading-relaxed">
-                    This module teaches AI history, working principles, algorithmic bias, and data security through 
-                    interactive experiences. After each activity, you will strengthen the 5 pillars of <strong>Cognitive Sovereignty</strong>.
+                    Master AI history, bias detection, and data ethics through interactive labs. Build the 6 pillars of <strong>Cognitive Sovereignty</strong>.
                   </p>
                 </motion.div>
               </div>
@@ -408,18 +405,17 @@ Date: ${new Date().toLocaleDateString('en-US')}
               
               <div className="space-y-6 text-gray-300">
                 <p className="text-lg leading-relaxed">
-                  Artificial Intelligence (AI) refers to computer systems that can perform tasks typically requiring human intelligence. 
-                  Modern AI works through <strong className="text-white">machine learning</strong> - algorithms that learn patterns from vast amounts of data.
+                  AI = computer systems performing human-like tasks through <strong className="text-white">machine learning</strong>: algorithms finding patterns in massive datasets.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
                     <h3 className="text-xl font-semibold text-white mb-3">🧠 Machine Learning</h3>
-                    <p className="text-gray-300">Systems that improve automatically through experience, finding patterns in data without explicit programming.</p>
+                    <p className="text-gray-300">Learns from experience. Finds patterns without coding every step.</p>
                   </div>
                   <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
                     <h3 className="text-xl font-semibold text-white mb-3">🤖 Deep Learning</h3>
-                    <p className="text-gray-300">Neural networks with multiple layers that can process complex data like images, text, and speech.</p>
+                    <p className="text-gray-300">Multi-layer neural nets processing images, text, speech.</p>
                   </div>
                 </div>
                 
@@ -469,8 +465,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
               
               <div className="space-y-6 text-gray-300">
                 <p className="text-lg leading-relaxed">
-                  <strong className="text-white">AI is like a baby learning from mistakes.</strong> Just as a baby learns to walk by falling and getting back up, 
-                  AI systems learn by processing millions of examples and adjusting their responses based on feedback.
+                  <strong className="text-white">AI = baby learning from mistakes.</strong> Falls, gets up, tries again. Processes millions of examples, adjusts responses.
                 </p>
                 
                 <div className="bg-cyan-950/30 border border-cyan-500/50 rounded-xl p-6">
@@ -479,8 +474,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
                     <h4 className="text-cyan-300 font-semibold text-xl">The Recipe Algorithm</h4>
                   </div>
                   <p className="text-cyan-100 text-lg">
-                    Think of an algorithm as a <strong>recipe for thinking</strong>. Just like a cake recipe has step-by-step instructions, 
-                    AI algorithms follow logical steps to reach decisions. The key difference? AI can modify its own recipe based on results.
+                    Algorithm = <strong>recipe for thinking</strong>. Step-by-step logic to reach decisions. Twist? AI rewrites its own recipe based on results.
                   </p>
                 </div>
                 
