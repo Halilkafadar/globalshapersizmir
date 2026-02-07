@@ -87,7 +87,7 @@ export default function AIArtCreationPage() {
     }
 
     const controller = new AbortController()
-    const requestTimeout = setTimeout(() => controller.abort(), 20000)
+    const requestTimeout = setTimeout(() => controller.abort(), 10000)
 
     try {
       const response = await fetch('/api/generate-image', {
@@ -112,7 +112,7 @@ export default function AIArtCreationPage() {
         setPreviewError('Preview is taking too long to load. Please try again.')
         setPreviewImage(null)
         imageLoadTimeoutRef.current = null
-      }, 15000)
+      }, 8000)
     } catch (error) {
       console.error(error)
       setPreviewError(
@@ -843,6 +843,27 @@ This manifesto represents my journey in understanding AI art as a collaborative 
                   </p>
                 )}
               </div>
+
+              {/* AI Playground Navigation Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="mt-8 text-center"
+              >
+                <a
+                  href="/projects/mindcraft/playground"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-purple-500/50"
+                >
+                  <Sparkles className="w-6 h-6" />
+                  Try Full AI Playground
+                  <ArrowRight className="w-6 h-6" />
+                </a>
+                <p className="text-gray-400 text-sm mt-3">
+                  Experiment with advanced AI tools and unleash your creativity
+                </p>
+              </motion.div>
             </motion.div>
           </div>
         </section>
