@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ModuleContent from '@/components/mindcraft/modules/ModuleContent'
-import { modulesData, Module } from '@/utils/modulesData'
+import { modulesData, Module } from '@/utils/mindcraft/modulesData'
 
 export default function ModuleDetailPage() {
   const router = useRouter()

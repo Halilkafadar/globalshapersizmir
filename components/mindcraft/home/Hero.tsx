@@ -4,7 +4,7 @@ import { Sparkles, Brain, Heart, Rocket } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-mindcraft-dark via-mindcraft-dark to-blue-900">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-mindcraft-dark via-mindcraft-dark to-blue-900">
       {/* Animated Background - Neural Network Effect */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Grid pattern background */}

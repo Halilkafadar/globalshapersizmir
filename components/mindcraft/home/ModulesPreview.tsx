@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { modulesData } from '@/utils/modulesData'
+import { modulesData } from '@/utils/mindcraft/modulesData'
 import { ArrowRight } from 'lucide-react'
 
 export default function ModulesPreview() {
@@ -27,7 +27,7 @@ export default function ModulesPreview() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Link href={`/modules/${module.id}`}>
+              <Link href={`/projects/mindcraft/${module.id}`}>
                 <div className="group relative bg-white rounded-2xl p-8 shadow-lg card-hover border border-gray-100 overflow-hidden">
                   {/* Color Accent */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${module.gradient}`}></div>
@@ -47,7 +47,6 @@ export default function ModulesPreview() {
 
                   {/* Meta Info */}
                   <div className="flex items-center justify-between text-sm text-gray-500">
-                    <span>{module.duration}</span>
                     <span className="flex items-center gap-1 text-mindcraft-purple font-semibold group-hover:gap-2 transition-all">
                       Explore <ArrowRight className="w-4 h-4" />
                     </span>
@@ -56,19 +55,6 @@ export default function ModulesPreview() {
               </Link>
             </motion.div>
           ))}
-        </div>
-
-        {/* View All Button */}
-        <div className="text-center">
-          <Link href="/modules">
-            <motion.button
-              className="btn-primary text-lg px-10 py-4"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View All Modules
-            </motion.button>
-          </Link>
         </div>
       </div>
     </section>

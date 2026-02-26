@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import { modulesData } from '@/utils/modulesData'
+import { modulesData } from '@/utils/mindcraft/modulesData'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.globalshapersizmirhub.com'
 

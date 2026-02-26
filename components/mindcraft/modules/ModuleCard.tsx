@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Module } from '@/utils/modulesData'
+import { Module } from '@/utils/mindcraft/modulesData'
 import { ArrowRight, Clock, Users } from 'lucide-react'
 
 interface ModuleCardProps {
@@ -34,10 +34,6 @@ export default function ModuleCard({ module }: ModuleCardProps) {
 
         {/* Meta Info */}
         <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-          <div className="flex items-center gap-1">
-            <Clock className="w-4 h-4" />
-            <span>{module.duration}</span>
-          </div>
           <div className="flex items-center gap-1">
             <Users className="w-4 h-4" />
             <span>Ages {module.ageRange}</span>

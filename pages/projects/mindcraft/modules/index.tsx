@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ModuleCard from '@/components/mindcraft/modules/ModuleCard'
-import { modulesData } from '@/utils/modulesData'
+import { modulesData } from '@/utils/mindcraft/modulesData'
 
 export default function ModulesPage() {
   return (

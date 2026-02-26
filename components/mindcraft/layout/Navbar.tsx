@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Menu, X, Sparkles, ArrowLeft } from 'lucide-react'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,14 +16,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Mindcraft ana sayfasında mıyız yoksa modül sayfasında mı kontrol et
+  const isOnMindcraftHomePage = router.pathname === '/projects/mindcraft'
+  const mindcraftBasePath = '/projects/mindcraft'
+
   const navLinks = [
-    { name: 'Home', href: '/#hero' },
-    { name: 'About', href: '/#about' },
-    { name: 'Modules', href: '/#modules' },
-    { name: 'Impact', href: '/#impact' },
-    { name: 'Hubs', href: '/#hubs' },
-    { name: 'Partners', href: '/#partners' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Home', href: isOnMindcraftHomePage ? '#hero' : `${mindcraftBasePath}#hero` },
+    { name: 'About', href: isOnMindcraftHomePage ? '#about' : `${mindcraftBasePath}#about` },
+    { name: 'Modules', href: isOnMindcraftHomePage ? '#modules' : `${mindcraftBasePath}#modules` },
+    { name: 'Impact', href: isOnMindcraftHomePage ? '#impact' : `${mindcraftBasePath}#impact` },
+    { name: 'Hubs', href: isOnMindcraftHomePage ? '#partners' : `${mindcraftBasePath}#partners` },
+    { name: 'Partners', href: isOnMindcraftHomePage ? '#partners' : `${mindcraftBasePath}#partners` },
+    { name: 'Contact', href: isOnMindcraftHomePage ? '#partners' : `${mindcraftBasePath}#partners` },
   ]
 
   return (
@@ -60,9 +66,12 @@ export default function Navbar() {
                 <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-yellow-400 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
               </a>
             ))}
-            <button className="ml-4 bg-yellow-400 hover:bg-yellow-500 text-mindcraft-dark font-bold px-6 py-2 rounded-lg transition-colors duration-200">
+            <a 
+              href={isOnMindcraftHomePage ? '#modules' : `${mindcraftBasePath}#modules`}
+              className="ml-4 bg-yellow-400 hover:bg-yellow-500 text-mindcraft-dark font-bold px-6 py-2 rounded-lg transition-colors duration-200"
+            >
               Get Started
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,9 +109,13 @@ export default function Navbar() {
                 </Link>
               )
             ))}
-            <button className="w-full btn-primary">
+            <a 
+              href={isOnMindcraftHomePage ? '#modules' : `${mindcraftBasePath}#modules`}
+              className="w-full btn-primary block text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Start Learning
-            </button>
+            </a>
           </div>
         </div>
       )}

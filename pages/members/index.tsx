@@ -23,13 +23,14 @@ export default function MembersPage() {
   const PRIORITY_ORDER = [
     'Devrim Savlı',
     'Serdar Çarlı',
-    'Taşkın Akalın',
+    'Halil Kafadar',
     'Ceylin Ersöz',
     'Sude Kızıltaş',
     'Rümeysa Şirin',
     'Oğuzhan Akbaş',
     'Erce Bilgen',
     'Anıl Daloğlu',
+    'Taşkın Akalın',
   ]
 
   return (
