@@ -41,6 +41,7 @@ const nextConfig = {
       // Dynamic redirects
       { source: '/projeler/:slug', destination: '/projects/:slug', permanent: true },
       { source: '/uyeler/:slug', destination: '/members/:slug', permanent: true },
+      { source: '/projects/mindcraft/ai-ethics', destination: '/modules/ai-ethics', permanent: true },
     ]
   },
 }
