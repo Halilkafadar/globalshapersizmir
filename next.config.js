@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */ // deploy trigger
 const nextConfig = {
   reactStrictMode: true,
   images: {

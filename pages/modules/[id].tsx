@@ -1,27 +1,46 @@
-import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import ModuleContent from '@/components/mindcraft/modules/ModuleContent'
+import { modulesData, Module } from '@/utils/mindcraft/modulesData'
 
-export default function ModulesRedirect() {
+export default function ModuleDetailPage() {
   const router = useRouter()
   const { id } = router.query
 
-  useEffect(() => {
-    if (id) {
-      // Redirect to the new route structure
-      router.replace(`/projects/mindcraft/${id}`)
-    } else {
-      // Redirect to mindcraft hub
-      router.replace('/projects/mindcraft')
-    }
-  }, [id, router])
+  const module = modulesData.find((m: Module) => m.id === id)
 
-  // Show loading while redirecting
+  if (!module) {
+    return (
+      <>
+        <Head>
+          <title>Module Not Found - Mindcraft</title>
+        </Head>
+        <div className="min-h-[70vh] flex justify-center">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4">Module Not Found</h1>
+            <button onClick={() => router.push('/projects/mindcraft')} className="btn-primary">
+              Back to Mindcraft
+            </button>
+          </div>
+        </div>
+      </>
+    )
+  }
+
   return (
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-400 mx-auto mb-4"></div>
-        <p className="text-gray-300">Redirecting...</p>
+    <>
+      <Head>
+        <title>{module.title} - Mindcraft</title>
+        <meta name="description" content={module.description} />
+      </Head>
+
+      <div className="min-h-screen">
+        <Navbar />
+        <ModuleContent module={module} />
+        <Footer />
       </div>
-    </div>
+    </>
   )
 }

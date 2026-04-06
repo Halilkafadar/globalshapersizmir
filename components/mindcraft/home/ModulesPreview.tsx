@@ -27,7 +27,7 @@ export default function ModulesPreview() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Link href={`/projects/mindcraft/${module.id}`}>
+              <Link href={`/modules/${module.id}`}>
                 <div className="group relative bg-white rounded-2xl p-8 shadow-lg card-hover border border-gray-100 overflow-hidden">
                   {/* Color Accent */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${module.gradient}`}></div>
