@@ -830,7 +830,7 @@ ${reflection || 'No reflection written yet.'}
               <div className="grid md:grid-cols-3 gap-4">
                 {/* Previous Module */}
                 <a
-                  href="/projects/mindcraft/prompt-engineering"
+                  href="/modules/prompt-engineering"
                   className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 hover:from-purple-600/30 hover:to-pink-600/30 border border-purple-500/30 hover:border-purple-400/50 rounded-xl p-4 transition-all group"
                 >
                   <div className="text-center">
@@ -844,7 +844,7 @@ ${reflection || 'No reflection written yet.'}
 
                 {/* Back to Modules */}
                 <a
-                  href="/projects/mindcraft#modules"
+                  href="/modules"
                   className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 hover:from-blue-600/30 hover:to-cyan-600/30 border border-blue-500/30 hover:border-blue-400/50 rounded-xl p-4 transition-all group"
                 >
                   <div className="text-center">
@@ -858,7 +858,7 @@ ${reflection || 'No reflection written yet.'}
 
                 {/* Next Module */}
                 <a
-                  href="/projects/mindcraft/ai-art-creation"
+                  href="/modules/ai-art-creation"
                   className="bg-gradient-to-br from-orange-600/20 to-red-600/20 hover:from-orange-600/30 hover:to-red-600/30 border border-orange-500/30 hover:border-orange-400/50 rounded-xl p-4 transition-all group"
                 >
                   <div className="text-center">

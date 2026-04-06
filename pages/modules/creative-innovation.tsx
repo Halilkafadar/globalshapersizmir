@@ -1947,7 +1947,7 @@ Powered by Human Creativity + AI Assistance
             <div className="grid md:grid-cols-3 gap-4">
               {/* Previous Module */}
               <a
-                href="/projects/mindcraft/scientific-research"
+                href="/modules/scientific-research"
                 className="bg-gradient-to-br from-indigo-600/20 to-blue-600/20 hover:from-indigo-600/30 hover:to-blue-600/30 border border-indigo-500/30 hover:border-indigo-400/50 rounded-xl p-4 transition-all group"
               >
                 <div className="text-center">
@@ -1961,7 +1961,7 @@ Powered by Human Creativity + AI Assistance
 
               {/* Back to Modules */}
               <a
-                href="/projects/mindcraft#modules"
+                href="/modules"
                 className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 hover:from-blue-600/30 hover:to-cyan-600/30 border border-blue-500/30 hover:border-blue-400/50 rounded-xl p-4 transition-all group"
               >
                 <div className="text-center">

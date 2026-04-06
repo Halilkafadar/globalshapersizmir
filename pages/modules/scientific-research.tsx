@@ -1769,7 +1769,7 @@ export default function ScientificResearchPage() {
             <div className="grid md:grid-cols-3 gap-4">
               {/* Previous Module */}
               <a
-                href="/projects/mindcraft/ai-art-creation"
+                href="/modules/ai-art-creation"
                 className="bg-gradient-to-br from-orange-600/20 to-red-600/20 hover:from-orange-600/30 hover:to-red-600/30 border border-orange-500/30 hover:border-orange-400/50 rounded-xl p-4 transition-all group"
               >
                 <div className="text-center">
@@ -1783,7 +1783,7 @@ export default function ScientificResearchPage() {
 
               {/* Back to Modules */}
               <a
-                href="/projects/mindcraft#modules"
+                href="/modules"
                 className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 hover:from-blue-600/30 hover:to-cyan-600/30 border border-blue-500/30 hover:border-blue-400/50 rounded-xl p-4 transition-all group"
               >
                 <div className="text-center">
@@ -1797,7 +1797,7 @@ export default function ScientificResearchPage() {
 
               {/* Next Module */}
               <a
-                href="/projects/mindcraft/creative-innovation"
+                href="/modules/creative-innovation"
                 className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 hover:from-yellow-600/30 hover:to-orange-600/30 border border-yellow-500/30 hover:border-yellow-400/50 rounded-xl p-4 transition-all group"
               >
                 <div className="text-center">
