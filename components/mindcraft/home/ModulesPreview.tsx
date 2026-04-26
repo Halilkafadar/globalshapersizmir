@@ -19,7 +19,7 @@ export default function ModulesPreview() {
 
         {/* Modules Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {modulesData.slice(0, 6).map((module, index) => (
+          {modulesData.slice(0, 5).map((module, index) => (
             <motion.div
               key={module.id}
               initial={{ opacity: 0, y: 20 }}

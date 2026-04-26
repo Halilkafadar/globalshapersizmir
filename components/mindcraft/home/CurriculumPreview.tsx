@@ -1,55 +1,42 @@
 import { motion } from 'framer-motion'
-import { BookOpen, Lightbulb, Users, Globe, Heart, Zap } from 'lucide-react'
+import { Shield, MessageSquare, Settings, Heart, Compass } from 'lucide-react'
 
 export default function CurriculumPreview() {
   const pillars = [
     {
-      icon: BookOpen,
-      title: 'AI Fundamentals & Ethics',
-      description: 'Understand how AI works, recognize biases, and design with conscience.',
-      modules: ['AI & Ethics', 'Algorithmic Literacy'],
-      color: 'from-blue-500 to-blue-600',
+      icon: Shield,
+      title: 'Active Ethics',
+      description: 'Building a cognitive shield against algorithmic manipulation.',
+      color: 'from-blue-500 to-cyan-500',
       borderColor: 'border-blue-400/30'
     },
     {
-      icon: Lightbulb,
-      title: 'Critical Thinking',
-      description: 'Develop judgment to evaluate AI outputs and spot manipulation.',
-      modules: ['Scientific Methods', 'Data Analysis'],
-      color: 'from-yellow-500 to-orange-500',
-      borderColor: 'border-yellow-400/30'
+      icon: MessageSquare,
+      title: 'Synergistic Dialogue',
+      description: 'The art of conversing with AI not as a \'tool\', but as an \'intellectual partner\'.',
+      color: 'from-purple-500 to-pink-500',
+      borderColor: 'border-purple-400/30'
     },
     {
-      icon: Users,
-      title: 'Human-Centric Design',
-      description: 'Learn to build technology that serves people, not exploits them.',
-      modules: ['Prompt Engineering', 'AI for Good'],
+      icon: Settings,
+      title: 'Systems Thinking',
+      description: 'Transitioning from static coding to dynamic AI architecture and system design vision.',
       color: 'from-green-500 to-emerald-600',
       borderColor: 'border-green-400/30'
     },
     {
       icon: Heart,
-      title: 'Ethical Leadership',
-      description: 'Lead by example with integrity, empathy, and purpose.',
-      modules: ['Ethics in Action', 'Global Impact'],
-      color: 'from-pink-500 to-red-500',
-      borderColor: 'border-pink-400/30'
+      title: 'Human Authenticity',
+      description: 'Preserving the \'Human Signature\' and creativity in a machine-produced world.',
+      color: 'from-orange-500 to-red-500',
+      borderColor: 'border-orange-400/30'
     },
     {
-      icon: Zap,
-      title: 'Creative Innovation',
-      description: 'Use AI tools responsibly to create, invent, and solve problems.',
-      modules: ['AI Art', 'Coding & Automation'],
-      color: 'from-purple-500 to-indigo-600',
-      borderColor: 'border-purple-400/30'
-    },
-    {
-      icon: Globe,
-      title: 'Global Multiplier Effect',
-      description: 'Become a hub leader and scale impact across your network.',
-      modules: ['Network Leadership', 'Mentorship'],
-      color: 'from-cyan-500 to-blue-500',
-      borderColor: 'border-cyan-400/30'
+      icon: Compass,
+      title: 'Data Wisdom',
+      description: 'Navigation to transform data into strategic decisions, without drowning in the information ocean.',
+      color: 'from-indigo-500 to-blue-500',
+      borderColor: 'border-indigo-400/30'
     },
   ]
 
@@ -70,10 +57,10 @@ export default function CurriculumPreview() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            The <span className="text-yellow-400">6 Pillars</span> of Mindcraft
+            The <span className="text-yellow-400">5 Pillars</span> of Cognitive Sovereignty
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            A comprehensive curriculum spanning 6 interactive modules across 6 critical pillars. Each pillar builds cognitive sovereignty and ethical leadership.
+            A comprehensive curriculum spanning 5 interactive modules. Each pillar builds cognitive sovereignty and human-centric leadership in the age of AI.
           </p>
         </motion.div>
 
@@ -95,22 +82,23 @@ export default function CurriculumPreview() {
 
               {/* Content */}
               <h3 className="text-xl font-bold text-white mb-3">{pillar.title}</h3>
-              <p className="text-gray-300 mb-6">{pillar.description}</p>
-
-              {/* Related Modules */}
-              <div className="space-y-2">
-                <p className="text-sm font-semibold text-gray-400">Related Modules:</p>
-                <div className="flex flex-wrap gap-2">
-                  {pillar.modules.map((module, idx) => (
-                    <span key={idx} className="bg-white/10 text-white text-xs font-medium px-3 py-1 rounded-full border border-white/20">
-                      {module}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <p className="text-gray-300">{pillar.description}</p>
             </motion.div>
           ))}
         </div>
+
+        {/* Quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <p className="text-xl text-gray-300 italic max-w-3xl mx-auto">
+            "We are not just teaching coding; we are teaching the <span className="text-yellow-400 font-semibold">'Human-Centric' operating system</span> of the future."
+          </p>
+        </motion.div>
 
         {/* Quick Stats */}
         <motion.div
@@ -123,7 +111,7 @@ export default function CurriculumPreview() {
           <h3 className="text-2xl font-bold text-white mb-8">Curriculum Impact</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-400 mb-2">6</div>
+              <div className="text-4xl font-bold text-yellow-400 mb-2">5</div>
               <p className="text-gray-300">Interactive Modules</p>
             </div>
             <div className="text-center">
